@@ -1,0 +1,1234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=1440">
+  <title>Ghost Homepage — Wireframe</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            wire: {
+              50: '#f7f7f7',
+              100: '#f0f0f0',
+              200: '#d9d9d9',
+              300: '#bfbfbf',
+              400: '#a6a6a6',
+              500: '#808080',
+              600: '#595959',
+              700: '#404040',
+              800: '#262626',
+              900: '#121212',
+            }
+          },
+          fontFamily: {
+            serif: ['Georgia', 'Times New Roman', 'serif'],
+            sans: ['Inter', 'Helvetica Neue', 'Arial', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    h1, h2, h3, p { margin: 0; padding: 0; }
+
+    /* Overflow ticker */
+    @keyframes ticker-scroll {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    .ticker-track {
+      display: flex;
+      gap: 12px;
+      animation: ticker-scroll 120s linear infinite;
+      width: max-content;
+    }
+    .ticker-track:hover {
+      animation-play-state: paused;
+    }
+    .logo-block {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-family: Inter, 'Helvetica Neue', Arial, sans-serif;
+      font-size: 12px;
+      font-weight: 500;
+      color: #808080;
+      background: #f7f7f7;
+      border: 1px solid #d9d9d9;
+      border-radius: 6px;
+      padding: 10px 20px;
+      white-space: nowrap;
+      min-width: 80px;
+    }
+
+    /* Publication card ticker */
+    @keyframes pub-ticker-scroll {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    .pub-ticker-track {
+      display: flex;
+      gap: 32px;
+      animation: pub-ticker-scroll 120s linear infinite;
+      width: max-content;
+    }
+    .pub-ticker-track:hover {
+      animation-play-state: paused;
+    }
+    .pub-card {
+      width: 280px;
+      flex-shrink: 0;
+    }
+    .pub-card-header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 2px;
+    }
+    .pub-card-thumbnails {
+      position: relative;
+      margin-top: 12px;
+      padding-bottom: 20px; /* room for email overhang */
+    }
+    /* Website placeholder — large, light, tall landscape */
+    .pub-thumb-website {
+      width: 100%;
+      aspect-ratio: 4/5;
+      background: #d9d9d9;
+      border-radius: 8px 8px 8px 0; /* square bottom-left corner */
+    }
+    /* Email placeholder — smaller, darker, portrait, overlapping bottom-right */
+    .pub-thumb-email {
+      position: absolute;
+      width: 45%;
+      aspect-ratio: 3/5;
+      background: #808080;
+      border-radius: 6px;
+      bottom: 4px;
+      right: -10px;
+    }
+
+    /* Step list — scroll-linked active state */
+    /* Hide scrollbar for horizontal scroll containers */
+    .no-scrollbar::-webkit-scrollbar { display: none; }
+    .no-scrollbar { scrollbar-width: none; -ms-overflow-style: none; }
+
+    .step-item {
+      cursor: pointer;
+      transition: opacity 0.2s;
+    }
+    .step-item.active .step-number {
+      color: #121212;
+    }
+    .step-item.active .step-name {
+      color: #121212;
+    }
+    .step-item.active .step-desc {
+      color: #595959;
+    }
+    .step-item:not(.active) {
+      opacity: 0.45;
+    }
+  </style>
+</head>
+<body class="bg-wire-100 min-h-screen">
+
+  <!-- ============================================================
+       NAVIGATION
+       ============================================================ -->
+  <nav class="max-w-[1280px] mx-auto px-8 py-6 flex items-center justify-between">
+
+    <!-- Left: Logo -->
+    <a href="#" class="flex items-center gap-2.5">
+      <div class="w-8 h-8 bg-wire-900 rounded-full"></div>
+      <span class="font-sans text-[17px] font-semibold text-wire-900">Ghost</span>
+    </a>
+
+    <!-- Center: Nav links -->
+    <div class="flex items-center gap-8">
+
+      <!-- Product dropdown -->
+      <div class="relative" id="nav-product">
+        <button onclick="toggleNav('nav-product')" class="font-sans text-[14px] font-medium text-wire-600 flex items-center gap-1">
+          Product
+          <svg width="10" height="6" viewBox="0 0 10 6" fill="none" class="mt-px"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="nav-dropdown hidden absolute top-full left-1/2 -translate-x-1/2 mt-3 bg-white rounded-xl border border-wire-200 shadow-sm py-3 min-w-[200px] z-50">
+          <a href="#" class="block px-5 py-2 font-sans text-[14px] text-wire-700 hover:text-wire-900">Creators</a>
+          <a href="#" class="block px-5 py-2 font-sans text-[14px] text-wire-700 hover:text-wire-900">Publishers</a>
+          <a href="#" class="block px-5 py-2 font-sans text-[14px] text-wire-700 hover:text-wire-900">Businesses</a>
+        </div>
+      </div>
+
+      <!-- Resources dropdown -->
+      <div class="relative" id="nav-resources">
+        <button onclick="toggleNav('nav-resources')" class="font-sans text-[14px] font-medium text-wire-600 flex items-center gap-1">
+          Resources
+          <svg width="10" height="6" viewBox="0 0 10 6" fill="none" class="mt-px"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="nav-dropdown hidden absolute top-full left-1/2 -translate-x-1/2 mt-3 bg-white rounded-xl border border-wire-200 shadow-sm py-3 min-w-[200px] z-50">
+          <a href="#" class="block px-5 py-2 font-sans text-[14px] text-wire-700 hover:text-wire-900">Tutorials</a>
+          <a href="#" class="block px-5 py-2 font-sans text-[14px] text-wire-700 hover:text-wire-900">Resources</a>
+          <a href="#" class="block px-5 py-2 font-sans text-[14px] text-wire-700 hover:text-wire-900">Integrations</a>
+          <a href="#" class="block px-5 py-2 font-sans text-[14px] text-wire-700 hover:text-wire-900">Experts</a>
+          <a href="#" class="block px-5 py-2 font-sans text-[14px] text-wire-700 hover:text-wire-900">Themes</a>
+        </div>
+      </div>
+
+      <a href="#" class="font-sans text-[14px] font-medium text-wire-600">Pricing</a>
+      <a href="#" class="font-sans text-[14px] font-medium text-wire-600">Explore</a>
+
+    </div>
+
+    <!-- Right: Login + CTA -->
+    <div class="flex items-center gap-5">
+      <a href="#" class="font-sans text-[14px] font-medium text-wire-600">Login</a>
+      <a href="#" class="font-sans text-[14px] font-semibold text-wire-900 border-2 border-wire-900 px-5 py-2 rounded-lg">Start free</a>
+    </div>
+
+  </nav>
+
+
+  <!-- ============================================================
+       BLOCK 1: HERO
+       Role: Simple + Emotional + Credible
+       Job: Answer "what is this?" in 5 seconds. Plant independence seed.
+       Uncontained — no card wrapper.
+       ============================================================ -->
+  <section class="pt-24 pb-16">
+
+    <!-- Hero content — centered -->
+    <div class="max-w-[800px] mx-auto text-center mb-16 px-8">
+
+      <!-- Headline — largest size -->
+      <h1 style="font-family: Georgia, 'Times New Roman', serif; font-size: 80px; line-height: 1.04; letter-spacing: -0.03em; color: #121212; margin-bottom: 24px;">Turn your audience<br>into a business</h1>
+
+      <!-- Subtitle — from existing ghost.org -->
+      <p style="font-family: Inter, 'Helvetica Neue', Arial, sans-serif; font-size: 19px; line-height: 1.6; color: #808080; margin-bottom: 40px; max-width: 620px; margin-left: auto; margin-right: auto;">Ghost is a powerful app for professional publishers to create, share, and grow a business around their content. It comes with modern tools to build a website, publish content, send newsletters &amp; offer paid subscriptions to members.</p>
+
+      <!-- CTA -->
+      <a href="#" class="inline-block font-sans text-[15px] font-semibold text-white px-8 py-3.5 rounded-lg" style="background-color: #262626;">Start your free trial</a>
+
+    </div>
+
+    <!-- Publication cards ticker — website/email groupings -->
+    <div class="overflow-hidden mb-16">
+      <div class="pub-ticker-track">
+        <!-- Set 1 (9 cards) -->
+        <div class="pub-card">
+          <div class="pub-card-header">
+            <span class="font-sans text-[15px] font-semibold text-wire-800">Tangle</span>
+            <span class="font-sans text-[13px] text-wire-400">&rarr;</span>
+          </div>
+          <span class="font-sans text-[13px] text-wire-400">690K subscribers</span>
+          <div class="pub-card-thumbnails">
+            <div class="pub-thumb-website"></div>
+            <div class="pub-thumb-email"></div>
+          </div>
+        </div>
+
+        <div class="pub-card">
+          <div class="pub-card-header">
+            <span class="font-sans text-[15px] font-semibold text-wire-800">404 Media</span>
+            <span class="font-sans text-[13px] text-wire-400">&rarr;</span>
+          </div>
+          <span class="font-sans text-[13px] text-wire-400">220K subscribers</span>
+          <div class="pub-card-thumbnails">
+            <div class="pub-thumb-website"></div>
+            <div class="pub-thumb-email"></div>
+          </div>
+        </div>
+
+        <div class="pub-card">
+          <div class="pub-card-header">
+            <span class="font-sans text-[15px] font-semibold text-wire-800">Platformer</span>
+            <span class="font-sans text-[13px] text-wire-400">&rarr;</span>
+          </div>
+          <span class="font-sans text-[13px] text-wire-400">207K subscribers</span>
+          <div class="pub-card-thumbnails">
+            <div class="pub-thumb-website"></div>
+            <div class="pub-thumb-email"></div>
+          </div>
+        </div>
+
+        <div class="pub-card">
+          <div class="pub-card-header">
+            <span class="font-sans text-[15px] font-semibold text-wire-800">Creator Science</span>
+            <span class="font-sans text-[13px] text-wire-400">&rarr;</span>
+          </div>
+          <span class="font-sans text-[13px] text-wire-400">65K subscribers</span>
+          <div class="pub-card-thumbnails">
+            <div class="pub-thumb-website"></div>
+            <div class="pub-thumb-email"></div>
+          </div>
+        </div>
+
+        <div class="pub-card">
+          <div class="pub-card-header">
+            <span class="font-sans text-[15px] font-semibold text-wire-800">The Lever</span>
+            <span class="font-sans text-[13px] text-wire-400">&rarr;</span>
+          </div>
+          <span class="font-sans text-[13px] text-wire-400">240K subscribers</span>
+          <div class="pub-card-thumbnails">
+            <div class="pub-thumb-website"></div>
+            <div class="pub-thumb-email"></div>
+          </div>
+        </div>
+
+        <div class="pub-card">
+          <div class="pub-card-header">
+            <span class="font-sans text-[15px] font-semibold text-wire-800">Kickstarter</span>
+            <span class="font-sans text-[13px] text-wire-400">&rarr;</span>
+          </div>
+          <span class="font-sans text-[13px] text-wire-400">Business</span>
+          <div class="pub-card-thumbnails">
+            <div class="pub-thumb-website"></div>
+            <div class="pub-thumb-email"></div>
+          </div>
+        </div>
+
+        <div class="pub-card">
+          <div class="pub-card-header">
+            <span class="font-sans text-[15px] font-semibold text-wire-800">Gone With The Wynns</span>
+            <span class="font-sans text-[13px] text-wire-400">&rarr;</span>
+          </div>
+          <span class="font-sans text-[13px] text-wire-400">28K subscribers</span>
+          <div class="pub-card-thumbnails">
+            <div class="pub-thumb-website"></div>
+            <div class="pub-thumb-email"></div>
+          </div>
+        </div>
+
+        <div class="pub-card">
+          <div class="pub-card-header">
+            <span class="font-sans text-[15px] font-semibold text-wire-800">The Browser</span>
+            <span class="font-sans text-[13px] text-wire-400">&rarr;</span>
+          </div>
+          <span class="font-sans text-[13px] text-wire-400">178K subscribers</span>
+          <div class="pub-card-thumbnails">
+            <div class="pub-thumb-website"></div>
+            <div class="pub-thumb-email"></div>
+          </div>
+        </div>
+
+        <div class="pub-card">
+          <div class="pub-card-header">
+            <span class="font-sans text-[15px] font-semibold text-wire-800">Buffer</span>
+            <span class="font-sans text-[13px] text-wire-400">&rarr;</span>
+          </div>
+          <span class="font-sans text-[13px] text-wire-400">Business</span>
+          <div class="pub-card-thumbnails">
+            <div class="pub-thumb-website"></div>
+            <div class="pub-thumb-email"></div>
+          </div>
+        </div>
+
+        <!-- Set 2 (duplicate for seamless loop) -->
+        <div class="pub-card">
+          <div class="pub-card-header">
+            <span class="font-sans text-[15px] font-semibold text-wire-800">Tangle</span>
+            <span class="font-sans text-[13px] text-wire-400">&rarr;</span>
+          </div>
+          <span class="font-sans text-[13px] text-wire-400">690K subscribers</span>
+          <div class="pub-card-thumbnails">
+            <div class="pub-thumb-website"></div>
+            <div class="pub-thumb-email"></div>
+          </div>
+        </div>
+
+        <div class="pub-card">
+          <div class="pub-card-header">
+            <span class="font-sans text-[15px] font-semibold text-wire-800">404 Media</span>
+            <span class="font-sans text-[13px] text-wire-400">&rarr;</span>
+          </div>
+          <span class="font-sans text-[13px] text-wire-400">220K subscribers</span>
+          <div class="pub-card-thumbnails">
+            <div class="pub-thumb-website"></div>
+            <div class="pub-thumb-email"></div>
+          </div>
+        </div>
+
+        <div class="pub-card">
+          <div class="pub-card-header">
+            <span class="font-sans text-[15px] font-semibold text-wire-800">Platformer</span>
+            <span class="font-sans text-[13px] text-wire-400">&rarr;</span>
+          </div>
+          <span class="font-sans text-[13px] text-wire-400">207K subscribers</span>
+          <div class="pub-card-thumbnails">
+            <div class="pub-thumb-website"></div>
+            <div class="pub-thumb-email"></div>
+          </div>
+        </div>
+
+        <div class="pub-card">
+          <div class="pub-card-header">
+            <span class="font-sans text-[15px] font-semibold text-wire-800">Creator Science</span>
+            <span class="font-sans text-[13px] text-wire-400">&rarr;</span>
+          </div>
+          <span class="font-sans text-[13px] text-wire-400">65K subscribers</span>
+          <div class="pub-card-thumbnails">
+            <div class="pub-thumb-website"></div>
+            <div class="pub-thumb-email"></div>
+          </div>
+        </div>
+
+        <div class="pub-card">
+          <div class="pub-card-header">
+            <span class="font-sans text-[15px] font-semibold text-wire-800">The Lever</span>
+            <span class="font-sans text-[13px] text-wire-400">&rarr;</span>
+          </div>
+          <span class="font-sans text-[13px] text-wire-400">240K subscribers</span>
+          <div class="pub-card-thumbnails">
+            <div class="pub-thumb-website"></div>
+            <div class="pub-thumb-email"></div>
+          </div>
+        </div>
+
+        <div class="pub-card">
+          <div class="pub-card-header">
+            <span class="font-sans text-[15px] font-semibold text-wire-800">Kickstarter</span>
+            <span class="font-sans text-[13px] text-wire-400">&rarr;</span>
+          </div>
+          <span class="font-sans text-[13px] text-wire-400">Business</span>
+          <div class="pub-card-thumbnails">
+            <div class="pub-thumb-website"></div>
+            <div class="pub-thumb-email"></div>
+          </div>
+        </div>
+
+        <div class="pub-card">
+          <div class="pub-card-header">
+            <span class="font-sans text-[15px] font-semibold text-wire-800">Gone With The Wynns</span>
+            <span class="font-sans text-[13px] text-wire-400">&rarr;</span>
+          </div>
+          <span class="font-sans text-[13px] text-wire-400">28K subscribers</span>
+          <div class="pub-card-thumbnails">
+            <div class="pub-thumb-website"></div>
+            <div class="pub-thumb-email"></div>
+          </div>
+        </div>
+
+        <div class="pub-card">
+          <div class="pub-card-header">
+            <span class="font-sans text-[15px] font-semibold text-wire-800">The Browser</span>
+            <span class="font-sans text-[13px] text-wire-400">&rarr;</span>
+          </div>
+          <span class="font-sans text-[13px] text-wire-400">178K subscribers</span>
+          <div class="pub-card-thumbnails">
+            <div class="pub-thumb-website"></div>
+            <div class="pub-thumb-email"></div>
+          </div>
+        </div>
+
+        <div class="pub-card">
+          <div class="pub-card-header">
+            <span class="font-sans text-[15px] font-semibold text-wire-800">Buffer</span>
+            <span class="font-sans text-[13px] text-wire-400">&rarr;</span>
+          </div>
+          <span class="font-sans text-[13px] text-wire-400">Business</span>
+          <div class="pub-card-thumbnails">
+            <div class="pub-thumb-website"></div>
+            <div class="pub-thumb-email"></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Trust strip — different names from pub cards above -->
+    <div>
+      <p class="font-sans text-[12px] font-medium text-wire-400 text-center tracking-wide uppercase mb-5">Trusted by</p>
+
+      <div class="overflow-hidden">
+        <div class="ticker-track">
+          <!-- Set 1 (15 logos — no overlap with pub card names) -->
+          <span class="logo-block">Slack</span>
+          <span class="logo-block">Duolingo</span>
+          <span class="logo-block">YCombinator</span>
+          <span class="logo-block">Unsplash</span>
+          <span class="logo-block">Cloudflare</span>
+          <span class="logo-block">DESK Magazine</span>
+          <span class="logo-block">Mozilla.ai</span>
+          <span class="logo-block">Webworm</span>
+          <span class="logo-block">Aftermath</span>
+          <span class="logo-block">TIPP Insights</span>
+          <span class="logo-block">Jeff Su</span>
+          <span class="logo-block">Duffel Blog</span>
+          <span class="logo-block">Alison Roman</span>
+          <span class="logo-block">Long Now Foundation</span>
+          <span class="logo-block">Bankless</span>
+          <!-- Set 2 (duplicate for seamless loop) -->
+          <span class="logo-block">Slack</span>
+          <span class="logo-block">Duolingo</span>
+          <span class="logo-block">YCombinator</span>
+          <span class="logo-block">Unsplash</span>
+          <span class="logo-block">Cloudflare</span>
+          <span class="logo-block">DESK Magazine</span>
+          <span class="logo-block">Mozilla.ai</span>
+          <span class="logo-block">Webworm</span>
+          <span class="logo-block">Aftermath</span>
+          <span class="logo-block">TIPP Insights</span>
+          <span class="logo-block">Jeff Su</span>
+          <span class="logo-block">Duffel Blog</span>
+          <span class="logo-block">Alison Roman</span>
+          <span class="logo-block">Long Now Foundation</span>
+          <span class="logo-block">Bankless</span>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+
+  <!-- ============================================================
+       BLOCK 2: THE PUBLISHING CYCLE
+       Role: Concrete
+       Job: Show Ghost is a complete system. Vertical step list left,
+       image right. Active step highlights, image swaps.
+       ============================================================ -->
+  <section class="max-w-[1280px] mx-auto bg-white rounded-2xl px-16 py-20 shadow-sm">
+
+    <!-- Header -->
+    <div style="display: flex; align-items: last baseline; column-gap: 80px; margin-bottom: 64px;">
+      <h2 style="font-family: Georgia, 'Times New Roman', serif; font-size: 72px; line-height: 1; letter-spacing: -0.02em; color: #121212; flex-shrink: 0;">Everything you need</h2>
+      <p style="font-family: Inter, 'Helvetica Neue', Arial, sans-serif; font-size: 17px; line-height: 1.625; color: #808080; flex: 1;">Most publishers piece together five or six tools. Ghost replaces them with one platform — from first draft to monthly revenue.</p>
+    </div>
+
+    <!-- Two columns: step list left, image right -->
+    <div class="flex gap-16">
+
+      <!-- Left: Vertical step list -->
+      <div class="w-[440px] shrink-0 space-y-1">
+
+        <div class="step-item active rounded-lg px-5 py-4" data-step="publish" onclick="setStep(this)">
+          <div class="flex items-baseline gap-4 mb-1">
+            <span class="step-number font-sans text-[13px] font-medium text-wire-400" style="min-width: 20px;">01</span>
+            <h3 class="step-name font-sans text-[17px] font-semibold text-wire-900">Publish</h3>
+          </div>
+          <p class="step-desc font-sans text-[14px] text-wire-500 leading-snug pl-9">A calm, powerful editor for posts, pages, rich media, and dynamic content cards. Write once, send everywhere.</p>
+        </div>
+
+        <div class="step-item rounded-lg px-5 py-4" data-step="distribute" onclick="setStep(this)">
+          <div class="flex items-baseline gap-4 mb-1">
+            <span class="step-number font-sans text-[13px] font-medium text-wire-400" style="min-width: 20px;">02</span>
+            <h3 class="step-name font-sans text-[17px] font-semibold text-wire-900">Distribute</h3>
+          </div>
+          <p class="step-desc font-sans text-[14px] text-wire-500 leading-snug pl-9">Deliver by website, email newsletter, RSS, and the social web. Your content reaches readers wherever they are.</p>
+        </div>
+
+        <div class="step-item rounded-lg px-5 py-4" data-step="engage" onclick="setStep(this)">
+          <div class="flex items-baseline gap-4 mb-1">
+            <span class="step-number font-sans text-[13px] font-medium text-wire-400" style="min-width: 20px;">03</span>
+            <h3 class="step-name font-sans text-[17px] font-semibold text-wire-900">Grow</h3>
+          </div>
+          <p class="step-desc font-sans text-[14px] text-wire-500 leading-snug pl-9">Turn anonymous visitors into members with native signup forms. Free and paid tiers, built-in comments, and community tools.</p>
+        </div>
+
+        <div class="step-item rounded-lg px-5 py-4" data-step="grow" onclick="setStep(this)">
+          <div class="flex items-baseline gap-4 mb-1">
+            <span class="step-number font-sans text-[13px] font-medium text-wire-400" style="min-width: 20px;">04</span>
+            <h3 class="step-name font-sans text-[17px] font-semibold text-wire-900">Earn</h3>
+          </div>
+          <p class="step-desc font-sans text-[14px] text-wire-500 leading-snug pl-9">Paid subscriptions, tips, and donations — connected to your own Stripe account. Ghost doesn't take a percentage of what you make.</p>
+        </div>
+
+        <div class="step-item rounded-lg px-5 py-4" data-step="earn" onclick="setStep(this)">
+          <div class="flex items-baseline gap-4 mb-1">
+            <span class="step-number font-sans text-[13px] font-medium text-wire-400" style="min-width: 20px;">05</span>
+            <h3 class="step-name font-sans text-[17px] font-semibold text-wire-900">Learn</h3>
+          </div>
+          <p class="step-desc font-sans text-[14px] text-wire-500 leading-snug pl-9">Native analytics connecting web traffic, email performance, and member activity. Understand what's working without third-party tools.</p>
+        </div>
+
+        <div class="step-item rounded-lg px-5 py-4" data-step="design" onclick="setStep(this)">
+          <div class="flex items-baseline gap-4 mb-1">
+            <span class="step-number font-sans text-[13px] font-medium text-wire-400" style="min-width: 20px;">06</span>
+            <h3 class="step-name font-sans text-[17px] font-semibold text-wire-900">Design</h3>
+          </div>
+          <p class="step-desc font-sans text-[14px] text-wire-500 leading-snug pl-9">Custom themes, your own domain, full brand control. Your site looks like yours — not like a template everyone else uses.</p>
+        </div>
+
+      </div>
+
+      <!-- Right: Image placeholder (changes per step) -->
+      <div class="flex-1 flex items-start">
+        <div id="step-image" class="w-full bg-wire-50 rounded-lg border border-wire-200 flex items-center justify-center" style="aspect-ratio: 4/3;">
+          <span class="font-sans text-[14px] text-wire-400" id="step-image-label">Product UI — Publish</span>
+        </div>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- Spacer between blocks -->
+  <div class="h-8"></div>
+
+
+  <!-- ============================================================
+       BLOCK 3: SOCIAL PROOF — THE GHOST ECOSYSTEM
+       Role: Credible + Concrete + Emotional
+       Job: Show scale and diversity. Stats → publication cards → name list.
+       One continuous white card. Publication ticker floats on top, bleeding
+       past both edges. White background continues behind ticker.
+       ============================================================ -->
+  <section class="max-w-[1280px] mx-auto bg-white rounded-2xl shadow-sm py-20">
+
+    <!-- Header -->
+    <div class="px-16" style="display: flex; align-items: last baseline; column-gap: 80px; margin-bottom: 56px;">
+      <h2 style="font-family: Georgia, 'Times New Roman', serif; font-size: 72px; line-height: 1; letter-spacing: -0.02em; color: #121212; flex-shrink: 0;">The ecosystem</h2>
+      <p style="font-family: Inter, 'Helvetica Neue', Arial, sans-serif; font-size: 17px; line-height: 1.625; color: #808080; flex: 1;">Thousands of publications run on Ghost — from solo creators to newsrooms to global brands.</p>
+    </div>
+
+    <!-- Layer 1: Aggregate stats — horizontal bar -->
+    <div class="flex justify-between border-t border-b border-wire-200 py-8 mb-16 mx-16">
+      <div class="text-center flex-1">
+        <div style="font-family: Georgia, 'Times New Roman', serif; font-size: 36px; letter-spacing: -0.02em; color: #121212; margin-bottom: 4px;">$100M+</div>
+        <div class="font-sans text-[13px] text-wire-400">earned by publications per year</div>
+      </div>
+      <div class="w-px bg-wire-200"></div>
+      <div class="text-center flex-1">
+        <div style="font-family: Georgia, 'Times New Roman', serif; font-size: 36px; letter-spacing: -0.02em; color: #121212; margin-bottom: 4px;">[XX,XXX]</div>
+        <div class="font-sans text-[13px] text-wire-400">active publications</div>
+      </div>
+      <div class="w-px bg-wire-200"></div>
+      <div class="text-center flex-1">
+        <div style="font-family: Georgia, 'Times New Roman', serif; font-size: 36px; letter-spacing: -0.02em; color: #121212; margin-bottom: 4px;">9,816</div>
+        <div class="font-sans text-[13px] text-wire-400">new publications last week</div>
+      </div>
+      <div class="w-px bg-wire-200"></div>
+      <div class="text-center flex-1">
+        <div style="font-family: Georgia, 'Times New Roman', serif; font-size: 36px; letter-spacing: -0.02em; color: #121212; margin-bottom: 4px;">0%</div>
+        <div class="font-sans text-[13px] text-wire-400">platform fees on revenue</div>
+      </div>
+    </div>
+
+    <!-- Dense name list -->
+    <div class="border-t border-wire-200 pt-10 mt-16 mx-16">
+      <p class="font-sans text-[13px] text-wire-400 leading-relaxed text-center">
+        Slack · Duolingo · Hyperallergic · The Pragmatic Engineer · Bankless · Compact · Long Now Foundation · Unsplash · Mozilla.ai · Webworm · Aftermath · TIPP Insights · Drowned in Sound · Duffel Blog · NewBostonPost · The Ferret · Jeff Su · Promethean Action · DESK Magazine · Alison Roman · Hearing Things · Cloudflare · YCombinator · Product Marketing Alliance
+      </p>
+    </div>
+
+  </section>
+
+
+  <!-- Spacer between blocks -->
+  <div class="h-8"></div>
+
+
+  <!-- ============================================================
+       BLOCK 4: DESIGN
+       Role: Concrete
+       Job: Show Ghost gives you a real, professional site — not a template
+       everyone else uses. Staggered masonry grid of theme placeholders.
+       Uncontained — no card wrapper. Grid bleeds off right edge of page.
+       ============================================================ -->
+  <section class="relative" style="overflow: hidden; min-height: 640px;">
+
+    <!-- Left column: copy + CTAs — aligned to the content grid -->
+    <div class="relative z-10" style="max-width: 440px; margin-left: max(2rem, calc((100vw - 1280px) / 2 + 64px)); padding-top: 80px;">
+
+      <h2 style="font-family: Georgia, 'Times New Roman', serif; font-size: 56px; line-height: 1.08; letter-spacing: -0.025em; color: #121212; margin-bottom: 20px;">Pro look & feel, without the custom fuss.</h2>
+
+      <p style="font-family: Inter, 'Helvetica Neue', Arial, sans-serif; font-size: 17px; line-height: 1.625; color: #808080; margin-bottom: 32px;">Skip the complicated setup and jump straight to a site that feels finished. Themes handle the hard design work so you can get back to publishing.</p>
+
+      <div class="flex items-center gap-6">
+        <a href="#" class="inline-block font-sans text-[15px] font-semibold text-white px-7 py-3 rounded-lg" style="background-color: #262626;">Browse all themes</a>
+        <a href="#" class="font-sans text-[14px] font-medium text-wire-500" style="text-decoration: underline; text-underline-offset: 3px;">Find a Ghost expert &rarr;</a>
+      </div>
+
+    </div>
+
+    <!-- Right: Staggered masonry grid — bleeds off right edge of viewport -->
+    <div class="absolute top-0 bottom-0" style="left: 46%; right: -40px;">
+      <div class="flex gap-4 h-full items-start">
+
+        <!-- Column 1 -->
+        <div class="flex-1 flex flex-col gap-4" style="padding-top: 180px;">
+          <div class="bg-white border border-wire-200 rounded-lg w-full shadow-sm" style="aspect-ratio: 4/5;"></div>
+          <div class="bg-white border border-wire-200 rounded-lg w-full shadow-sm" style="aspect-ratio: 3/4;"></div>
+          <div class="bg-white border border-wire-200 rounded-lg w-full shadow-sm" style="aspect-ratio: 4/5;"></div>
+        </div>
+
+        <!-- Column 2 -->
+        <div class="flex-1 flex flex-col gap-4" style="padding-top: 80px;">
+          <div class="bg-white border border-wire-200 rounded-lg w-full shadow-sm" style="aspect-ratio: 3/4;"></div>
+          <div class="bg-white border border-wire-200 rounded-lg w-full shadow-sm" style="aspect-ratio: 4/5;"></div>
+          <div class="bg-white border border-wire-200 rounded-lg w-full shadow-sm" style="aspect-ratio: 3/4;"></div>
+        </div>
+
+        <!-- Column 3 -->
+        <div class="flex-1 flex flex-col gap-4" style="padding-top: 20px;">
+          <div class="bg-white border border-wire-200 rounded-lg w-full shadow-sm" style="aspect-ratio: 4/5;"></div>
+          <div class="bg-white border border-wire-200 rounded-lg w-full shadow-sm" style="aspect-ratio: 3/4;"></div>
+          <div class="bg-white border border-wire-200 rounded-lg w-full shadow-sm" style="aspect-ratio: 4/5;"></div>
+        </div>
+
+        <!-- Column 4 -->
+        <div class="flex-1 flex flex-col gap-4" style="padding-top: 120px;">
+          <div class="bg-white border border-wire-200 rounded-lg w-full shadow-sm" style="aspect-ratio: 3/4;"></div>
+          <div class="bg-white border border-wire-200 rounded-lg w-full shadow-sm" style="aspect-ratio: 4/5;"></div>
+          <div class="bg-white border border-wire-200 rounded-lg w-full shadow-sm" style="aspect-ratio: 3/4;"></div>
+        </div>
+
+        <!-- Column 5 -->
+        <div class="flex-1 flex flex-col gap-4" style="padding-top: 50px;">
+          <div class="bg-white border border-wire-200 rounded-lg w-full shadow-sm" style="aspect-ratio: 4/5;"></div>
+          <div class="bg-white border border-wire-200 rounded-lg w-full shadow-sm" style="aspect-ratio: 3/4;"></div>
+          <div class="bg-white border border-wire-200 rounded-lg w-full shadow-sm" style="aspect-ratio: 4/5;"></div>
+        </div>
+
+        <!-- Column 6 — bleeds off right edge -->
+        <div class="flex-1 flex flex-col gap-4" style="padding-top: 160px;">
+          <div class="bg-white border border-wire-200 rounded-lg w-full shadow-sm" style="aspect-ratio: 3/4;"></div>
+          <div class="bg-white border border-wire-200 rounded-lg w-full shadow-sm" style="aspect-ratio: 4/5;"></div>
+        </div>
+
+        <!-- Column 7 — partially visible, bleeds off -->
+        <div class="flex-1 flex flex-col gap-4" style="padding-top: 60px;">
+          <div class="bg-white border border-wire-200 rounded-lg w-full shadow-sm" style="aspect-ratio: 4/5;"></div>
+          <div class="bg-white border border-wire-200 rounded-lg w-full shadow-sm" style="aspect-ratio: 3/4;"></div>
+        </div>
+
+      </div>
+    </div>
+
+  </section>
+
+
+  <!-- Spacer between blocks -->
+  <div class="h-8"></div>
+
+
+  <!-- ============================================================
+       BLOCK 5: EARN
+       Role: Concrete
+       Job: Make earning feel achievable. Calculator left, copy + audience links right.
+       ============================================================ -->
+  <section class="max-w-[1280px] mx-auto bg-white rounded-2xl px-16 py-20 shadow-sm">
+
+    <!-- Header -->
+    <div style="display: flex; align-items: last baseline; column-gap: 80px; margin-bottom: 48px;">
+      <h2 style="font-family: Georgia, 'Times New Roman', serif; font-size: 72px; line-height: 1; letter-spacing: -0.02em; color: #121212; flex-shrink: 0;">Earn</h2>
+      <p style="font-family: Inter, 'Helvetica Neue', Arial, sans-serif; font-size: 17px; line-height: 1.625; color: #808080; flex: 1;">1,000 people who value what you do. $5 a month. That's $60,000 a year — and Ghost keeps none of it. No platform cut, no revenue share, no surprises.</p>
+    </div>
+
+    <!-- Two equal columns -->
+    <div class="flex gap-16">
+
+      <!-- Left column: calculator -->
+      <div class="flex-1">
+        <div class="bg-wire-50 rounded-xl border border-wire-200 p-8">
+
+          <!-- Members slider -->
+          <div class="mb-6">
+            <div class="flex justify-between items-baseline mb-2">
+              <label class="font-sans text-[14px] font-medium text-wire-700">Paying members</label>
+              <span id="calc2-members-val" class="font-sans text-[18px] font-semibold text-wire-900">1,000</span>
+            </div>
+            <input type="range" id="calc2-members" min="100" max="10000" step="100" value="1000"
+              class="w-full h-1.5 bg-wire-200 rounded-full appearance-none cursor-pointer"
+              style="accent-color: #262626;">
+            <div class="flex justify-between mt-1">
+              <span class="font-sans text-[11px] text-wire-400">100</span>
+              <span class="font-sans text-[11px] text-wire-400">10,000</span>
+            </div>
+          </div>
+
+          <!-- Price slider -->
+          <div class="mb-8">
+            <div class="flex justify-between items-baseline mb-2">
+              <label class="font-sans text-[14px] font-medium text-wire-700">Monthly price</label>
+              <span id="calc2-price-val" class="font-sans text-[18px] font-semibold text-wire-900">$5</span>
+            </div>
+            <input type="range" id="calc2-price" min="3" max="50" step="1" value="5"
+              class="w-full h-1.5 bg-wire-200 rounded-full appearance-none cursor-pointer"
+              style="accent-color: #262626;">
+            <div class="flex justify-between mt-1">
+              <span class="font-sans text-[11px] text-wire-400">$3</span>
+              <span class="font-sans text-[11px] text-wire-400">$50</span>
+            </div>
+          </div>
+
+          <!-- Result -->
+          <div class="border-t border-wire-200 pt-6 text-center">
+            <p class="font-sans text-[13px] text-wire-400 mb-1">Your annual revenue</p>
+            <p id="calc2-result" style="font-family: Georgia, 'Times New Roman', serif; font-size: 40px; line-height: 1; letter-spacing: -0.02em; color: #121212;">$60,000</p>
+            <p class="font-sans text-[13px] text-wire-400 mt-2">Ghost takes $0.</p>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Right column: key points + audience links -->
+      <div class="flex-1 flex flex-col justify-between">
+
+        <!-- Key points — compact -->
+        <div class="space-y-4 mb-8">
+          <div>
+            <h3 class="font-sans text-[15px] font-semibold text-wire-800">Paid memberships &amp; tiers</h3>
+            <p class="font-sans text-[14px] text-wire-500 leading-snug">Free and paid tiers, monthly or yearly. Tips, donations, and promotional offers built in.</p>
+          </div>
+          <div>
+            <h3 class="font-sans text-[15px] font-semibold text-wire-800">Direct to your Stripe</h3>
+            <p class="font-sans text-[14px] text-wire-500 leading-snug">170 currencies. Apple Pay, Google Pay, credit cards. Payments go straight to your account.</p>
+          </div>
+        </div>
+
+        <!-- Audience links — drive to product pages -->
+        <div class="border-t border-wire-200 pt-6">
+          <p class="font-sans text-[12px] font-medium text-wire-400 tracking-wide uppercase mb-4">How different people earn with Ghost</p>
+          <div class="space-y-2">
+            <a href="#" class="flex items-center justify-between py-2 group">
+              <span class="font-sans text-[14px] font-medium text-wire-700">Earning as a creator</span>
+              <span class="font-sans text-[13px] text-wire-400">&rarr;</span>
+            </a>
+            <div class="border-t border-wire-100"></div>
+            <a href="#" class="flex items-center justify-between py-2 group">
+              <span class="font-sans text-[14px] font-medium text-wire-700">Revenue for publishers</span>
+              <span class="font-sans text-[13px] text-wire-400">&rarr;</span>
+            </a>
+            <div class="border-t border-wire-100"></div>
+            <a href="#" class="flex items-center justify-between py-2 group">
+              <span class="font-sans text-[14px] font-medium text-wire-700">Ghost for business</span>
+              <span class="font-sans text-[13px] text-wire-400">&rarr;</span>
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- Spacer between blocks -->
+  <div class="h-8"></div>
+
+
+  <!-- ============================================================
+       BLOCK 6: DISTRIBUTE
+       Role: Concrete
+       Job: Show Ghost delivers content through multiple owned channels.
+       Horizontal scroll cards inside white container. Tight.
+       ============================================================ -->
+  <section class="max-w-[1280px] mx-auto bg-white rounded-2xl shadow-sm py-20 overflow-hidden">
+
+    <!-- Header — inside padded area -->
+    <div class="px-16" style="display: flex; align-items: last baseline; column-gap: 80px; margin-bottom: 48px;">
+      <h2 style="font-family: Georgia, 'Times New Roman', serif; font-size: 72px; line-height: 1; letter-spacing: -0.02em; color: #121212; flex-shrink: 0;">Distribute</h2>
+      <p style="font-family: Inter, 'Helvetica Neue', Arial, sans-serif; font-size: 17px; line-height: 1.625; color: #808080; flex: 1;">Publish once, reach everywhere. Email, web, RSS, the social web — channels you own that no algorithm can throttle.</p>
+    </div>
+
+    <!-- Horizontal scroll cards -->
+    <div class="px-16 overflow-x-auto no-scrollbar" style="-webkit-overflow-scrolling: touch;">
+      <div class="flex gap-5" style="min-width: max-content; padding-bottom: 4px;">
+
+        <!-- Card 1: Email newsletters -->
+        <div class="bg-wire-50 border border-wire-200 rounded-xl p-6 flex flex-col" style="width: 320px; flex-shrink: 0;">
+          <div class="bg-wire-200 rounded-lg w-full mb-5 flex items-center justify-center" style="aspect-ratio: 16/9;">
+            <span class="font-sans text-[13px] text-wire-400">Email UI</span>
+          </div>
+          <h3 class="font-sans text-[16px] font-semibold text-wire-800 mb-2">Email newsletters</h3>
+          <p class="font-sans text-[14px] text-wire-500 leading-snug mb-4">Deliver directly to inboxes. Segment your audience, run multiple newsletters, track opens and clicks.</p>
+          <div class="mt-auto pt-3 border-t border-wire-200 font-sans text-[13px] text-wire-400">
+            Directly to the people who signed up. No throttling. No middleman.
+          </div>
+        </div>
+
+        <!-- Card 2: Website -->
+        <div class="bg-wire-50 border border-wire-200 rounded-xl p-6 flex flex-col" style="width: 320px; flex-shrink: 0;">
+          <div class="bg-wire-200 rounded-lg w-full mb-5 flex items-center justify-center" style="aspect-ratio: 16/9;">
+            <span class="font-sans text-[13px] text-wire-400">Website UI</span>
+          </div>
+          <h3 class="font-sans text-[16px] font-semibold text-wire-800 mb-2">Website</h3>
+          <p class="font-sans text-[14px] text-wire-500 leading-snug mb-4">Your own site with automatic SEO, structured data, responsive images, and sitemaps. Discoverable by default.</p>
+          <div class="mt-auto pt-3 border-t border-wire-200 font-sans text-[13px] text-wire-400">
+            A real website you control — not a profile page on someone else's platform.
+          </div>
+        </div>
+
+        <!-- Card 3: RSS -->
+        <div class="bg-wire-50 border border-wire-200 rounded-xl p-6 flex flex-col" style="width: 320px; flex-shrink: 0;">
+          <div class="bg-wire-200 rounded-lg w-full mb-5 flex items-center justify-center" style="aspect-ratio: 16/9;">
+            <span class="font-sans text-[13px] text-wire-400">RSS</span>
+          </div>
+          <h3 class="font-sans text-[16px] font-semibold text-wire-800 mb-2">RSS</h3>
+          <p class="font-sans text-[14px] text-wire-500 leading-snug mb-4">Every post gets an automatic RSS feed. Readers subscribe in their preferred reader — no account required.</p>
+          <div class="mt-auto pt-3 border-t border-wire-200 font-sans text-[13px] text-wire-400">
+            The original open standard for following content. Still works, still matters.
+          </div>
+        </div>
+
+        <!-- Card 4: Social web -->
+        <div class="bg-wire-50 border border-wire-200 rounded-xl p-6 flex flex-col" style="width: 320px; flex-shrink: 0;">
+          <div class="bg-wire-200 rounded-lg w-full mb-5 flex items-center justify-center" style="aspect-ratio: 16/9;">
+            <span class="font-sans text-[13px] text-wire-400">ActivityPub UI</span>
+          </div>
+          <h3 class="font-sans text-[16px] font-semibold text-wire-800 mb-2">Social web</h3>
+          <p class="font-sans text-[14px] text-wire-500 leading-snug mb-4">Posts reach followers on Mastodon, Threads, Flipboard, and other federated platforms via ActivityPub.</p>
+          <div class="mt-auto pt-3 border-t border-wire-200 font-sans text-[13px] text-wire-400">
+            Decentralized. No algorithm controlling your reach.
+          </div>
+        </div>
+
+        <!-- Card 5: Content API -->
+        <div class="bg-wire-50 border border-wire-200 rounded-xl p-6 flex flex-col" style="width: 320px; flex-shrink: 0;">
+          <div class="bg-wire-200 rounded-lg w-full mb-5 flex items-center justify-center" style="aspect-ratio: 16/9;">
+            <span class="font-sans text-[13px] text-wire-400">API</span>
+          </div>
+          <h3 class="font-sans text-[16px] font-semibold text-wire-800 mb-2">Content API</h3>
+          <p class="font-sans text-[14px] text-wire-500 leading-snug mb-4">Power mobile apps, headless websites, and automated workflows. Built for developers.</p>
+          <div class="mt-auto pt-3 border-t border-wire-200 font-sans text-[13px] text-wire-400">
+            Your content as structured data — use it anywhere.
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Audience links — drive to product pages -->
+    <div class="px-16 mt-12 pt-6 border-t border-wire-200 mx-16">
+      <div class="flex gap-12">
+        <a href="#" class="flex items-center gap-2">
+          <span class="font-sans text-[14px] font-medium text-wire-700">Distribution for creators</span>
+          <span class="font-sans text-[13px] text-wire-400">&rarr;</span>
+        </a>
+        <a href="#" class="flex items-center gap-2">
+          <span class="font-sans text-[14px] font-medium text-wire-700">Distribution for publishers</span>
+          <span class="font-sans text-[13px] text-wire-400">&rarr;</span>
+        </a>
+        <a href="#" class="flex items-center gap-2">
+          <span class="font-sans text-[14px] font-medium text-wire-700">Distribution for businesses</span>
+          <span class="font-sans text-[13px] text-wire-400">&rarr;</span>
+        </a>
+      </div>
+    </div>
+
+  </section>
+
+
+  <!-- Spacer between blocks -->
+  <div class="h-8"></div>
+
+
+  <!-- ============================================================
+       BLOCK 7: LEARN
+       Role: Concrete
+       Job: Show Ghost's native analytics advantage. Uncontained.
+       Light SVG graph in background, stat cards in foreground.
+       ============================================================ -->
+  <section class="relative" style="padding: 120px 0 100px; overflow: hidden;">
+
+    <!-- Background graph lines — very light, ambient -->
+    <svg class="absolute inset-0 w-full h-full" preserveAspectRatio="none" viewBox="0 0 1440 520" fill="none" xmlns="http://www.w3.org/2000/svg" style="opacity: 0.5;">
+      <!-- Grid lines -->
+      <line x1="0" y1="130" x2="1440" y2="130" stroke="#d9d9d9" stroke-width="0.5" stroke-dasharray="4 6"/>
+      <line x1="0" y1="260" x2="1440" y2="260" stroke="#d9d9d9" stroke-width="0.5" stroke-dasharray="4 6"/>
+      <line x1="0" y1="390" x2="1440" y2="390" stroke="#d9d9d9" stroke-width="0.5" stroke-dasharray="4 6"/>
+      <!-- Area fill — gentle upward trend -->
+      <path d="M0 420 C120 400, 200 380, 320 350 C440 320, 520 340, 640 300 C760 260, 840 240, 960 200 C1080 160, 1200 140, 1320 110 C1380 95, 1420 90, 1440 85 L1440 520 L0 520 Z" fill="#d9d9d9" fill-opacity="0.25"/>
+      <!-- Line on top of area -->
+      <path d="M0 420 C120 400, 200 380, 320 350 C440 320, 520 340, 640 300 C760 260, 840 240, 960 200 C1080 160, 1200 140, 1320 110 C1380 95, 1420 90, 1440 85" stroke="#bfbfbf" stroke-width="1.5" fill="none"/>
+      <!-- Second line — email engagement, flatter -->
+      <path d="M0 380 C120 375, 240 370, 360 360 C480 350, 600 355, 720 340 C840 325, 960 310, 1080 295 C1200 280, 1320 270, 1440 260" stroke="#d9d9d9" stroke-width="1" fill="none"/>
+    </svg>
+
+    <!-- Content — positioned above the graph -->
+    <div class="relative z-10 max-w-[1280px] mx-auto px-16">
+
+      <!-- Header — centered -->
+      <div class="text-center mb-14" style="max-width: 680px; margin-left: auto; margin-right: auto;">
+        <h2 style="font-family: Georgia, 'Times New Roman', serif; font-size: 72px; line-height: 1; letter-spacing: -0.02em; color: #121212; margin-bottom: 20px;">Learn</h2>
+        <p style="font-family: Inter, 'Helvetica Neue', Arial, sans-serif; font-size: 17px; line-height: 1.625; color: #808080;">Ghost connects content, email, and membership data in one place — so you see what's actually working. No setup, no third-party scripts, not blocked by adblockers.</p>
+      </div>
+
+      <!-- Dashboard stat cards — 4 across -->
+      <div class="grid grid-cols-4 gap-5 mb-12">
+
+        <!-- Card 1: Web traffic -->
+        <div class="bg-white rounded-xl border border-wire-200 shadow-sm p-5">
+          <p class="font-sans text-[12px] font-medium text-wire-400 tracking-wide uppercase mb-3">Web traffic</p>
+          <p style="font-family: Georgia, 'Times New Roman', serif; font-size: 32px; line-height: 1; letter-spacing: -0.02em; color: #121212; margin-bottom: 6px;">48.2K</p>
+          <p class="font-sans text-[13px] text-wire-500 leading-snug">Visitors, page views, sources, geography. Where your audience comes from.</p>
+        </div>
+
+        <!-- Card 2: Newsletter -->
+        <div class="bg-white rounded-xl border border-wire-200 shadow-sm p-5">
+          <p class="font-sans text-[12px] font-medium text-wire-400 tracking-wide uppercase mb-3">Newsletter</p>
+          <p style="font-family: Georgia, 'Times New Roman', serif; font-size: 32px; line-height: 1; letter-spacing: -0.02em; color: #121212; margin-bottom: 6px;">62.4%</p>
+          <p class="font-sans text-[13px] text-wire-500 leading-snug">Opens, clicks, engagement vs. your averages. Which emails land.</p>
+        </div>
+
+        <!-- Card 3: Growth -->
+        <div class="bg-white rounded-xl border border-wire-200 shadow-sm p-5">
+          <p class="font-sans text-[12px] font-medium text-wire-400 tracking-wide uppercase mb-3">Growth</p>
+          <p style="font-family: Georgia, 'Times New Roman', serif; font-size: 32px; line-height: 1; letter-spacing: -0.02em; color: #121212; margin-bottom: 6px;">+1,204</p>
+          <p class="font-sans text-[13px] text-wire-500 leading-snug">Free and paid signups over time. Which posts drive conversions.</p>
+        </div>
+
+        <!-- Card 4: Post-level -->
+        <div class="bg-white rounded-xl border border-wire-200 shadow-sm p-5">
+          <p class="font-sans text-[12px] font-medium text-wire-400 tracking-wide uppercase mb-3">Per post</p>
+          <p style="font-family: Georgia, 'Times New Roman', serif; font-size: 32px; line-height: 1; letter-spacing: -0.02em; color: #121212; margin-bottom: 6px;">Detail</p>
+          <p class="font-sans text-[13px] text-wire-500 leading-snug">Every post gets its own analytics. Learn from each thing you publish.</p>
+        </div>
+
+      </div>
+
+      <!-- Audience links -->
+      <div class="flex gap-12">
+        <a href="#" class="flex items-center gap-2">
+          <span class="font-sans text-[14px] font-medium text-wire-700">Analytics for creators</span>
+          <span class="font-sans text-[13px] text-wire-400">&rarr;</span>
+        </a>
+        <a href="#" class="flex items-center gap-2">
+          <span class="font-sans text-[14px] font-medium text-wire-700">Analytics for publishers</span>
+          <span class="font-sans text-[13px] text-wire-400">&rarr;</span>
+        </a>
+        <a href="#" class="flex items-center gap-2">
+          <span class="font-sans text-[14px] font-medium text-wire-700">Analytics for businesses</span>
+          <span class="font-sans text-[13px] text-wire-400">&rarr;</span>
+        </a>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- Spacer between blocks -->
+  <div class="h-8"></div>
+
+
+  <!-- ============================================================
+       BLOCK 8: THE REFRAME
+       Role: Unexpected + Emotional
+       Job: Shift the register. Calm structural facts about what Ghost is.
+       No preaching, no competitors. Just truths, plainly stated.
+       Uncontained. Centered text. Lots of whitespace.
+       ============================================================ -->
+  <section style="padding: 120px 0;">
+
+    <div class="max-w-[720px] mx-auto px-8 text-center">
+
+      <!-- Headline -->
+      <h2 style="font-family: Georgia, 'Times New Roman', serif; font-size: 56px; line-height: 1.15; letter-spacing: -0.025em; color: #121212; margin-bottom: 40px;">No investors.<br>No shareholders.<br>No bullshit.</h2>
+
+      <!-- Body — calm, factual -->
+      <p style="font-family: Inter, 'Helvetica Neue', Arial, sans-serif; font-size: 18px; line-height: 1.7; color: #595959; margin-bottom: 48px;">Ghost is built by a nonprofit foundation, funded entirely by the people who use it. No growth targets. No exit strategy. Just a product that exists to be good at what it does.</p>
+
+      <!-- Stark fact lines -->
+      <div class="space-y-5 mb-12" style="max-width: 480px; margin-left: auto; margin-right: auto;">
+        <div class="border-t border-wire-200 pt-5">
+          <p style="font-family: Inter, 'Helvetica Neue', Arial, sans-serif; font-size: 16px; line-height: 1.6; color: #262626; font-weight: 600;">Can't be bought. Can't be sold.</p>
+          <p class="font-sans text-[14px] text-wire-500 leading-snug mt-1">A nonprofit foundation has no owners and no equity. Ghost's structure makes a rug-pull impossible.</p>
+        </div>
+        <div class="border-t border-wire-200 pt-5">
+          <p style="font-family: Inter, 'Helvetica Neue', Arial, sans-serif; font-size: 16px; line-height: 1.6; color: #262626; font-weight: 600;">Open source. All of it.</p>
+          <p class="font-sans text-[14px] text-wire-500 leading-snug mt-1">The code is public. You can read it, run it yourself, or modify it. Download Ghost for free and host it anywhere.</p>
+        </div>
+        <div class="border-t border-wire-200 pt-5">
+          <p style="font-family: Inter, 'Helvetica Neue', Arial, sans-serif; font-size: 16px; line-height: 1.6; color: #262626; font-weight: 600;">Since 2013. Still here.</p>
+          <p class="font-sans text-[14px] text-wire-500 leading-snug mt-1">Twelve years of building, funded by customers. No pivots, no acquisitions, no surprises.</p>
+        </div>
+      </div>
+
+      <!-- CTA — understated -->
+      <a href="#" class="font-sans text-[15px] font-medium text-wire-700" style="text-decoration: underline; text-underline-offset: 3px;">Read about why we started Ghost &rarr;</a>
+
+    </div>
+
+  </section>
+
+
+  <!-- Spacer between blocks -->
+  <div class="h-8"></div>
+
+
+  <!-- ============================================================
+       BLOCK 9: THREE AUDIENCES
+       Role: Simple + Concrete
+       Job: Help visitors self-select. Route to product pages.
+       Three cards. Value-led headlines, audience type as confirmation.
+       ============================================================ -->
+  <section class="max-w-[1280px] mx-auto px-8">
+
+    <!-- Three big blocks -->
+    <div class="grid grid-cols-3 gap-6">
+
+      <!-- Creators -->
+      <div class="bg-white border border-wire-200 rounded-2xl shadow-sm p-10 flex flex-col">
+        <p class="font-sans text-[12px] font-medium text-wire-400 tracking-wide uppercase mb-4">Creators</p>
+        <h2 style="font-family: Georgia, 'Times New Roman', serif; font-size: 32px; line-height: 1.15; letter-spacing: -0.02em; color: #121212; margin-bottom: 16px;">Own your audience, and your brand.</h2>
+        <p class="font-sans text-[14px] text-wire-500 leading-snug mb-8">Build a site that's unmistakably yours, grow a following, earn a living — without giving up a cut.</p>
+        <a href="#" class="mt-auto font-sans text-[14px] font-semibold text-wire-800" style="text-decoration: underline; text-underline-offset: 3px;">Ghost for creators &rarr;</a>
+      </div>
+
+      <!-- Publishers -->
+      <div class="bg-white border border-wire-200 rounded-2xl shadow-sm p-10 flex flex-col">
+        <p class="font-sans text-[12px] font-medium text-wire-400 tracking-wide uppercase mb-4">Publishers</p>
+        <h2 style="font-family: Georgia, 'Times New Roman', serif; font-size: 32px; line-height: 1.15; letter-spacing: -0.02em; color: #121212; margin-bottom: 16px;">Create an independent newsroom.</h2>
+        <p class="font-sans text-[14px] text-wire-500 leading-snug mb-8">Professional editorial tools, team workflows, and revenue infrastructure to build a sustainable media business.</p>
+        <a href="#" class="mt-auto font-sans text-[14px] font-semibold text-wire-800" style="text-decoration: underline; text-underline-offset: 3px;">Ghost for publishers &rarr;</a>
+      </div>
+
+      <!-- Businesses -->
+      <div class="bg-white border border-wire-200 rounded-2xl shadow-sm p-10 flex flex-col">
+        <p class="font-sans text-[12px] font-medium text-wire-400 tracking-wide uppercase mb-4">Businesses</p>
+        <h2 style="font-family: Georgia, 'Times New Roman', serif; font-size: 32px; line-height: 1.15; letter-spacing: -0.02em; color: #121212; margin-bottom: 16px;">One and done blogging and newsletter.</h2>
+        <p class="font-sans text-[14px] text-wire-500 leading-snug mb-8">Power your blog and newsletter on a platform that's reliable, fast, and built for your developers and your writers.</p>
+        <a href="#" class="mt-auto font-sans text-[14px] font-semibold text-wire-800" style="text-decoration: underline; text-underline-offset: 3px;">Ghost for businesses &rarr;</a>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- Spacer between blocks -->
+  <div class="h-8"></div>
+
+
+  <!-- ============================================================
+       BLOCK 10: MIGRATION
+       Role: Concrete
+       Job: Remove the switching objection. Make it feel safe and handled.
+       White card, centered, compact.
+       ============================================================ -->
+  <section class="max-w-[1280px] mx-auto bg-white rounded-2xl px-16 py-20 shadow-sm">
+
+    <div class="max-w-[680px] mx-auto text-center">
+
+      <!-- Headline -->
+      <h2 style="font-family: Georgia, 'Times New Roman', serif; font-size: 48px; line-height: 1.1; letter-spacing: -0.025em; color: #121212; margin-bottom: 16px;">Migrate to Ghost</h2>
+
+      <p style="font-family: Inter, 'Helvetica Neue', Arial, sans-serif; font-size: 17px; line-height: 1.625; color: #808080; margin-bottom: 40px;">Automated imports for the platforms you're on. A real team for everything else. Switching is stressful — we handle it.</p>
+
+      <!-- Supported platforms -->
+      <div class="flex justify-center gap-6 mb-10">
+        <span class="font-sans text-[14px] font-medium text-wire-700">Substack</span>
+        <span class="font-sans text-[14px] text-wire-300">&middot;</span>
+        <span class="font-sans text-[14px] font-medium text-wire-700">WordPress</span>
+        <span class="font-sans text-[14px] text-wire-300">&middot;</span>
+        <span class="font-sans text-[14px] font-medium text-wire-700">Medium</span>
+        <span class="font-sans text-[14px] text-wire-300">&middot;</span>
+        <span class="font-sans text-[14px] font-medium text-wire-700">Squarespace</span>
+        <span class="font-sans text-[14px] text-wire-300">&middot;</span>
+        <span class="font-sans text-[14px] font-medium text-wire-700">Mailchimp</span>
+      </div>
+
+      <!-- Quote -->
+      <div class="border-t border-b border-wire-200 py-8 mb-10">
+        <p style="font-family: Georgia, 'Times New Roman', serif; font-size: 20px; line-height: 1.5; letter-spacing: -0.01em; color: #404040; font-style: italic; margin-bottom: 8px;">"Moving to Ghost was the smoothest process of them all, with the concierge service taking care of everything."</p>
+        <p class="font-sans text-[13px] text-wire-400">Paul Szoldra, Duffel Blog</p>
+      </div>
+
+      <!-- CTA -->
+      <a href="#" class="font-sans text-[14px] font-medium text-wire-500" style="text-decoration: underline; text-underline-offset: 3px;">Talk to the migration team &rarr;</a>
+
+    </div>
+
+  </section>
+
+
+  <!-- Spacer between blocks -->
+  <div class="h-8"></div>
+
+
+  <!-- ============================================================
+       BLOCK 11: WHY GHOST
+       Role: Credible + Emotional
+       Job: Prove the model works with hard numbers. Stats-forward.
+       Distinct from Block 8 (structural facts) — this is evidence.
+       ============================================================ -->
+  <section class="max-w-[1280px] mx-auto bg-white rounded-2xl px-16 py-20 shadow-sm">
+
+    <div class="max-w-[680px] mx-auto text-center">
+
+      <!-- Headline -->
+      <h2 style="font-family: Georgia, 'Times New Roman', serif; font-size: 80px; line-height: 1.04; letter-spacing: -0.03em; color: #121212; margin-bottom: 20px;">Choose the product.<br>Stay for the mission.</h2>
+
+      <p style="font-family: Inter, 'Helvetica Neue', Arial, sans-serif; font-size: 17px; line-height: 1.625; color: #808080; margin-bottom: 40px;">Ghost is a nonprofit foundation. Revenue from hosting is reinvested into the product. No investors, no board pushing growth. That's the whole business model.</p>
+
+      <!-- CTA -->
+      <a href="#" class="inline-block font-sans text-[15px] font-semibold text-white px-8 py-3.5 rounded-lg" style="background-color: #262626;">Start your free trial</a>
+
+    </div>
+
+  </section>
+
+
+  <!-- Spacer between blocks -->
+  <div class="h-8"></div>
+
+
+  <!-- Tab switching + step switching script (scoped) -->
+  <script>
+    // Nav dropdowns
+    function toggleNav(id) {
+      const dropdown = document.getElementById(id).querySelector('.nav-dropdown');
+      const wasHidden = dropdown.classList.contains('hidden');
+      document.querySelectorAll('.nav-dropdown').forEach(d => d.classList.add('hidden'));
+      if (wasHidden) dropdown.classList.remove('hidden');
+    }
+    document.addEventListener('click', (e) => {
+      if (!e.target.closest('[id^="nav-"]')) {
+        document.querySelectorAll('.nav-dropdown').forEach(d => d.classList.add('hidden'));
+      }
+    });
+
+    // Block 2: Step list interaction
+    function setStep(el) {
+      const section = el.closest('section');
+      section.querySelectorAll('.step-item').forEach(s => s.classList.remove('active'));
+      el.classList.add('active');
+
+      const stepName = el.querySelector('.step-name').textContent;
+      document.getElementById('step-image-label').textContent = 'Product UI — ' + stepName;
+    }
+
+    // Block 5: Revenue calculator
+    const membersSlider = document.getElementById('calc2-members');
+    const priceSlider = document.getElementById('calc2-price');
+    function updateCalc() {
+      const members = parseInt(membersSlider.value);
+      const price = parseInt(priceSlider.value);
+      const annual = members * price * 12;
+      document.getElementById('calc2-members-val').textContent = members.toLocaleString();
+      document.getElementById('calc2-price-val').textContent = '$' + price;
+      document.getElementById('calc2-result').textContent = '$' + annual.toLocaleString();
+    }
+    membersSlider.addEventListener('input', updateCalc);
+    priceSlider.addEventListener('input', updateCalc);
+
+    // Scoped tab switching (for future blocks)
+    document.querySelectorAll('.tab-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const section = btn.closest('section');
+        section.querySelectorAll('.tab-btn').forEach(b => {
+          b.classList.remove('text-wire-900', 'border-wire-900');
+          b.classList.add('text-wire-400', 'border-transparent');
+        });
+        btn.classList.remove('text-wire-400', 'border-transparent');
+        btn.classList.add('text-wire-900', 'border-wire-900');
+        section.querySelectorAll('.tab-panel').forEach(p => p.classList.add('hidden'));
+        document.getElementById('panel-' + btn.dataset.tab).classList.remove('hidden');
+      });
+    });
+  </script>
+
+  <!-- Shared footer component -->
+  <div id="site-footer"></div>
+  <script src="components/footer.js"></script>
+
+</body>
+</html>

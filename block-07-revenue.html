@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=1440">
+  <title>Block 7 — Earn (Wireframe)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            wire: {
+              50: '#f7f7f7',
+              100: '#f0f0f0',
+              200: '#d9d9d9',
+              300: '#bfbfbf',
+              400: '#a6a6a6',
+              500: '#808080',
+              600: '#595959',
+              700: '#404040',
+              800: '#262626',
+              900: '#121212',
+            }
+          },
+          fontFamily: {
+            serif: ['Georgia', 'Times New Roman', 'serif'],
+            sans: ['Inter', 'Helvetica Neue', 'Arial', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    h2, h3, p { margin: 0; padding: 0; }
+  </style>
+</head>
+<body class="bg-wire-100 min-h-screen py-16 px-8">
+
+  <section class="max-w-[1280px] mx-auto bg-white rounded-2xl px-16 py-20 shadow-sm">
+
+    <!-- Header -->
+    <div style="display: flex; align-items: last baseline; column-gap: 80px; margin-bottom: 64px;">
+      <h2 style="font-family: Georgia, 'Times New Roman', serif; font-size: 72px; line-height: 1; letter-spacing: -0.02em; color: #121212; flex-shrink: 0;">Earn your way</h2>
+      <p style="font-family: Inter, 'Helvetica Neue', Arial, sans-serif; font-size: 17px; line-height: 1.625; color: #808080; flex: 1;">Keep what you earn. Ghost takes 0% of your revenue — your Stripe account, your money, your subscribers.</p>
+    </div>
+
+    <!-- Tab Bar -->
+    <div class="border-b border-wire-200 mb-12">
+      <nav class="flex gap-8" id="tab-nav">
+        <button data-tab="tiers" class="tab-btn font-sans text-[14px] font-medium pb-3 border-b-2 -mb-px text-wire-900 border-wire-900">
+          Flexibility
+        </button>
+        <button data-tab="payments" class="tab-btn font-sans text-[14px] font-medium pb-3 border-b-2 -mb-px text-wire-400 border-transparent hover:text-wire-600">
+          Payments
+        </button>
+        <button data-tab="economics" class="tab-btn font-sans text-[14px] font-medium pb-3 border-b-2 -mb-px text-wire-400 border-transparent hover:text-wire-600">
+          Your Economics
+        </button>
+      </nav>
+    </div>
+
+    <!-- Content Area -->
+    <div class="flex gap-16">
+
+      <div class="w-[440px] shrink-0">
+
+        <!-- Tab: Tiers & Plans (6 items) -->
+        <div id="panel-tiers" class="tab-panel space-y-5">
+          <div>
+            <h3 class="font-sans text-[15px] font-semibold text-wire-800">Membership tiers</h3>
+            <p class="font-sans text-[14px] text-wire-500 leading-snug">Create plans with custom benefits so readers know what they get</p>
+          </div>
+          <div>
+            <h3 class="font-sans text-[15px] font-semibold text-wire-800">Monthly and yearly</h3>
+            <p class="font-sans text-[14px] text-wire-500 leading-snug">Set both pricing options; let members choose</p>
+          </div>
+          <div>
+            <h3 class="font-sans text-[15px] font-semibold text-wire-800">Free trials</h3>
+            <p class="font-sans text-[14px] text-wire-500 leading-snug">Let subscribers try paid content before committing</p>
+          </div>
+          <div>
+            <h3 class="font-sans text-[15px] font-semibold text-wire-800">Offers & discounts</h3>
+            <p class="font-sans text-[14px] text-wire-500 leading-snug">Create custom discount URLs for campaigns or launches</p>
+          </div>
+          <div>
+            <h3 class="font-sans text-[15px] font-semibold text-wire-800">Tips & donations</h3>
+            <p class="font-sans text-[14px] text-wire-500 leading-snug">One-time "pay what you want" support, no subscription needed</p>
+          </div>
+          <div>
+            <h3 class="font-sans text-[15px] font-semibold text-wire-800">170 currencies</h3>
+            <p class="font-sans text-[14px] text-wire-500 leading-snug">Charge in whichever currency you prefer</p>
+          </div>
+        </div>
+
+        <!-- Tab: Payments (5 items) -->
+        <div id="panel-payments" class="tab-panel space-y-5 hidden">
+          <div>
+            <h3 class="font-sans text-[15px] font-semibold text-wire-800">Direct to Stripe</h3>
+            <p class="font-sans text-[14px] text-wire-500 leading-snug">Payments land in your own Stripe account, not Ghost's</p>
+          </div>
+          <div>
+            <h3 class="font-sans text-[15px] font-semibold text-wire-800">Credit card checkout</h3>
+            <p class="font-sans text-[14px] text-wire-500 leading-snug">Standard card payments via Stripe</p>
+          </div>
+          <div>
+            <h3 class="font-sans text-[15px] font-semibold text-wire-800">Apple Pay</h3>
+            <p class="font-sans text-[14px] text-wire-500 leading-snug">One-tap checkout for Apple users</p>
+          </div>
+          <div>
+            <h3 class="font-sans text-[15px] font-semibold text-wire-800">Google Pay</h3>
+            <p class="font-sans text-[14px] text-wire-500 leading-snug">One-tap checkout for Android and Chrome users</p>
+          </div>
+          <div>
+            <h3 class="font-sans text-[15px] font-semibold text-wire-800">Local payment methods</h3>
+            <p class="font-sans text-[14px] text-wire-500 leading-snug">Any recurring-compatible local Stripe provider</p>
+          </div>
+        </div>
+
+        <!-- Tab: What You Keep (4 items) -->
+        <div id="panel-economics" class="tab-panel space-y-5 hidden">
+          <div>
+            <h3 class="font-sans text-[15px] font-semibold text-wire-800">0% platform fees</h3>
+            <p class="font-sans text-[14px] text-wire-500 leading-snug">Ghost takes nothing. Substack takes 10%, Patreon 8–12%.</p>
+          </div>
+          <div>
+            <h3 class="font-sans text-[15px] font-semibold text-wire-800">Subscription management</h3>
+            <p class="font-sans text-[14px] text-wire-500 leading-snug">Members upgrade, downgrade, or cancel from their account</p>
+          </div>
+          <div>
+            <h3 class="font-sans text-[15px] font-semibold text-wire-800">Sales tax on autopilot</h3>
+            <p class="font-sans text-[14px] text-wire-500 leading-snug">Stripe Tax calculates and collects VAT/GST/sales tax (beta)</p>
+          </div>
+          <div>
+            <h3 class="font-sans text-[15px] font-semibold text-wire-800">Portable subscribers</h3>
+            <p class="font-sans text-[14px] text-wire-500 leading-snug">Your Stripe account means your billing relationships go with you if you ever leave</p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Screenshot placeholder -->
+      <div class="flex-1">
+        <div class="bg-wire-50 rounded-lg border border-wire-200 aspect-[4/3] flex items-center justify-center">
+          <span class="font-sans text-[14px] text-wire-400">Product UI Screenshot</span>
+        </div>
+      </div>
+
+    </div>
+
+  </section>
+
+  <script>
+    document.querySelectorAll('.tab-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.tab-btn').forEach(b => {
+          b.classList.remove('text-wire-900', 'border-wire-900');
+          b.classList.add('text-wire-400', 'border-transparent');
+        });
+        btn.classList.remove('text-wire-400', 'border-transparent');
+        btn.classList.add('text-wire-900', 'border-wire-900');
+        document.querySelectorAll('.tab-panel').forEach(p => p.classList.add('hidden'));
+        document.getElementById('panel-' + btn.dataset.tab).classList.remove('hidden');
+      });
+    });
+  </script>
+
+</body>
+</html>

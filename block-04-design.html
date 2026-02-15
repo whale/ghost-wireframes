@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=1440">
+  <title>Block 4 — Design (Wireframe)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            wire: {
+              50: '#f7f7f7',
+              100: '#f0f0f0',
+              200: '#d9d9d9',
+              300: '#bfbfbf',
+              400: '#a6a6a6',
+              500: '#808080',
+              600: '#595959',
+              700: '#404040',
+              800: '#262626',
+              900: '#121212',
+            }
+          },
+          fontFamily: {
+            serif: ['Georgia', 'Times New Roman', 'serif'],
+            sans: ['Inter', 'Helvetica Neue', 'Arial', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    h2, h3, p { margin: 0; padding: 0; }
+  </style>
+</head>
+<body class="bg-wire-100 min-h-screen py-16 px-8">
+
+  <section class="max-w-[1280px] mx-auto bg-white rounded-2xl px-16 py-20 shadow-sm">
+
+    <!-- Header -->
+    <div style="display: flex; align-items: last baseline; column-gap: 80px; margin-bottom: 64px;">
+      <h2 style="font-family: Georgia, 'Times New Roman', serif; font-size: 72px; line-height: 1; letter-spacing: -0.02em; color: #121212; flex-shrink: 0;">Design everything</h2>
+      <p style="font-family: Inter, 'Helvetica Neue', Arial, sans-serif; font-size: 17px; line-height: 1.625; color: #808080; flex: 1;">Your site should look like yours, not like everyone else's. Own your brand, your domain, and your design — from theme to typography.</p>
+    </div>
+
+    <!-- Tab Bar -->
+    <div class="border-b border-wire-200 mb-12">
+      <nav class="flex gap-8" id="tab-nav">
+        <button data-tab="themes" class="tab-btn font-sans text-[14px] font-medium pb-3 border-b-2 -mb-px text-wire-900 border-wire-900">
+          Themes
+        </button>
+        <button data-tab="brand" class="tab-btn font-sans text-[14px] font-medium pb-3 border-b-2 -mb-px text-wire-400 border-transparent hover:text-wire-600">
+          Brand
+        </button>
+        <button data-tab="typography" class="tab-btn font-sans text-[14px] font-medium pb-3 border-b-2 -mb-px text-wire-400 border-transparent hover:text-wire-600">
+          Typography
+        </button>
+        <button data-tab="domain" class="tab-btn font-sans text-[14px] font-medium pb-3 border-b-2 -mb-px text-wire-400 border-transparent hover:text-wire-600">
+          Your Domain &amp; Site
+        </button>
+      </nav>
+    </div>
+
+    <!-- Content Area -->
+    <div class="flex gap-16">
+
+      <div class="w-[440px] shrink-0">
+
+        <!-- Tab: Themes (3 items) -->
+        <div id="panel-themes" class="tab-panel space-y-5">
+          <div>
+            <h3 class="font-sans text-[15px] font-semibold text-wire-800">Theme marketplace</h3>
+            <p class="font-sans text-[14px] text-wire-500 leading-snug">Hundreds of free and premium pre-built themes</p>
+          </div>
+          <div>
+            <h3 class="font-sans text-[15px] font-semibold text-wire-800">Build your own theme</h3>
+            <p class="font-sans text-[14px] text-wire-500 leading-snug">Custom development with Handlebars, simpler than WordPress</p>
+          </div>
+          <div>
+            <h3 class="font-sans text-[15px] font-semibold text-wire-800">Theme settings</h3>
+            <p class="font-sans text-[14px] text-wire-500 leading-snug">Up to 20 custom fields per theme — toggle elements, change colors, adjust layout</p>
+          </div>
+        </div>
+
+        <!-- Tab: Brand (5 items) -->
+        <div id="panel-brand" class="tab-panel space-y-5 hidden">
+          <div>
+            <h3 class="font-sans text-[15px] font-semibold text-wire-800">Publication logo</h3>
+            <p class="font-sans text-[14px] text-wire-500 leading-snug">Your primary brand logo, displayed across your theme</p>
+          </div>
+          <div>
+            <h3 class="font-sans text-[15px] font-semibold text-wire-800">Publication icon</h3>
+            <p class="font-sans text-[14px] text-wire-500 leading-snug">Favicon and social icon for your site</p>
+          </div>
+          <div>
+            <h3 class="font-sans text-[15px] font-semibold text-wire-800">Accent color</h3>
+            <p class="font-sans text-[14px] text-wire-500 leading-snug">Primary color for links, buttons, and highlights</p>
+          </div>
+          <div>
+            <h3 class="font-sans text-[15px] font-semibold text-wire-800">Publication cover</h3>
+            <p class="font-sans text-[14px] text-wire-500 leading-snug">Banner image for your index pages</p>
+          </div>
+          <div>
+            <h3 class="font-sans text-[15px] font-semibold text-wire-800">Newsletter design</h3>
+            <p class="font-sans text-[14px] text-wire-500 leading-snug">Each newsletter gets its own branded look and feel, matching your site</p>
+          </div>
+        </div>
+
+        <!-- Tab: Typography (4 items) -->
+        <div id="panel-typography" class="tab-panel space-y-5 hidden">
+          <div>
+            <h3 class="font-sans text-[15px] font-semibold text-wire-800">Heading font</h3>
+            <p class="font-sans text-[14px] text-wire-500 leading-snug">Choose a custom font for all headings across your site</p>
+          </div>
+          <div>
+            <h3 class="font-sans text-[15px] font-semibold text-wire-800">Body font</h3>
+            <p class="font-sans text-[14px] text-wire-500 leading-snug">Choose a custom font for all body text and content</p>
+          </div>
+          <div>
+            <h3 class="font-sans text-[15px] font-semibold text-wire-800">60 languages</h3>
+            <p class="font-sans text-[14px] text-wire-500 leading-snug">Publish your site in your language</p>
+          </div>
+          <div>
+            <h3 class="font-sans text-[15px] font-semibold text-wire-800">Global code injection</h3>
+            <p class="font-sans text-[14px] text-wire-500 leading-snug">Add custom styles or scripts without editing theme files</p>
+          </div>
+        </div>
+
+        <!-- Tab: Your Domain & Site (5 items) -->
+        <div id="panel-domain" class="tab-panel space-y-5 hidden">
+          <div>
+            <h3 class="font-sans text-[15px] font-semibold text-wire-800">Custom domains</h3>
+            <p class="font-sans text-[14px] text-wire-500 leading-snug">Your own domain, set up automatically on Ghost(Pro)</p>
+          </div>
+          <div>
+            <h3 class="font-sans text-[15px] font-semibold text-wire-800">Built-in search</h3>
+            <p class="font-sans text-[14px] text-wire-500 leading-snug">Works on every theme — searches posts, tags, and authors</p>
+          </div>
+          <div>
+            <h3 class="font-sans text-[15px] font-semibold text-wire-800">RSS feeds</h3>
+            <p class="font-sans text-[14px] text-wire-500 leading-snug">Automatic on any URL, readers subscribe via any RSS app</p>
+          </div>
+          <div>
+            <h3 class="font-sans text-[15px] font-semibold text-wire-800">Portal</h3>
+            <p class="font-sans text-[14px] text-wire-500 leading-snug">Embedded signup, signin, and account UI on every theme</p>
+          </div>
+          <div>
+            <h3 class="font-sans text-[15px] font-semibold text-wire-800">Announcement bar</h3>
+            <p class="font-sans text-[14px] text-wire-500 leading-snug">Targetable banner for public, members, or paid readers</p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Screenshot placeholder -->
+      <div class="flex-1">
+        <div class="bg-wire-50 rounded-lg border border-wire-200 aspect-[4/3] flex items-center justify-center">
+          <span class="font-sans text-[14px] text-wire-400">Product UI Screenshot</span>
+        </div>
+      </div>
+
+    </div>
+
+  </section>
+
+  <script>
+    document.querySelectorAll('.tab-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.tab-btn').forEach(b => {
+          b.classList.remove('text-wire-900', 'border-wire-900');
+          b.classList.add('text-wire-400', 'border-transparent');
+        });
+        btn.classList.remove('text-wire-400', 'border-transparent');
+        btn.classList.add('text-wire-900', 'border-wire-900');
+        document.querySelectorAll('.tab-panel').forEach(p => p.classList.add('hidden'));
+        document.getElementById('panel-' + btn.dataset.tab).classList.remove('hidden');
+      });
+    });
+  </script>
+
+</body>
+</html>

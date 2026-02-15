@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=1440">
+  <title>Block 8 — Learn (Wireframe)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            wire: {
+              50: '#f7f7f7',
+              100: '#f0f0f0',
+              200: '#d9d9d9',
+              300: '#bfbfbf',
+              400: '#a6a6a6',
+              500: '#808080',
+              600: '#595959',
+              700: '#404040',
+              800: '#262626',
+              900: '#121212',
+            }
+          },
+          fontFamily: {
+            serif: ['Georgia', 'Times New Roman', 'serif'],
+            sans: ['Inter', 'Helvetica Neue', 'Arial', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    h2, h3, p { margin: 0; padding: 0; }
+  </style>
+</head>
+<body class="bg-wire-100 min-h-screen py-16 px-8">
+
+  <section class="max-w-[1280px] mx-auto bg-white rounded-2xl px-16 py-20 shadow-sm">
+
+    <!-- Header -->
+    <div style="display: flex; align-items: last baseline; column-gap: 80px; margin-bottom: 64px;">
+      <h2 style="font-family: Georgia, 'Times New Roman', serif; font-size: 72px; line-height: 1; letter-spacing: -0.02em; color: #121212; flex-shrink: 0;">Learn what works</h2>
+      <p style="font-family: Inter, 'Helvetica Neue', Arial, sans-serif; font-size: 17px; line-height: 1.625; color: #808080; flex: 1;">See the full picture. Ghost connects web traffic, email opens, and member signups in one view.</p>
+    </div>
+
+    <!-- Tab Bar -->
+    <div class="border-b border-wire-200 mb-12">
+      <nav class="flex gap-8" id="tab-nav">
+        <button data-tab="web" class="tab-btn font-sans text-[14px] font-medium pb-3 border-b-2 -mb-px text-wire-900 border-wire-900">
+          Web Traffic
+        </button>
+        <button data-tab="email" class="tab-btn font-sans text-[14px] font-medium pb-3 border-b-2 -mb-px text-wire-400 border-transparent hover:text-wire-600">
+          Email & Newsletter
+        </button>
+        <button data-tab="growth" class="tab-btn font-sans text-[14px] font-medium pb-3 border-b-2 -mb-px text-wire-400 border-transparent hover:text-wire-600">
+          Growth & Revenue
+        </button>
+      </nav>
+    </div>
+
+    <!-- Content Area -->
+    <div class="flex gap-16">
+
+      <div class="w-[440px] shrink-0">
+
+        <!-- Tab: Web Traffic (8 items) -->
+        <div id="panel-web" class="tab-panel space-y-5">
+          <div>
+            <h3 class="font-sans text-[15px] font-semibold text-wire-800">Overview dashboard</h3>
+            <p class="font-sans text-[14px] text-wire-500 leading-snug">Traffic, growth, revenue, and recent posts at a glance</p>
+          </div>
+          <div>
+            <h3 class="font-sans text-[15px] font-semibold text-wire-800">Unique visitors</h3>
+            <p class="font-sans text-[14px] text-wire-500 leading-snug">See how many people visit your site</p>
+          </div>
+          <div>
+            <h3 class="font-sans text-[15px] font-semibold text-wire-800">Page views</h3>
+            <p class="font-sans text-[14px] text-wire-500 leading-snug">Track views across posts and pages</p>
+          </div>
+          <div>
+            <h3 class="font-sans text-[15px] font-semibold text-wire-800">Traffic sources</h3>
+            <p class="font-sans text-[14px] text-wire-500 leading-snug">See where visitors come from — search, social, direct, referrals</p>
+          </div>
+          <div>
+            <h3 class="font-sans text-[15px] font-semibold text-wire-800">Geography</h3>
+            <p class="font-sans text-[14px] text-wire-500 leading-snug">Understand where your readers are located</p>
+          </div>
+          <div>
+            <h3 class="font-sans text-[15px] font-semibold text-wire-800">Post-level traffic</h3>
+            <p class="font-sans text-[14px] text-wire-500 leading-snug">Drill into traffic for any individual post</p>
+          </div>
+          <div>
+            <h3 class="font-sans text-[15px] font-semibold text-wire-800">Filtering</h3>
+            <p class="font-sans text-[14px] text-wire-500 leading-snug">Sort by source, location, UTM parameter, or time window</p>
+          </div>
+          <div>
+            <h3 class="font-sans text-[15px] font-semibold text-wire-800">Privacy-friendly</h3>
+            <p class="font-sans text-[14px] text-wire-500 leading-snug">Lightweight, zero-config, not blocked by adblockers</p>
+          </div>
+        </div>
+
+        <!-- Tab: Email & Newsletter (7 items) -->
+        <div id="panel-email" class="tab-panel space-y-5 hidden">
+          <div>
+            <h3 class="font-sans text-[15px] font-semibold text-wire-800">Newsletter trends</h3>
+            <p class="font-sans text-[14px] text-wire-500 leading-snug">Open rates and click rates across all editions</p>
+          </div>
+          <div>
+            <h3 class="font-sans text-[15px] font-semibold text-wire-800">Per-edition performance</h3>
+            <p class="font-sans text-[14px] text-wire-500 leading-snug">Opens, clicks, and performance vs. your average</p>
+          </div>
+          <div>
+            <h3 class="font-sans text-[15px] font-semibold text-wire-800">Reader feedback</h3>
+            <p class="font-sans text-[14px] text-wire-500 leading-snug">"More like this" or "less like this" votes per edition</p>
+          </div>
+          <div>
+            <h3 class="font-sans text-[15px] font-semibold text-wire-800">Link click tracking</h3>
+            <p class="font-sans text-[14px] text-wire-500 leading-snug">See which links were clicked most, and by whom</p>
+          </div>
+          <div>
+            <h3 class="font-sans text-[15px] font-semibold text-wire-800">Post-send corrections</h3>
+            <p class="font-sans text-[14px] text-wire-500 leading-snug">Fix broken links even after a newsletter is sent</p>
+          </div>
+          <div>
+            <h3 class="font-sans text-[15px] font-semibold text-wire-800">Delivery health</h3>
+            <p class="font-sans text-[14px] text-wire-500 leading-snug">Track bounces and spam reports across editions</p>
+          </div>
+          <div>
+            <h3 class="font-sans text-[15px] font-semibold text-wire-800">Realtime data</h3>
+            <p class="font-sans text-[14px] text-wire-500 leading-snug">All analytics collected live as events happen</p>
+          </div>
+        </div>
+
+        <!-- Tab: Growth & Revenue (8 items) -->
+        <div id="panel-growth" class="tab-panel space-y-5 hidden">
+          <div>
+            <h3 class="font-sans text-[15px] font-semibold text-wire-800">Audience growth</h3>
+            <p class="font-sans text-[14px] text-wire-500 leading-snug">Track free and paid member growth over time</p>
+          </div>
+          <div>
+            <h3 class="font-sans text-[15px] font-semibold text-wire-800">Signup attribution</h3>
+            <p class="font-sans text-[14px] text-wire-500 leading-snug">Which posts drive the most free and paid signups</p>
+          </div>
+          <div>
+            <h3 class="font-sans text-[15px] font-semibold text-wire-800">Revenue tracking</h3>
+            <p class="font-sans text-[14px] text-wire-500 leading-snug">Monthly and yearly recurring revenue at a glance</p>
+          </div>
+          <div>
+            <h3 class="font-sans text-[15px] font-semibold text-wire-800">Subscription breakdown</h3>
+            <p class="font-sans text-[14px] text-wire-500 leading-snug">See the split between monthly, yearly, and complimentary</p>
+          </div>
+          <div>
+            <h3 class="font-sans text-[15px] font-semibold text-wire-800">Post-level growth</h3>
+            <p class="font-sans text-[14px] text-wire-500 leading-snug">New signups and revenue generated by each post</p>
+          </div>
+          <div>
+            <h3 class="font-sans text-[15px] font-semibold text-wire-800">Export analytics</h3>
+            <p class="font-sans text-[14px] text-wire-500 leading-snug">Download post analytics data for deeper analysis</p>
+          </div>
+          <div>
+            <h3 class="font-sans text-[15px] font-semibold text-wire-800">Connected view</h3>
+            <p class="font-sans text-[14px] text-wire-500 leading-snug">Web traffic → email opens → member signups → revenue, per post</p>
+          </div>
+          <div>
+            <h3 class="font-sans text-[15px] font-semibold text-wire-800">Realtime updates</h3>
+            <p class="font-sans text-[14px] text-wire-500 leading-snug">All data refreshes live, no waiting for batch reports</p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Screenshot placeholder -->
+      <div class="flex-1">
+        <div class="bg-wire-50 rounded-lg border border-wire-200 aspect-[4/3] flex items-center justify-center">
+          <span class="font-sans text-[14px] text-wire-400">Product UI Screenshot</span>
+        </div>
+      </div>
+
+    </div>
+
+  </section>
+
+  <script>
+    document.querySelectorAll('.tab-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.tab-btn').forEach(b => {
+          b.classList.remove('text-wire-900', 'border-wire-900');
+          b.classList.add('text-wire-400', 'border-transparent');
+        });
+        btn.classList.remove('text-wire-400', 'border-transparent');
+        btn.classList.add('text-wire-900', 'border-wire-900');
+        document.querySelectorAll('.tab-panel').forEach(p => p.classList.add('hidden'));
+        document.getElementById('panel-' + btn.dataset.tab).classList.remove('hidden');
+      });
+    });
+  </script>
+
+</body>
+</html>

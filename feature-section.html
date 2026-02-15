@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=1440">
+  <title>Feature Section — Publish (Wireframe)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            wire: {
+              50: '#f7f7f7',
+              100: '#f0f0f0',
+              200: '#d9d9d9',
+              300: '#bfbfbf',
+              400: '#a6a6a6',
+              500: '#808080',
+              600: '#595959',
+              700: '#404040',
+              800: '#262626',
+              900: '#121212',
+            }
+          },
+          fontFamily: {
+            serif: ['Georgia', 'Times New Roman', 'serif'],
+            sans: ['Inter', 'Helvetica Neue', 'Arial', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    /* Reset all margins so baseline alignment works cleanly */
+    h2, h3, p { margin: 0; padding: 0; }
+  </style>
+</head>
+<body class="bg-wire-100 min-h-screen py-16 px-8">
+
+  <!-- Feature Section: Publish — White card on grey background -->
+  <section class="max-w-[1280px] mx-auto bg-white rounded-2xl px-16 py-20 shadow-sm">
+
+    <!-- Header: Heading left, subtitle right. Last baseline of description aligns with baseline of heading. -->
+    <div style="display: flex; align-items: last baseline; column-gap: 80px; margin-bottom: 64px;">
+      <h2 style="font-family: Georgia, 'Times New Roman', serif; font-size: 72px; line-height: 1; letter-spacing: -0.02em; color: #121212; margin: 0; padding: 0; flex-shrink: 0;">Publish anything</h2>
+      <p style="font-family: Inter, 'Helvetica Neue', Arial, sans-serif; font-size: 17px; line-height: 1.625; color: #808080; margin: 0; padding: 0; flex: 1;">Focus on the writing, not the tooling. A calm, intuitive editor that stays out of your way — so every post feels natural to create, from first draft to final publish.</p>
+    </div>
+
+    <!-- Tab Bar -->
+    <div class="border-b border-wire-200 mb-12">
+      <nav class="flex gap-8" id="tab-nav">
+        <button data-tab="editor" class="tab-btn font-sans text-[14px] font-medium pb-3 border-b-2 -mb-px text-wire-900 border-wire-900">
+          Editor
+        </button>
+        <button data-tab="content-tools" class="tab-btn font-sans text-[14px] font-medium pb-3 border-b-2 -mb-px text-wire-400 border-transparent hover:text-wire-600">
+          Content Tools
+        </button>
+        <button data-tab="media" class="tab-btn font-sans text-[14px] font-medium pb-3 border-b-2 -mb-px text-wire-400 border-transparent hover:text-wire-600">
+          Media
+        </button>
+        <button data-tab="embeds" class="tab-btn font-sans text-[14px] font-medium pb-3 border-b-2 -mb-px text-wire-400 border-transparent hover:text-wire-600">
+          Embeds &amp; Layout
+        </button>
+        <button data-tab="dynamic" class="tab-btn font-sans text-[14px] font-medium pb-3 border-b-2 -mb-px text-wire-400 border-transparent hover:text-wire-600">
+          Dynamic Content
+        </button>
+        <button data-tab="preview" class="tab-btn font-sans text-[14px] font-medium pb-3 border-b-2 -mb-px text-wire-400 border-transparent hover:text-wire-600">
+          Preview
+        </button>
+        <button data-tab="publishing" class="tab-btn font-sans text-[14px] font-medium pb-3 border-b-2 -mb-px text-wire-400 border-transparent hover:text-wire-600">
+          Publishing
+        </button>
+      </nav>
+    </div>
+
+    <!-- Content Area: Two columns -->
+    <div class="flex gap-16">
+
+      <!-- Left Column: Sub-features (swapped per tab) -->
+      <div class="w-[440px] shrink-0">
+
+        <!-- Tab: Editor (6 items) -->
+        <div id="panel-editor" class="tab-panel space-y-5">
+          <div>
+            <h3 class="font-sans text-[15px] font-semibold text-wire-800">Clean, minimal editor</h3>
+            <p class="font-sans text-[14px] text-wire-500 leading-snug">Designed to feel calm and intuitive, not technical</p>
+          </div>
+          <div>
+            <h3 class="font-sans text-[15px] font-semibold text-wire-800">Auto-save</h3>
+            <p class="font-sans text-[14px] text-wire-500 leading-snug">Every change saved automatically, never lose your work</p>
+          </div>
+          <div>
+            <h3 class="font-sans text-[15px] font-semibold text-wire-800">Posts and pages</h3>
+            <p class="font-sans text-[14px] text-wire-500 leading-snug">Posts for regular publishing, pages for permanent content</p>
+          </div>
+          <div>
+            <h3 class="font-sans text-[15px] font-semibold text-wire-800">Granular post history</h3>
+            <p class="font-sans text-[14px] text-wire-500 leading-snug">See every edit over time, restore any version</p>
+          </div>
+          <div>
+            <h3 class="font-sans text-[15px] font-semibold text-wire-800">TK reminders</h3>
+            <p class="font-sans text-[14px] text-wire-500 leading-snug">Mark sections to finish later — Ghost warns before publishing</p>
+          </div>
+          <div>
+            <h3 class="font-sans text-[15px] font-semibold text-wire-800">The /edit shortcut</h3>
+            <p class="font-sans text-[14px] text-wire-500 leading-snug">Append /edit to any page to jump straight to editing</p>
+          </div>
+        </div>
+
+        <!-- Tab: Content Tools (7 items) -->
+        <div id="panel-content-tools" class="tab-panel space-y-5 hidden">
+          <div>
+            <h3 class="font-sans text-[15px] font-semibold text-wire-800">Tags</h3>
+            <p class="font-sans text-[14px] text-wire-500 leading-snug">Organize content into categories readers can browse</p>
+          </div>
+          <div>
+            <h3 class="font-sans text-[15px] font-semibold text-wire-800">Featured posts</h3>
+            <p class="font-sans text-[14px] text-wire-500 leading-snug">Mark your best work so your theme can highlight it</p>
+          </div>
+          <div>
+            <h3 class="font-sans text-[15px] font-semibold text-wire-800">Custom templates</h3>
+            <p class="font-sans text-[14px] text-wire-500 leading-snug">Some themes offer multiple layouts per post or page</p>
+          </div>
+          <div>
+            <h3 class="font-sans text-[15px] font-semibold text-wire-800">Content snippets</h3>
+            <p class="font-sans text-[14px] text-wire-500 leading-snug">Save and reuse blocks of content across posts</p>
+          </div>
+          <div>
+            <h3 class="font-sans text-[15px] font-semibold text-wire-800">Internal linking</h3>
+            <p class="font-sans text-[14px] text-wire-500 leading-snug">Link to your own posts with an inline search</p>
+          </div>
+          <div>
+            <h3 class="font-sans text-[15px] font-semibold text-wire-800">Duplicate posts</h3>
+            <p class="font-sans text-[14px] text-wire-500 leading-snug">Clone any post as a starting point for new content</p>
+          </div>
+          <div>
+            <h3 class="font-sans text-[15px] font-semibold text-wire-800">Excerpts</h3>
+            <p class="font-sans text-[14px] text-wire-500 leading-snug">Write a custom summary for each post</p>
+          </div>
+        </div>
+
+        <!-- Tab: Media (8 items) -->
+        <div id="panel-media" class="tab-panel space-y-5 hidden">
+          <div>
+            <h3 class="font-sans text-[15px] font-semibold text-wire-800">Images</h3>
+            <p class="font-sans text-[14px] text-wire-500 leading-snug">Upload, drag, paste, or insert via URL</p>
+          </div>
+          <div>
+            <h3 class="font-sans text-[15px] font-semibold text-wire-800">Gallery</h3>
+            <p class="font-sans text-[14px] text-wire-500 leading-snug">Up to 9 responsive images in a layout</p>
+          </div>
+          <div>
+            <h3 class="font-sans text-[15px] font-semibold text-wire-800">Video</h3>
+            <p class="font-sans text-[14px] text-wire-500 leading-snug">Direct video uploads with a custom player</p>
+          </div>
+          <div>
+            <h3 class="font-sans text-[15px] font-semibold text-wire-800">Audio</h3>
+            <p class="font-sans text-[14px] text-wire-500 leading-snug">Embed podcasts and audio content</p>
+          </div>
+          <div>
+            <h3 class="font-sans text-[15px] font-semibold text-wire-800">File</h3>
+            <p class="font-sans text-[14px] text-wire-500 leading-snug">Share downloadable files with readers</p>
+          </div>
+          <div>
+            <h3 class="font-sans text-[15px] font-semibold text-wire-800">GIF</h3>
+            <p class="font-sans text-[14px] text-wire-500 leading-snug">Search and insert animated GIFs from a built-in library</p>
+          </div>
+          <div>
+            <h3 class="font-sans text-[15px] font-semibold text-wire-800">Image editing (Pintura)</h3>
+            <p class="font-sans text-[14px] text-wire-500 leading-snug">Crop, adjust, and edit images directly in the editor</p>
+          </div>
+          <div>
+            <h3 class="font-sans text-[15px] font-semibold text-wire-800">Unsplash integration</h3>
+            <p class="font-sans text-[14px] text-wire-500 leading-snug">Search and insert copyright-free images without leaving the editor</p>
+          </div>
+        </div>
+
+        <!-- Tab: Embeds & Layout (7 items) -->
+        <div id="panel-embeds" class="tab-panel space-y-5 hidden">
+          <div>
+            <h3 class="font-sans text-[15px] font-semibold text-wire-800">Bookmark</h3>
+            <p class="font-sans text-[14px] text-wire-500 leading-snug">Rich link previews with title, description, and thumbnail</p>
+          </div>
+          <div>
+            <h3 class="font-sans text-[15px] font-semibold text-wire-800">Embeds (oEmbed)</h3>
+            <p class="font-sans text-[14px] text-wire-500 leading-snug">Paste a YouTube, Instagram, TikTok, or Spotify link and it becomes a rich embed</p>
+          </div>
+          <div>
+            <h3 class="font-sans text-[15px] font-semibold text-wire-800">Header</h3>
+            <p class="font-sans text-[14px] text-wire-500 leading-snug">Visual section dividers with multiple layout options</p>
+          </div>
+          <div>
+            <h3 class="font-sans text-[15px] font-semibold text-wire-800">Callout</h3>
+            <p class="font-sans text-[14px] text-wire-500 leading-snug">Highlighted information boxes with emoji support</p>
+          </div>
+          <div>
+            <h3 class="font-sans text-[15px] font-semibold text-wire-800">Toggle</h3>
+            <p class="font-sans text-[14px] text-wire-500 leading-snug">Collapsible sections for FAQs or supplementary content</p>
+          </div>
+          <div>
+            <h3 class="font-sans text-[15px] font-semibold text-wire-800">Button</h3>
+            <p class="font-sans text-[14px] text-wire-500 leading-snug">Customizable call-to-action buttons</p>
+          </div>
+          <div>
+            <h3 class="font-sans text-[15px] font-semibold text-wire-800">Divider</h3>
+            <p class="font-sans text-[14px] text-wire-500 leading-snug">Content separation lines</p>
+          </div>
+        </div>
+
+        <!-- Tab: Dynamic Content (7 items) -->
+        <div id="panel-dynamic" class="tab-panel space-y-5 hidden">
+          <div>
+            <h3 class="font-sans text-[15px] font-semibold text-wire-800">Markdown</h3>
+            <p class="font-sans text-[14px] text-wire-500 leading-snug">Full Markdown support with footnotes</p>
+          </div>
+          <div>
+            <h3 class="font-sans text-[15px] font-semibold text-wire-800">HTML</h3>
+            <p class="font-sans text-[14px] text-wire-500 leading-snug">Custom code embedding with visibility controls</p>
+          </div>
+          <div>
+            <h3 class="font-sans text-[15px] font-semibold text-wire-800">Email content</h3>
+            <p class="font-sans text-[14px] text-wire-500 leading-snug">Show different content in email vs web</p>
+          </div>
+          <div>
+            <h3 class="font-sans text-[15px] font-semibold text-wire-800">Call to action</h3>
+            <p class="font-sans text-[14px] text-wire-500 leading-snug">Audience-targeted promotional messages</p>
+          </div>
+          <div>
+            <h3 class="font-sans text-[15px] font-semibold text-wire-800">Public preview</h3>
+            <p class="font-sans text-[14px] text-wire-500 leading-snug">Define where the free preview ends for gated content</p>
+          </div>
+          <div>
+            <h3 class="font-sans text-[15px] font-semibold text-wire-800">Product</h3>
+            <p class="font-sans text-[14px] text-wire-500 leading-snug">Product recommendations with descriptions</p>
+          </div>
+          <div>
+            <h3 class="font-sans text-[15px] font-semibold text-wire-800">Signup card</h3>
+            <p class="font-sans text-[14px] text-wire-500 leading-snug">Membership signup forms embedded in your content</p>
+          </div>
+        </div>
+
+        <!-- Tab: Preview (4 items) -->
+        <div id="panel-preview" class="tab-panel space-y-5 hidden">
+          <div>
+            <h3 class="font-sans text-[15px] font-semibold text-wire-800">Preview</h3>
+            <p class="font-sans text-[14px] text-wire-500 leading-snug">See how your post looks on web and email, desktop and mobile, as any member type</p>
+          </div>
+          <div>
+            <h3 class="font-sans text-[15px] font-semibold text-wire-800">Shareable preview links</h3>
+            <p class="font-sans text-[14px] text-wire-500 leading-snug">Send a draft to anyone for feedback, no login required</p>
+          </div>
+          <div>
+            <h3 class="font-sans text-[15px] font-semibold text-wire-800">SEO &amp; social meta</h3>
+            <p class="font-sans text-[14px] text-wire-500 leading-snug">Set custom titles, descriptions, and social sharing cards per post</p>
+          </div>
+          <div>
+            <h3 class="font-sans text-[15px] font-semibold text-wire-800">Custom URL</h3>
+            <p class="font-sans text-[14px] text-wire-500 leading-snug">Control the slug for every post and page</p>
+          </div>
+        </div>
+
+        <!-- Tab: Publishing (6 items) -->
+        <div id="panel-publishing" class="tab-panel space-y-5 hidden">
+          <div>
+            <h3 class="font-sans text-[15px] font-semibold text-wire-800">Multi-channel</h3>
+            <p class="font-sans text-[14px] text-wire-500 leading-snug">Publish to web only, email only, or both at once</p>
+          </div>
+          <div>
+            <h3 class="font-sans text-[15px] font-semibold text-wire-800">Schedule or publish now</h3>
+            <p class="font-sans text-[14px] text-wire-500 leading-snug">Go live immediately or set a future date and time</p>
+          </div>
+          <div>
+            <h3 class="font-sans text-[15px] font-semibold text-wire-800">Post-publish sharing</h3>
+            <p class="font-sans text-[14px] text-wire-500 leading-snug">Confirmation screen with direct share links to social platforms</p>
+          </div>
+          <div>
+            <h3 class="font-sans text-[15px] font-semibold text-wire-800">Instant analytics</h3>
+            <p class="font-sans text-[14px] text-wire-500 leading-snug">See web traffic, email opens, and engagement the moment you publish</p>
+          </div>
+          <div>
+            <h3 class="font-sans text-[15px] font-semibold text-wire-800">Post access levels</h3>
+            <p class="font-sans text-[14px] text-wire-500 leading-snug">Set who can read: public, members, paid, or a specific tier</p>
+          </div>
+          <div>
+            <h3 class="font-sans text-[15px] font-semibold text-wire-800">Per-post code injection</h3>
+            <p class="font-sans text-[14px] text-wire-500 leading-snug">Add custom code to the head or footer of individual posts</p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Right Column: Screenshot placeholder -->
+      <div class="flex-1">
+        <div class="bg-wire-50 rounded-lg border border-wire-200 aspect-[4/3] flex items-center justify-center">
+          <span class="font-sans text-[14px] text-wire-400">Product UI Screenshot</span>
+        </div>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- Tab switching logic -->
+  <script>
+    document.querySelectorAll('.tab-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        // Reset all tabs
+        document.querySelectorAll('.tab-btn').forEach(b => {
+          b.classList.remove('text-wire-900', 'border-wire-900');
+          b.classList.add('text-wire-400', 'border-transparent');
+        });
+        // Activate clicked tab
+        btn.classList.remove('text-wire-400', 'border-transparent');
+        btn.classList.add('text-wire-900', 'border-wire-900');
+        // Hide all panels, show matching one
+        document.querySelectorAll('.tab-panel').forEach(p => p.classList.add('hidden'));
+        document.getElementById('panel-' + btn.dataset.tab).classList.remove('hidden');
+      });
+    });
+  </script>
+
+</body>
+</html>

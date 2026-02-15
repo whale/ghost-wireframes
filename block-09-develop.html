@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=1440">
+  <title>Block 9 — Develop flexibly (Wireframe)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            wire: {
+              50: '#f7f7f7',
+              100: '#f0f0f0',
+              200: '#d9d9d9',
+              300: '#bfbfbf',
+              400: '#a6a6a6',
+              500: '#808080',
+              600: '#595959',
+              700: '#404040',
+              800: '#262626',
+              900: '#121212',
+            }
+          },
+          fontFamily: {
+            serif: ['Georgia', 'Times New Roman', 'serif'],
+            sans: ['Inter', 'Helvetica Neue', 'Arial', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    h2, h3, p { margin: 0; padding: 0; }
+  </style>
+</head>
+<body class="bg-wire-100 min-h-screen py-16 px-8">
+
+  <section class="max-w-[1280px] mx-auto bg-white rounded-2xl px-16 py-20 shadow-sm">
+
+    <!-- Header -->
+    <div style="display: flex; align-items: last baseline; column-gap: 80px; margin-bottom: 64px;">
+      <h2 style="font-family: Georgia, 'Times New Roman', serif; font-size: 72px; line-height: 1; letter-spacing: -0.02em; color: #121212; flex-shrink: 0;">Develop flexibly</h2>
+      <p style="font-family: Inter, 'Helvetica Neue', Arial, sans-serif; font-size: 17px; line-height: 1.625; color: #808080; flex: 1;">Ghost is open source, developer-friendly, and built on modern infrastructure. If you want to go deeper, it's all here.</p>
+    </div>
+
+    <!-- Tab Bar -->
+    <div class="border-b border-wire-200 mb-12">
+      <nav class="flex gap-8" id="tab-nav">
+        <button data-tab="api" class="tab-btn font-sans text-[14px] font-medium pb-3 border-b-2 -mb-px text-wire-900 border-wire-900">
+          API & Integrations
+        </button>
+        <button data-tab="seo" class="tab-btn font-sans text-[14px] font-medium pb-3 border-b-2 -mb-px text-wire-400 border-transparent hover:text-wire-600">
+          SEO & Performance
+        </button>
+        <button data-tab="team" class="tab-btn font-sans text-[14px] font-medium pb-3 border-b-2 -mb-px text-wire-400 border-transparent hover:text-wire-600">
+          Team & Admin
+        </button>
+      </nav>
+    </div>
+
+    <!-- Content Area -->
+    <div class="flex gap-16">
+
+      <div class="w-[440px] shrink-0">
+
+        <!-- Tab: API & Integrations (7 items) -->
+        <div id="panel-api" class="tab-panel space-y-5">
+          <div>
+            <h3 class="font-sans text-[15px] font-semibold text-wire-800">Content API</h3>
+            <p class="font-sans text-[14px] text-wire-500 leading-snug">Access all your content programmatically via JSON</p>
+          </div>
+          <div>
+            <h3 class="font-sans text-[15px] font-semibold text-wire-800">Admin API</h3>
+            <p class="font-sans text-[14px] text-wire-500 leading-snug">Write content and manage your site via API</p>
+          </div>
+          <div>
+            <h3 class="font-sans text-[15px] font-semibold text-wire-800">Zapier</h3>
+            <p class="font-sans text-[14px] text-wire-500 leading-snug">Connect Ghost to 8,000+ apps and automate workflows</p>
+          </div>
+          <div>
+            <h3 class="font-sans text-[15px] font-semibold text-wire-800">Slack</h3>
+            <p class="font-sans text-[14px] text-wire-500 leading-snug">Send "new post published" notifications to a channel</p>
+          </div>
+          <div>
+            <h3 class="font-sans text-[15px] font-semibold text-wire-800">Custom integrations</h3>
+            <p class="font-sans text-[14px] text-wire-500 leading-snug">Create API keys for your own apps and workflows</p>
+          </div>
+          <div>
+            <h3 class="font-sans text-[15px] font-semibold text-wire-800">Headless</h3>
+            <p class="font-sans text-[14px] text-wire-500 leading-snug">Use Ghost as a backend with any frontend framework</p>
+          </div>
+          <div>
+            <h3 class="font-sans text-[15px] font-semibold text-wire-800">Webhooks</h3>
+            <p class="font-sans text-[14px] text-wire-500 leading-snug">Trigger external services when events happen</p>
+          </div>
+        </div>
+
+        <!-- Tab: SEO & Performance (8 items) -->
+        <div id="panel-seo" class="tab-panel space-y-5 hidden">
+          <div>
+            <h3 class="font-sans text-[15px] font-semibold text-wire-800">Structured data</h3>
+            <p class="font-sans text-[14px] text-wire-500 leading-snug">Search and social meta output automatically on every page</p>
+          </div>
+          <div>
+            <h3 class="font-sans text-[15px] font-semibold text-wire-800">XML sitemaps</h3>
+            <p class="font-sans text-[14px] text-wire-500 leading-snug">Detailed sitemaps generated automatically for search engines</p>
+          </div>
+          <div>
+            <h3 class="font-sans text-[15px] font-semibold text-wire-800">Robots.txt</h3>
+            <p class="font-sans text-[14px] text-wire-500 leading-snug">Crawling rules configured out of the box</p>
+          </div>
+          <div>
+            <h3 class="font-sans text-[15px] font-semibold text-wire-800">Responsive images</h3>
+            <p class="font-sans text-[14px] text-wire-500 leading-snug">Auto-resized, WEBP, adapted to device and screen</p>
+          </div>
+          <div>
+            <h3 class="font-sans text-[15px] font-semibold text-wire-800">Node.js backend</h3>
+            <p class="font-sans text-[14px] text-wire-500 leading-snug">Static-site-equivalent speed, 19x faster than WordPress</p>
+          </div>
+          <div>
+            <h3 class="font-sans text-[15px] font-semibold text-wire-800">Automatic URL routing</h3>
+            <p class="font-sans text-[14px] text-wire-500 leading-snug">Homepage, tag archives, and author pages built-in</p>
+          </div>
+          <div>
+            <h3 class="font-sans text-[15px] font-semibold text-wire-800">Custom routing</h3>
+            <p class="font-sans text-[14px] text-wire-500 leading-snug">Configure custom URL structures for advanced setups</p>
+          </div>
+          <div>
+            <h3 class="font-sans text-[15px] font-semibold text-wire-800">Canonical URLs</h3>
+            <p class="font-sans text-[14px] text-wire-500 leading-snug">Set canonical URLs to avoid duplicate content issues</p>
+          </div>
+        </div>
+
+        <!-- Tab: Team & Admin (7 items) -->
+        <div id="panel-team" class="tab-panel space-y-5 hidden">
+          <div>
+            <h3 class="font-sans text-[15px] font-semibold text-wire-800">6 staff roles</h3>
+            <p class="font-sans text-[14px] text-wire-500 leading-snug">Owner, Admin, Editor, Super-editor, Author, Contributor</p>
+          </div>
+          <div>
+            <h3 class="font-sans text-[15px] font-semibold text-wire-800">Granular permissions</h3>
+            <p class="font-sans text-[14px] text-wire-500 leading-snug">Each role controls what a user can access and do</p>
+          </div>
+          <div>
+            <h3 class="font-sans text-[15px] font-semibold text-wire-800">History log</h3>
+            <p class="font-sans text-[14px] text-wire-500 leading-snug">Full audit trail of who did what and when</p>
+          </div>
+          <div>
+            <h3 class="font-sans text-[15px] font-semibold text-wire-800">Import / export</h3>
+            <p class="font-sans text-[14px] text-wire-500 leading-snug">JSON export anytime; import from 15+ platforms</p>
+          </div>
+          <div>
+            <h3 class="font-sans text-[15px] font-semibold text-wire-800">Code injection</h3>
+            <p class="font-sans text-[14px] text-wire-500 leading-snug">Add scripts or styles to your site header/footer globally</p>
+          </div>
+          <div>
+            <h3 class="font-sans text-[15px] font-semibold text-wire-800">Private mode</h3>
+            <p class="font-sans text-[14px] text-wire-500 leading-snug">Lock your site down before launch</p>
+          </div>
+          <div>
+            <h3 class="font-sans text-[15px] font-semibold text-wire-800">Labs</h3>
+            <p class="font-sans text-[14px] text-wire-500 leading-snug">Early access to beta features and experimental flags</p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Screenshot placeholder -->
+      <div class="flex-1">
+        <div class="bg-wire-50 rounded-lg border border-wire-200 aspect-[4/3] flex items-center justify-center">
+          <span class="font-sans text-[14px] text-wire-400">Product UI Screenshot</span>
+        </div>
+      </div>
+
+    </div>
+
+  </section>
+
+  <script>
+    document.querySelectorAll('.tab-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.tab-btn').forEach(b => {
+          b.classList.remove('text-wire-900', 'border-wire-900');
+          b.classList.add('text-wire-400', 'border-transparent');
+        });
+        btn.classList.remove('text-wire-400', 'border-transparent');
+        btn.classList.add('text-wire-900', 'border-wire-900');
+        document.querySelectorAll('.tab-panel').forEach(p => p.classList.add('hidden'));
+        document.getElementById('panel-' + btn.dataset.tab).classList.remove('hidden');
+      });
+    });
+  </script>
+
+</body>
+</html>
