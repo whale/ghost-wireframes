@@ -1,0 +1,956 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Homepage v2 — Ambition-Led Flow</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Inter', 'Helvetica Neue', sans-serif;
+    background: #f5f5f0;
+    color: #1a1a1a;
+    line-height: 1.5;
+  }
+
+  /* Page label */
+  .page-label {
+    background: #1a1a1a;
+    color: #f5f5f0;
+    padding: 16px 40px;
+    font-size: 13px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .page-label span:last-child {
+    opacity: 0.5;
+  }
+
+  /* Sections */
+  section {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 80px 80px;
+    position: relative;
+  }
+
+  /* Block labels */
+  .block-meta {
+    margin-bottom: 32px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid #ccc;
+  }
+  .block-meta .block-number {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #888;
+    margin-bottom: 4px;
+  }
+  .block-meta .block-name {
+    font-size: 16px;
+    font-weight: 600;
+    color: #1a1a1a;
+    margin-bottom: 4px;
+  }
+  .block-meta .block-role {
+    font-size: 13px;
+    color: #666;
+    font-style: italic;
+  }
+
+  /* Section dividers */
+  .section-divider {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 80px;
+  }
+  .section-divider hr {
+    border: none;
+    border-top: 1px solid #ddd;
+  }
+
+  /* Interstitial */
+  .interstitial {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 40px 80px;
+    text-align: center;
+  }
+  .interstitial p {
+    font-size: 13px;
+    color: #999;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+
+  /* ---- BLOCK 1: HERO ---- */
+  .hero {
+    text-align: center;
+    padding: 120px 80px 80px;
+    min-height: 600px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .hero h1 {
+    font-size: 72px;
+    font-weight: 700;
+    line-height: 1.05;
+    max-width: 900px;
+    margin-bottom: 24px;
+    letter-spacing: -0.02em;
+  }
+  .hero .subhead {
+    font-size: 20px;
+    color: #555;
+    max-width: 600px;
+    margin-bottom: 40px;
+    line-height: 1.6;
+  }
+  .hero .cta-primary {
+    display: inline-block;
+    background: #1a1a1a;
+    color: white;
+    padding: 14px 32px;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: 500;
+    text-decoration: none;
+  }
+
+  /* ---- BLOCK 2: SOCIAL PROOF ---- */
+  .social-proof {
+    padding: 60px 80px 80px;
+  }
+  .pub-cards {
+    display: flex;
+    gap: 24px;
+    overflow: hidden;
+    margin-bottom: 32px;
+  }
+  .pub-card {
+    flex: 0 0 240px;
+    background: white;
+    border-radius: 8px;
+    padding: 20px;
+    border: 1px solid #e5e5e5;
+  }
+  .pub-card .pub-name {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 4px;
+  }
+  .pub-card .pub-stat {
+    font-size: 13px;
+    color: #888;
+    margin-bottom: 16px;
+  }
+  .pub-card .pub-thumb {
+    background: #eee;
+    border-radius: 4px;
+    height: 140px;
+  }
+
+  .revenue-line {
+    text-align: center;
+    padding: 32px 0;
+    font-size: 18px;
+    color: #555;
+  }
+  .revenue-line strong {
+    color: #1a1a1a;
+  }
+
+  .trust-strip {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    padding: 24px 0;
+    flex-wrap: wrap;
+  }
+  .trust-strip span {
+    font-size: 14px;
+    color: #aaa;
+    font-weight: 500;
+  }
+
+  /* ---- BLOCK 3: PRODUCT MOMENT ---- */
+  .product-moment {
+    padding: 80px;
+    text-align: center;
+  }
+  .product-moment h2 {
+    font-size: 42px;
+    font-weight: 700;
+    margin-bottom: 16px;
+    letter-spacing: -0.01em;
+  }
+  .product-moment .sub {
+    font-size: 17px;
+    color: #666;
+    margin-bottom: 48px;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .product-ui-placeholder {
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #bbb;
+    font-size: 14px;
+  }
+
+  /* ---- BLOCK 4: CAPABILITY CARDS ---- */
+  .capability {
+    padding: 80px;
+  }
+  .capability h2 {
+    font-size: 42px;
+    font-weight: 700;
+    margin-bottom: 48px;
+    letter-spacing: -0.01em;
+    max-width: 500px;
+  }
+  .cap-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+  .cap-card {
+    background: white;
+    border: 1px solid #e5e5e5;
+    border-radius: 8px;
+    padding: 32px;
+  }
+  .cap-card h3 {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+  .cap-card p {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 16px;
+    line-height: 1.5;
+  }
+  .cap-card .link {
+    font-size: 13px;
+    color: #1a1a1a;
+    font-weight: 500;
+  }
+
+  /* ---- BLOCK 5: THEMES ---- */
+  .themes {
+    padding: 80px;
+  }
+  .themes-layout {
+    display: flex;
+    gap: 60px;
+    align-items: flex-start;
+  }
+  .themes-copy {
+    flex: 0 0 400px;
+  }
+  .themes-copy h2 {
+    font-size: 42px;
+    font-weight: 700;
+    line-height: 1.15;
+    margin-bottom: 16px;
+    letter-spacing: -0.01em;
+  }
+  .themes-copy p {
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 24px;
+    line-height: 1.6;
+  }
+  .themes-copy .cta-secondary {
+    display: inline-block;
+    background: #1a1a1a;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: none;
+    margin-right: 16px;
+  }
+  .themes-copy .link {
+    font-size: 13px;
+    color: #1a1a1a;
+    font-weight: 500;
+  }
+  .themes-grid {
+    flex: 1;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+  }
+  .theme-thumb {
+    background: white;
+    border: 1px solid #e5e5e5;
+    border-radius: 6px;
+    height: 120px;
+  }
+  .theme-thumb.tall { height: 180px; }
+  .theme-thumb.short { height: 90px; }
+
+  /* ---- BLOCK 6: BARRIERS ---- */
+  .barriers {
+    padding: 80px;
+  }
+  .barriers h2 {
+    font-size: 42px;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 16px;
+    letter-spacing: -0.01em;
+  }
+  .barriers .sub {
+    font-size: 17px;
+    color: #666;
+    text-align: center;
+    max-width: 560px;
+    margin: 0 auto 48px;
+  }
+  .barrier-cols {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-bottom: 48px;
+  }
+  .barrier-col {
+    border-top: 2px solid #1a1a1a;
+    padding-top: 24px;
+  }
+  .barrier-col h3 {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+  .barrier-col p {
+    font-size: 14px;
+    color: #555;
+    line-height: 1.6;
+  }
+  .migration-platforms {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-bottom: 32px;
+  }
+  .migration-platforms span {
+    display: inline-block;
+    padding: 10px 20px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 14px;
+    color: #555;
+    background: white;
+  }
+  .migration-quote {
+    max-width: 560px;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 18px;
+    font-style: italic;
+    color: #444;
+    line-height: 1.6;
+    padding: 32px 0;
+  }
+  .migration-quote .attr {
+    font-style: normal;
+    font-size: 13px;
+    color: #999;
+    margin-top: 12px;
+  }
+
+  /* ---- BLOCK 7: STRUCTURAL TRUST ---- */
+  .trust {
+    padding: 80px;
+    text-align: center;
+  }
+  .trust h2 {
+    font-size: 42px;
+    font-weight: 700;
+    margin-bottom: 16px;
+    letter-spacing: -0.01em;
+  }
+  .trust .sub {
+    font-size: 17px;
+    color: #666;
+    max-width: 640px;
+    margin: 0 auto 48px;
+    line-height: 1.6;
+  }
+  .trust-facts {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    text-align: left;
+    margin-bottom: 48px;
+  }
+  .trust-fact {
+    border-top: 2px solid #1a1a1a;
+    padding-top: 24px;
+  }
+  .trust-fact h3 {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    line-height: 1.3;
+  }
+  .trust-fact p {
+    font-size: 14px;
+    color: #555;
+    line-height: 1.6;
+  }
+  .trust .link {
+    font-size: 14px;
+    color: #1a1a1a;
+    font-weight: 500;
+  }
+
+  /* ---- BLOCK 8: AUDIENCE ROUTING ---- */
+  .audiences {
+    padding: 80px;
+  }
+  .audience-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+  .audience-card {
+    background: white;
+    border: 1px solid #e5e5e5;
+    border-radius: 8px;
+    padding: 40px;
+  }
+  .audience-card .label {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #888;
+    margin-bottom: 12px;
+  }
+  .audience-card h3 {
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 1.25;
+    margin-bottom: 12px;
+  }
+  .audience-card p {
+    font-size: 14px;
+    color: #555;
+    line-height: 1.6;
+  }
+
+  /* ---- BLOCK 9: TESTIMONIALS ---- */
+  .testimonials {
+    padding: 80px;
+    text-align: center;
+  }
+  .testimonials h2 {
+    font-size: 42px;
+    font-weight: 700;
+    margin-bottom: 48px;
+    letter-spacing: -0.01em;
+  }
+  .testimonial-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    text-align: left;
+  }
+  .testimonial-card {
+    background: white;
+    border: 1px solid #e5e5e5;
+    border-radius: 8px;
+    padding: 24px;
+  }
+  .testimonial-card .quote {
+    font-size: 14px;
+    color: #333;
+    line-height: 1.6;
+    margin-bottom: 16px;
+  }
+  .testimonial-card .person {
+    font-size: 13px;
+    font-weight: 600;
+  }
+  .testimonial-card .site {
+    font-size: 12px;
+    color: #999;
+  }
+
+  /* ---- BLOCK 10: FAQ ---- */
+  .faq {
+    padding: 80px;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  .faq h2 {
+    font-size: 42px;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 48px;
+    letter-spacing: -0.01em;
+  }
+  .faq-item {
+    border-bottom: 1px solid #ddd;
+    padding: 20px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .faq-item span {
+    font-size: 16px;
+  }
+  .faq-item .plus {
+    font-size: 20px;
+    color: #999;
+  }
+
+  /* ---- BLOCK 11: FINAL CTA ---- */
+  .final-cta {
+    padding: 120px 80px;
+    text-align: center;
+  }
+  .final-cta h2 {
+    font-size: 52px;
+    font-weight: 700;
+    line-height: 1.15;
+    margin-bottom: 32px;
+    letter-spacing: -0.02em;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .final-cta .cta-primary {
+    display: inline-block;
+    background: #1a1a1a;
+    color: white;
+    padding: 14px 32px;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: 500;
+    text-decoration: none;
+  }
+</style>
+</head>
+<body>
+
+<!-- Page label -->
+<div class="page-label">
+  <span>Homepage v2 — Ambition-Led Flow</span>
+  <span>1920px wireframe</span>
+</div>
+
+<!-- ============================================ -->
+<!-- BLOCK 1: HERO -->
+<!-- ============================================ -->
+<section class="hero">
+  <div class="block-meta">
+    <div class="block-number">Block 1</div>
+    <div class="block-name">Hero — Identity Mirror</div>
+    <div class="block-role">Visitor asks: "Am I in the right place?"</div>
+  </div>
+
+  <h1>Build something worth&nbsp;remembering.</h1>
+  <p class="subhead">Ghost is where serious publishers build independent media that lasts. Start publishing in minutes. No code, no compromise.</p>
+  <a href="#" class="cta-primary">Start your free trial</a>
+</section>
+
+<div class="section-divider"><hr></div>
+
+<!-- ============================================ -->
+<!-- BLOCK 2: SOCIAL PROOF -->
+<!-- ============================================ -->
+<section class="social-proof">
+  <div class="block-meta">
+    <div class="block-number">Block 2</div>
+    <div class="block-name">Social Proof — The Serious Class</div>
+    <div class="block-role">Visitor asks: "Who else is here?"</div>
+  </div>
+
+  <div class="pub-cards">
+    <div class="pub-card">
+      <div class="pub-name">Tangle</div>
+      <div class="pub-stat">690K subscribers</div>
+      <div class="pub-thumb"></div>
+    </div>
+    <div class="pub-card">
+      <div class="pub-name">404 Media</div>
+      <div class="pub-stat">220K subscribers</div>
+      <div class="pub-thumb"></div>
+    </div>
+    <div class="pub-card">
+      <div class="pub-name">Platformer</div>
+      <div class="pub-stat">207K subscribers</div>
+      <div class="pub-thumb"></div>
+    </div>
+    <div class="pub-card">
+      <div class="pub-name">The Lever</div>
+      <div class="pub-stat">240K subscribers</div>
+      <div class="pub-thumb"></div>
+    </div>
+    <div class="pub-card">
+      <div class="pub-name">Creator Science</div>
+      <div class="pub-stat">65K subscribers</div>
+      <div class="pub-thumb"></div>
+    </div>
+  </div>
+
+  <p class="revenue-line">Ghost publishers have earned over <strong>$100 million</strong> from their readers.</p>
+
+  <div class="trust-strip">
+    <span>Slack</span>
+    <span>Duolingo</span>
+    <span>YCombinator</span>
+    <span>Unsplash</span>
+    <span>Cloudflare</span>
+    <span>Mozilla.ai</span>
+    <span>Alison Roman</span>
+    <span>Long Now Foundation</span>
+    <span>Bankless</span>
+  </div>
+</section>
+
+<div class="section-divider"><hr></div>
+
+<!-- ============================================ -->
+<!-- BLOCK 3: PRODUCT MOMENT -->
+<!-- ============================================ -->
+<section class="product-moment">
+  <div class="block-meta">
+    <div class="block-number">Block 3</div>
+    <div class="block-name">Product Moment — Your Cockpit</div>
+    <div class="block-role">Visitor asks: "What does it feel like to use this?"</div>
+  </div>
+
+  <h2>Everything you need. Nothing you don't.</h2>
+  <p class="sub">A clean, powerful workspace for publishing, growing, and earning.</p>
+
+  <div class="product-ui-placeholder">
+    [ Ghost editor / dashboard UI screenshot — seriousness signal ]
+  </div>
+</section>
+
+<div class="section-divider"><hr></div>
+
+<!-- ============================================ -->
+<!-- BLOCK 4: CAPABILITY CARDS -->
+<!-- ============================================ -->
+<section class="capability">
+  <div class="block-meta">
+    <div class="block-number">Block 4</div>
+    <div class="block-name">Capability Cards — What You Can Build</div>
+    <div class="block-role">Visitor asks: "What can I actually do with this?"</div>
+  </div>
+
+  <h2>One tool. Everything a publisher needs.</h2>
+
+  <div class="cap-grid">
+    <div class="cap-card">
+      <h3>Publish anything</h3>
+      <p>Posts, pages, newsletters, premium content. A calm editor that gets out of the way.</p>
+      <span class="link">Publishing features &rarr;</span>
+    </div>
+    <div class="cap-card">
+      <h3>Send it everywhere</h3>
+      <p>Email newsletters, your website, RSS, and the social web. One click, every channel.</p>
+      <span class="link">Distribution features &rarr;</span>
+    </div>
+    <div class="cap-card">
+      <h3>Grow a membership</h3>
+      <p>Turn visitors into subscribers with native signup forms, landing pages, and recommendations.</p>
+      <span class="link">Growth features &rarr;</span>
+    </div>
+    <div class="cap-card">
+      <h3>Earn on your terms</h3>
+      <p>Paid subscriptions through your own Stripe. Ghost takes 0%. You keep everything.</p>
+      <span class="link">Revenue features &rarr;</span>
+    </div>
+    <div class="cap-card">
+      <h3>See what's working</h3>
+      <p>Native analytics connecting web traffic, email engagement, and member activity in one place.</p>
+      <span class="link">Analytics features &rarr;</span>
+    </div>
+    <div class="cap-card">
+      <h3>Make it yours</h3>
+      <p>Your domain. Your brand. Custom themes or start from a professional template.</p>
+      <span class="link">Design features &rarr;</span>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"><hr></div>
+
+<!-- ============================================ -->
+<!-- BLOCK 5: THEMES -->
+<!-- ============================================ -->
+<section class="themes">
+  <div class="block-meta">
+    <div class="block-number">Block 5</div>
+    <div class="block-name">Themes — It Looks Like Yours</div>
+    <div class="block-role">Visitor asks: "Will my site look professional?"</div>
+  </div>
+
+  <div class="themes-layout">
+    <div class="themes-copy">
+      <h2>From launch to live, faster with Ghost themes.</h2>
+      <p>Skip the complicated setup and jump straight to a site that feels finished. Themes handle the hard design work so you can get back to publishing.</p>
+      <a href="#" class="cta-secondary">Browse all themes</a>
+      <span class="link">Find a Ghost expert &rarr;</span>
+    </div>
+    <div class="themes-grid">
+      <div class="theme-thumb tall"></div>
+      <div class="theme-thumb"></div>
+      <div class="theme-thumb short"></div>
+      <div class="theme-thumb short"></div>
+      <div class="theme-thumb tall"></div>
+      <div class="theme-thumb"></div>
+      <div class="theme-thumb"></div>
+      <div class="theme-thumb short"></div>
+      <div class="theme-thumb tall"></div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"><hr></div>
+
+<!-- ============================================ -->
+<!-- BLOCK 6: BARRIER REMOVAL -->
+<!-- ============================================ -->
+<section class="barriers">
+  <div class="block-meta">
+    <div class="block-number">Block 6</div>
+    <div class="block-name">Barrier Removal — You Can Do This</div>
+    <div class="block-role">Visitor asks: "Can I really do this? I'm not technical."</div>
+  </div>
+
+  <h2>Switching is simpler than you think.</h2>
+  <p class="sub">Whether you're starting fresh or moving from another platform, Ghost makes it easy.</p>
+
+  <div class="barrier-cols">
+    <div class="barrier-col">
+      <h3>Migrate in minutes</h3>
+      <p>Automated imports from Substack, WordPress, Medium, Mailchimp, Beehiiv, and more. A dedicated team handles everything else.</p>
+    </div>
+    <div class="barrier-col">
+      <h3>No code required</h3>
+      <p>Ghost is built for writers and publishers, not developers. If you can write an email, you can run a Ghost publication.</p>
+    </div>
+    <div class="barrier-col">
+      <h3>You won't outgrow it</h3>
+      <p>Your domain. Your data. Your Stripe account. Ghost scales with you and nothing locks you in.</p>
+    </div>
+  </div>
+
+  <div class="migration-platforms">
+    <span>Substack</span>
+    <span>WordPress</span>
+    <span>Medium</span>
+    <span>Mailchimp</span>
+    <span>Beehiiv</span>
+    <span>Squarespace</span>
+    <span>Kit</span>
+    <span>Patreon</span>
+    <span>Buttondown</span>
+    <span>Gumroad</span>
+  </div>
+
+  <div class="migration-quote">
+    "Switching from Substack to Ghost was like moving from a cramped rental to actually owning my house."
+    <div class="attr">Will Adams, provincialtimes.ca</div>
+  </div>
+</section>
+
+<div class="section-divider"><hr></div>
+
+<!-- ============================================ -->
+<!-- BLOCK 7: STRUCTURAL TRUST -->
+<!-- ============================================ -->
+<section class="trust">
+  <div class="block-meta">
+    <div class="block-number">Block 7</div>
+    <div class="block-name">Structural Trust — Built to Last</div>
+    <div class="block-role">Visitor asks: "Why should I trust this long-term?"</div>
+  </div>
+
+  <h2>No investors. No shareholders. No surprises.</h2>
+  <p class="sub">Ghost is built by a nonprofit foundation, funded entirely by the people who use it. The community builds the product. The structure keeps us accountable to you.</p>
+
+  <div class="trust-facts">
+    <div class="trust-fact">
+      <h3>Can't be bought.<br>Can't be sold.</h3>
+      <p>A nonprofit foundation has no owners and no equity. Ghost's structure makes a rug-pull impossible.</p>
+    </div>
+    <div class="trust-fact">
+      <h3>Open source.<br>All of it.</h3>
+      <p>The code is public. You can read it, run it yourself, or modify it. Download Ghost for free and host it anywhere.</p>
+    </div>
+    <div class="trust-fact">
+      <h3>Started in 2013.<br>Still here.</h3>
+      <p>Twelve years of building, funded by customers. No pivots, no acquisitions, no surprises.</p>
+    </div>
+  </div>
+
+  <span class="link">Read about why we started Ghost &rarr;</span>
+</section>
+
+<div class="section-divider"><hr></div>
+
+<!-- ============================================ -->
+<!-- BLOCK 8: AUDIENCE ROUTING -->
+<!-- ============================================ -->
+<section class="audiences">
+  <div class="block-meta">
+    <div class="block-number">Block 8</div>
+    <div class="block-name">Audience Routing — Find Your Path</div>
+    <div class="block-role">Visitor asks: "Is there a version of this for me specifically?"</div>
+  </div>
+
+  <div class="audience-cards">
+    <div class="audience-card">
+      <div class="label">Creators &rarr;</div>
+      <h3>Own your audience, and your brand.</h3>
+      <p>Build a site that's unmistakably yours, grow a following, earn a living — without giving up a cut.</p>
+    </div>
+    <div class="audience-card">
+      <div class="label">Publishers &rarr;</div>
+      <h3>Run an independent newsroom.</h3>
+      <p>Professional editorial tools, team workflows, and revenue infrastructure to build a sustainable media business.</p>
+    </div>
+    <div class="audience-card">
+      <div class="label">Businesses &rarr;</div>
+      <h3>One and done blog and newsletter.</h3>
+      <p>Power your blog and newsletter on something reliable, fast, and built for your developers and your writers.</p>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"><hr></div>
+
+<!-- ============================================ -->
+<!-- BLOCK 9: TESTIMONIALS -->
+<!-- ============================================ -->
+<section class="testimonials">
+  <div class="block-meta">
+    <div class="block-number">Block 9</div>
+    <div class="block-name">Testimonials — The People Have Spoken</div>
+    <div class="block-role">Visitor feels: "People like me chose this and don't regret it."</div>
+  </div>
+
+  <h2>Love at first post.</h2>
+
+  <div class="testimonial-grid">
+    <div class="testimonial-card">
+      <div class="quote">"Moving my newsletter to Ghost led to an explosion in growth."</div>
+      <div class="person">Hiro</div>
+      <div class="site">hiro.report</div>
+    </div>
+    <div class="testimonial-card">
+      <div class="quote">"Ghost was a natural choice for us — a high quality platform."</div>
+      <div class="person">Johnny Rodgers</div>
+      <div class="site">buildingslack.com</div>
+    </div>
+    <div class="testimonial-card">
+      <div class="quote">"We power 15 communities with Ghost, it's proven to scale."</div>
+      <div class="person">Richard King</div>
+      <div class="site">productmarketingalliance.com</div>
+    </div>
+    <div class="testimonial-card">
+      <div class="quote">"Ghost changed the game for us. Just a month in and we saw results."</div>
+      <div class="person">Greg Harman</div>
+      <div class="site">deceleration.news</div>
+    </div>
+    <div class="testimonial-card">
+      <div class="quote">"I made the leap from Substack to Ghost and haven't looked back."</div>
+      <div class="person">Kristen Lopez</div>
+      <div class="site">thefilmmaven.com</div>
+    </div>
+    <div class="testimonial-card">
+      <div class="quote">"Our experience migrating to Ghost was flawless."</div>
+      <div class="person">Andrew Womack</div>
+      <div class="site">themorningnews.org</div>
+    </div>
+    <div class="testimonial-card">
+      <div class="quote">"Life is so much better on Ghost."</div>
+      <div class="person">Paul Szoldra</div>
+      <div class="site">duffelblog.com</div>
+    </div>
+    <div class="testimonial-card">
+      <div class="quote">"After trying nearly every CMS out there, Ghost is it."</div>
+      <div class="person">Protein</div>
+      <div class="site">protein.xyz</div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"><hr></div>
+
+<!-- ============================================ -->
+<!-- BLOCK 10: FAQ -->
+<!-- ============================================ -->
+<div class="faq">
+  <div class="block-meta">
+    <div class="block-number">Block 10</div>
+    <div class="block-name">FAQ — Questions Answered</div>
+    <div class="block-role">Catch remaining objections.</div>
+  </div>
+
+  <h2>Questions answered.</h2>
+
+  <div class="faq-item">
+    <span>Is there a free trial?</span>
+    <span class="plus">+</span>
+  </div>
+  <div class="faq-item">
+    <span>Can I migrate from Substack, WordPress, or Medium?</span>
+    <span class="plus">+</span>
+  </div>
+  <div class="faq-item">
+    <span>Do I need a developer to use Ghost?</span>
+    <span class="plus">+</span>
+  </div>
+  <div class="faq-item">
+    <span>What happens if Ghost shuts down?</span>
+    <span class="plus">+</span>
+  </div>
+  <div class="faq-item">
+    <span>How does pricing work?</span>
+    <span class="plus">+</span>
+  </div>
+</div>
+
+<div class="section-divider"><hr></div>
+
+<!-- ============================================ -->
+<!-- BLOCK 11: FINAL CTA -->
+<!-- ============================================ -->
+<section class="final-cta">
+  <div class="block-meta">
+    <div class="block-number">Block 11</div>
+    <div class="block-name">Final CTA — Your Move</div>
+    <div class="block-role">Confident, warm, no-pressure close.</div>
+  </div>
+
+  <h2>Your audience. Your content. Your&nbsp;rules.</h2>
+  <a href="#" class="cta-primary">Start your free trial</a>
+</section>
+
+</body>
+</html>
