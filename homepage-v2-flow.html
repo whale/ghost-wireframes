@@ -138,25 +138,9 @@
     <a href="creators-full.html" style="color:#fff;opacity:0.7;padding:3px 10px;text-decoration:none;">Creators Page</a>
   </div>
 
-  <!-- ============================================================
-       NAVIGATION
-       ============================================================ -->
-  <nav class="max-w-[1280px] mx-auto px-8 py-6 flex items-center justify-between">
-    <a href="#" class="flex items-center gap-2.5">
-      <div class="w-8 h-8 bg-wire-900 rounded-full"></div>
-      <span class="font-sans text-[17px] font-semibold text-wire-900">Ghost</span>
-    </a>
-    <div class="flex items-center gap-8">
-      <span class="font-sans text-[14px] font-medium text-wire-600">Product</span>
-      <span class="font-sans text-[14px] font-medium text-wire-600">Resources</span>
-      <span class="font-sans text-[14px] font-medium text-wire-600">Pricing</span>
-      <span class="font-sans text-[14px] font-medium text-wire-600">Explore</span>
-    </div>
-    <div class="flex items-center gap-5">
-      <a href="#" class="font-sans text-[14px] font-medium text-wire-600">Login</a>
-      <a href="#" class="font-sans text-[14px] font-semibold text-wire-900 border-2 border-wire-900 px-5 py-2 rounded-lg">Start free</a>
-    </div>
-  </nav>
+  <!-- Shared navigation -->
+  <div id="site-nav"></div>
+  <script src="components/nav.js"></script>
 
 
   <!-- ============================================================
@@ -918,6 +902,10 @@
     // Init testimonials
     renderTestimonials(testimonials);
   </script>
+
+  <!-- Shared footer component -->
+  <div id="site-footer"></div>
+  <script src="components/footer.js"></script>
 
 </body>
 </html>
