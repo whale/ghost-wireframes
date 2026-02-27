@@ -1,0 +1,971 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=1440">
+  <title>Ghost Homepage — Flodesk Framework Wireframe</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            wire: {
+              50: '#f7f7f7',
+              100: '#f0f0f0',
+              200: '#d9d9d9',
+              300: '#bfbfbf',
+              400: '#a6a6a6',
+              500: '#808080',
+              600: '#595959',
+              700: '#404040',
+              800: '#262626',
+              900: '#121212',
+            }
+          },
+          fontFamily: {
+            serif: ['Georgia', 'Times New Roman', 'serif'],
+            sans: ['Inter', 'Helvetica Neue', 'Arial', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    h1, h2, h3, p { margin: 0; padding: 0; }
+
+    /* Publication card ticker */
+    @keyframes pub-ticker-scroll {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    .pub-ticker-track {
+      display: flex;
+      gap: 24px;
+      animation: pub-ticker-scroll 80s linear infinite;
+      width: max-content;
+    }
+    .pub-ticker-track:hover {
+      animation-play-state: paused;
+    }
+
+    /* Testimonial carousel */
+    .testimonial-slide { display: none; }
+    .testimonial-slide.active { display: block; }
+
+    /* FAQ accordion */
+    .faq-answer { display: none; }
+    .faq-item.open .faq-answer { display: block; }
+    .faq-item.open .faq-icon { transform: rotate(45deg); }
+    .faq-icon { transition: transform 0.2s; }
+  </style>
+</head>
+<body class="bg-wire-100 min-h-screen">
+
+
+  <!-- ============================================================
+       NAVIGATION
+       ============================================================ -->
+  <nav class="max-w-[1280px] mx-auto px-8 py-6 flex items-center justify-between">
+    <a href="#" class="flex items-center gap-2.5">
+      <div class="w-8 h-8 bg-wire-900 rounded-full"></div>
+      <span class="font-sans text-[17px] font-semibold text-wire-900">Ghost</span>
+    </a>
+    <div class="flex items-center gap-8">
+      <a href="#" class="font-sans text-[14px] font-medium text-wire-600">Product</a>
+      <a href="#" class="font-sans text-[14px] font-medium text-wire-600">Resources</a>
+      <a href="#" class="font-sans text-[14px] font-medium text-wire-600">Pricing</a>
+      <a href="#" class="font-sans text-[14px] font-medium text-wire-600">Explore</a>
+    </div>
+    <div class="flex items-center gap-5">
+      <a href="#" class="font-sans text-[14px] font-medium text-wire-600">Login</a>
+      <a href="#" class="font-sans text-[14px] font-semibold text-wire-900 border-2 border-wire-900 px-5 py-2 rounded-lg">Start free</a>
+    </div>
+  </nav>
+
+
+  <!-- ============================================================
+       BLOCK 1: HERO
+       Strategy from Flodesk: Big centered statement + stat in subhead
+       + auto-scrolling product output as the "hero image."
+       The product IS the proof.
+       ============================================================ -->
+  <section class="pt-24 pb-20">
+
+    <!-- Centered headline + subhead + CTA -->
+    <div class="max-w-[800px] mx-auto text-center mb-16 px-8">
+
+      <h1 style="font-family: Georgia, 'Times New Roman', serif; font-size: 80px; line-height: 1.04; letter-spacing: -0.03em; color: #121212; margin-bottom: 24px;">Turn your audience<br>into a business</h1>
+
+      <p style="font-family: Inter, 'Helvetica Neue', Arial, sans-serif; font-size: 19px; line-height: 1.6; color: #808080; margin-bottom: 40px; max-width: 580px; margin-left: auto; margin-right: auto;">The publishing platform for independence. Over $100M earned by creators and publishers — Ghost takes 0%.</p>
+
+      <a href="#" class="inline-block font-sans text-[15px] font-semibold text-white px-8 py-3.5 rounded-lg" style="background-color: #262626;">Start your free trial</a>
+
+    </div>
+
+    <!-- Auto-scrolling publication cards — the product output IS the hero -->
+    <div class="overflow-hidden">
+      <div class="pub-ticker-track">
+
+        <!-- Set 1 (9 cards) -->
+        <div class="flex-shrink-0" style="width: 220px;">
+          <div class="bg-white border border-wire-200 rounded-xl overflow-hidden shadow-sm">
+            <div class="bg-wire-200 w-full" style="aspect-ratio: 3/4;"></div>
+            <div class="p-4">
+              <p class="font-sans text-[14px] font-semibold text-wire-800">Tangle</p>
+              <p class="font-sans text-[12px] text-wire-400">690K subscribers</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex-shrink-0" style="width: 220px;">
+          <div class="bg-white border border-wire-200 rounded-xl overflow-hidden shadow-sm">
+            <div class="bg-wire-200 w-full" style="aspect-ratio: 3/4;"></div>
+            <div class="p-4">
+              <p class="font-sans text-[14px] font-semibold text-wire-800">404 Media</p>
+              <p class="font-sans text-[12px] text-wire-400">220K subscribers</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex-shrink-0" style="width: 220px;">
+          <div class="bg-white border border-wire-200 rounded-xl overflow-hidden shadow-sm">
+            <div class="bg-wire-200 w-full" style="aspect-ratio: 3/4;"></div>
+            <div class="p-4">
+              <p class="font-sans text-[14px] font-semibold text-wire-800">Platformer</p>
+              <p class="font-sans text-[12px] text-wire-400">207K subscribers</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex-shrink-0" style="width: 220px;">
+          <div class="bg-white border border-wire-200 rounded-xl overflow-hidden shadow-sm">
+            <div class="bg-wire-200 w-full" style="aspect-ratio: 3/4;"></div>
+            <div class="p-4">
+              <p class="font-sans text-[14px] font-semibold text-wire-800">Creator Science</p>
+              <p class="font-sans text-[12px] text-wire-400">65K subscribers</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex-shrink-0" style="width: 220px;">
+          <div class="bg-white border border-wire-200 rounded-xl overflow-hidden shadow-sm">
+            <div class="bg-wire-200 w-full" style="aspect-ratio: 3/4;"></div>
+            <div class="p-4">
+              <p class="font-sans text-[14px] font-semibold text-wire-800">The Lever</p>
+              <p class="font-sans text-[12px] text-wire-400">240K subscribers</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex-shrink-0" style="width: 220px;">
+          <div class="bg-white border border-wire-200 rounded-xl overflow-hidden shadow-sm">
+            <div class="bg-wire-200 w-full" style="aspect-ratio: 3/4;"></div>
+            <div class="p-4">
+              <p class="font-sans text-[14px] font-semibold text-wire-800">Kickstarter</p>
+              <p class="font-sans text-[12px] text-wire-400">Business</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex-shrink-0" style="width: 220px;">
+          <div class="bg-white border border-wire-200 rounded-xl overflow-hidden shadow-sm">
+            <div class="bg-wire-200 w-full" style="aspect-ratio: 3/4;"></div>
+            <div class="p-4">
+              <p class="font-sans text-[14px] font-semibold text-wire-800">The Browser</p>
+              <p class="font-sans text-[12px] text-wire-400">178K subscribers</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex-shrink-0" style="width: 220px;">
+          <div class="bg-white border border-wire-200 rounded-xl overflow-hidden shadow-sm">
+            <div class="bg-wire-200 w-full" style="aspect-ratio: 3/4;"></div>
+            <div class="p-4">
+              <p class="font-sans text-[14px] font-semibold text-wire-800">Buffer</p>
+              <p class="font-sans text-[12px] text-wire-400">Business</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex-shrink-0" style="width: 220px;">
+          <div class="bg-white border border-wire-200 rounded-xl overflow-hidden shadow-sm">
+            <div class="bg-wire-200 w-full" style="aspect-ratio: 3/4;"></div>
+            <div class="p-4">
+              <p class="font-sans text-[14px] font-semibold text-wire-800">Alison Roman</p>
+              <p class="font-sans text-[12px] text-wire-400">Creator</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Set 2 (duplicate for seamless loop) -->
+        <div class="flex-shrink-0" style="width: 220px;">
+          <div class="bg-white border border-wire-200 rounded-xl overflow-hidden shadow-sm">
+            <div class="bg-wire-200 w-full" style="aspect-ratio: 3/4;"></div>
+            <div class="p-4">
+              <p class="font-sans text-[14px] font-semibold text-wire-800">Tangle</p>
+              <p class="font-sans text-[12px] text-wire-400">690K subscribers</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex-shrink-0" style="width: 220px;">
+          <div class="bg-white border border-wire-200 rounded-xl overflow-hidden shadow-sm">
+            <div class="bg-wire-200 w-full" style="aspect-ratio: 3/4;"></div>
+            <div class="p-4">
+              <p class="font-sans text-[14px] font-semibold text-wire-800">404 Media</p>
+              <p class="font-sans text-[12px] text-wire-400">220K subscribers</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex-shrink-0" style="width: 220px;">
+          <div class="bg-white border border-wire-200 rounded-xl overflow-hidden shadow-sm">
+            <div class="bg-wire-200 w-full" style="aspect-ratio: 3/4;"></div>
+            <div class="p-4">
+              <p class="font-sans text-[14px] font-semibold text-wire-800">Platformer</p>
+              <p class="font-sans text-[12px] text-wire-400">207K subscribers</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex-shrink-0" style="width: 220px;">
+          <div class="bg-white border border-wire-200 rounded-xl overflow-hidden shadow-sm">
+            <div class="bg-wire-200 w-full" style="aspect-ratio: 3/4;"></div>
+            <div class="p-4">
+              <p class="font-sans text-[14px] font-semibold text-wire-800">Creator Science</p>
+              <p class="font-sans text-[12px] text-wire-400">65K subscribers</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex-shrink-0" style="width: 220px;">
+          <div class="bg-white border border-wire-200 rounded-xl overflow-hidden shadow-sm">
+            <div class="bg-wire-200 w-full" style="aspect-ratio: 3/4;"></div>
+            <div class="p-4">
+              <p class="font-sans text-[14px] font-semibold text-wire-800">The Lever</p>
+              <p class="font-sans text-[12px] text-wire-400">240K subscribers</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex-shrink-0" style="width: 220px;">
+          <div class="bg-white border border-wire-200 rounded-xl overflow-hidden shadow-sm">
+            <div class="bg-wire-200 w-full" style="aspect-ratio: 3/4;"></div>
+            <div class="p-4">
+              <p class="font-sans text-[14px] font-semibold text-wire-800">Kickstarter</p>
+              <p class="font-sans text-[12px] text-wire-400">Business</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex-shrink-0" style="width: 220px;">
+          <div class="bg-white border border-wire-200 rounded-xl overflow-hidden shadow-sm">
+            <div class="bg-wire-200 w-full" style="aspect-ratio: 3/4;"></div>
+            <div class="p-4">
+              <p class="font-sans text-[14px] font-semibold text-wire-800">The Browser</p>
+              <p class="font-sans text-[12px] text-wire-400">178K subscribers</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex-shrink-0" style="width: 220px;">
+          <div class="bg-white border border-wire-200 rounded-xl overflow-hidden shadow-sm">
+            <div class="bg-wire-200 w-full" style="aspect-ratio: 3/4;"></div>
+            <div class="p-4">
+              <p class="font-sans text-[14px] font-semibold text-wire-800">Buffer</p>
+              <p class="font-sans text-[12px] text-wire-400">Business</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex-shrink-0" style="width: 220px;">
+          <div class="bg-white border border-wire-200 rounded-xl overflow-hidden shadow-sm">
+            <div class="bg-wire-200 w-full" style="aspect-ratio: 3/4;"></div>
+            <div class="p-4">
+              <p class="font-sans text-[14px] font-semibold text-wire-800">Alison Roman</p>
+              <p class="font-sans text-[12px] text-wire-400">Creator</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </section>
+
+
+  <!-- ============================================================
+       BLOCK 2: PRODUCT DEMO
+       Strategy from Flodesk: "Our builder makes you the expert"
+       Single big product screenshot + centered headline. Show, don't tell.
+       Ghost version: Show the editor/dashboard — the calm, powerful interface.
+       ============================================================ -->
+  <section class="max-w-[1280px] mx-auto bg-white rounded-2xl px-16 py-20 shadow-sm">
+
+    <div class="text-center mb-12" style="max-width: 640px; margin-left: auto; margin-right: auto;">
+      <h2 style="font-family: Georgia, 'Times New Roman', serif; font-size: 64px; line-height: 1.06; letter-spacing: -0.025em; color: #121212; margin-bottom: 20px;">Everything you need to publish, grow, and earn</h2>
+      <p style="font-family: Inter, 'Helvetica Neue', Arial, sans-serif; font-size: 17px; line-height: 1.625; color: #808080;">Most publishers piece together five or six tools. Ghost replaces them with one platform — from first draft to monthly revenue.</p>
+    </div>
+
+    <!-- Large product screenshot placeholder -->
+    <div class="bg-wire-50 border border-wire-200 rounded-xl flex items-center justify-center" style="aspect-ratio: 16/9;">
+      <span class="font-sans text-[14px] text-wire-400">Product UI — Editor + Dashboard</span>
+    </div>
+
+    <div class="text-center mt-10">
+      <a href="#" class="inline-block font-sans text-[15px] font-semibold text-white px-8 py-3.5 rounded-lg" style="background-color: #262626;">Start your free trial</a>
+    </div>
+
+  </section>
+
+
+  <div class="h-8"></div>
+
+
+  <!-- ============================================================
+       BLOCK 3: FEATURE GRID
+       Strategy from Flodesk: Section headline + 2x3 grid of visual
+       feature cards. Each card has a product visual + title + short desc.
+       Ghost version: The 6 cycle verbs as visual cards.
+       ============================================================ -->
+  <section class="max-w-[1280px] mx-auto px-8">
+
+    <!-- Section header — left-aligned headline + CTA -->
+    <div class="flex items-end justify-between mb-12">
+      <h2 style="font-family: Georgia, 'Times New Roman', serif; font-size: 56px; line-height: 1.08; letter-spacing: -0.025em; color: #121212;">One platform,<br>every stage</h2>
+      <a href="#" class="font-sans text-[15px] font-semibold text-wire-900 border-2 border-wire-900 px-6 py-2.5 rounded-lg flex-shrink-0">Start your free trial</a>
+    </div>
+
+    <!-- 2x3 grid -->
+    <div class="grid grid-cols-2 gap-6">
+
+      <!-- Publish -->
+      <div class="bg-white border border-wire-200 rounded-2xl overflow-hidden shadow-sm">
+        <div class="bg-wire-50 border-b border-wire-200 flex items-center justify-center" style="aspect-ratio: 16/9;">
+          <span class="font-sans text-[13px] text-wire-400">Product UI — Editor</span>
+        </div>
+        <div class="p-8">
+          <h3 class="font-sans text-[18px] font-semibold text-wire-800 mb-2">Publish anything</h3>
+          <p class="font-sans text-[14px] text-wire-500 leading-relaxed">A calm, powerful editor for posts, pages, and rich media. Write once, deliver as web, email, or both.</p>
+        </div>
+      </div>
+
+      <!-- Design -->
+      <div class="bg-white border border-wire-200 rounded-2xl overflow-hidden shadow-sm">
+        <div class="bg-wire-50 border-b border-wire-200 flex items-center justify-center" style="aspect-ratio: 16/9;">
+          <span class="font-sans text-[13px] text-wire-400">Product UI — Themes</span>
+        </div>
+        <div class="p-8">
+          <h3 class="font-sans text-[18px] font-semibold text-wire-800 mb-2">Design everything</h3>
+          <p class="font-sans text-[14px] text-wire-500 leading-relaxed">Custom themes, your own domain, full brand control. Your site looks like yours — not like a template everyone else uses.</p>
+        </div>
+      </div>
+
+      <!-- Distribute -->
+      <div class="bg-white border border-wire-200 rounded-2xl overflow-hidden shadow-sm">
+        <div class="bg-wire-50 border-b border-wire-200 flex items-center justify-center" style="aspect-ratio: 16/9;">
+          <span class="font-sans text-[13px] text-wire-400">Product UI — Newsletter</span>
+        </div>
+        <div class="p-8">
+          <h3 class="font-sans text-[18px] font-semibold text-wire-800 mb-2">Distribute anywhere</h3>
+          <p class="font-sans text-[14px] text-wire-500 leading-relaxed">Email newsletters, your website, RSS, and the social web. Channels you control that no algorithm can throttle.</p>
+        </div>
+      </div>
+
+      <!-- Grow -->
+      <div class="bg-white border border-wire-200 rounded-2xl overflow-hidden shadow-sm">
+        <div class="bg-wire-50 border-b border-wire-200 flex items-center justify-center" style="aspect-ratio: 16/9;">
+          <span class="font-sans text-[13px] text-wire-400">Product UI — Members</span>
+        </div>
+        <div class="p-8">
+          <h3 class="font-sans text-[18px] font-semibold text-wire-800 mb-2">Grow memberships</h3>
+          <p class="font-sans text-[14px] text-wire-500 leading-relaxed">Turn visitors into members with native signup forms. Free and paid tiers, comments, and community tools built in.</p>
+        </div>
+      </div>
+
+      <!-- Earn -->
+      <div class="bg-white border border-wire-200 rounded-2xl overflow-hidden shadow-sm">
+        <div class="bg-wire-50 border-b border-wire-200 flex items-center justify-center" style="aspect-ratio: 16/9;">
+          <span class="font-sans text-[13px] text-wire-400">Product UI — Revenue</span>
+        </div>
+        <div class="p-8">
+          <h3 class="font-sans text-[18px] font-semibold text-wire-800 mb-2">Earn your way</h3>
+          <p class="font-sans text-[14px] text-wire-500 leading-relaxed">Paid subscriptions, tips, and donations — connected to your own Stripe. 170 currencies. Ghost takes 0%.</p>
+        </div>
+      </div>
+
+      <!-- Learn -->
+      <div class="bg-white border border-wire-200 rounded-2xl overflow-hidden shadow-sm">
+        <div class="bg-wire-50 border-b border-wire-200 flex items-center justify-center" style="aspect-ratio: 16/9;">
+          <span class="font-sans text-[13px] text-wire-400">Product UI — Analytics</span>
+        </div>
+        <div class="p-8">
+          <h3 class="font-sans text-[18px] font-semibold text-wire-800 mb-2">Learn what works</h3>
+          <p class="font-sans text-[14px] text-wire-500 leading-relaxed">Native analytics connecting web traffic, email performance, and member activity. No setup, no third-party scripts.</p>
+        </div>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <div class="h-8"></div>
+
+
+  <!-- ============================================================
+       BLOCK 4: "UNDER THE HOOD" — THE SKEPTICS BLOCK
+       Strategy from Flodesk: Dark background, tonal pivot. Text-only
+       cards in a 3x2 grid. Addresses the "is it serious?" objection.
+       Ghost version: Technical depth for developers and power users.
+       NOTE: Using wire-900 bg to signal dark section intent.
+       ============================================================ -->
+  <section class="bg-wire-900 rounded-2xl max-w-[1280px] mx-auto px-16 py-20 shadow-sm">
+
+    <!-- Header -->
+    <div class="text-center mb-14" style="max-width: 560px; margin-left: auto; margin-right: auto;">
+      <p style="font-family: Inter, 'Helvetica Neue', Arial, sans-serif; font-size: 19px; line-height: 1.6; color: #a6a6a6; font-style: italic; margin-bottom: 0;">And for the skeptics: powerful can still be simple</p>
+    </div>
+
+    <!-- 3x2 text-only grid -->
+    <div class="grid grid-cols-3 gap-5">
+
+      <div class="border border-wire-700 rounded-xl p-7">
+        <h3 class="font-sans text-[16px] font-semibold text-white mb-3">Content API</h3>
+        <p class="font-sans text-[14px] leading-relaxed" style="color: #a6a6a6;">Power mobile apps, headless websites, and automated workflows with a full REST API.</p>
+      </div>
+
+      <div class="border border-wire-700 rounded-xl p-7">
+        <h3 class="font-sans text-[16px] font-semibold text-white mb-3">Self-hosting</h3>
+        <p class="font-sans text-[14px] leading-relaxed" style="color: #a6a6a6;">Download Ghost for free and run it on your own server. Full control, no vendor lock-in.</p>
+      </div>
+
+      <div class="border border-wire-700 rounded-xl p-7">
+        <h3 class="font-sans text-[16px] font-semibold text-white mb-3">Custom themes</h3>
+        <p class="font-sans text-[14px] leading-relaxed" style="color: #a6a6a6;">Build from scratch with Handlebars templating, or start from any theme in the marketplace.</p>
+      </div>
+
+      <div class="border border-wire-700 rounded-xl p-7">
+        <h3 class="font-sans text-[16px] font-semibold text-white mb-3">Team roles</h3>
+        <p class="font-sans text-[14px] leading-relaxed" style="color: #a6a6a6;">Contributors, authors, editors, and admins. Staff permissions built for real editorial workflows.</p>
+      </div>
+
+      <div class="border border-wire-700 rounded-xl p-7">
+        <h3 class="font-sans text-[16px] font-semibold text-white mb-3">Webhooks &amp; Zapier</h3>
+        <p class="font-sans text-[14px] leading-relaxed" style="color: #a6a6a6;">Connect Ghost to 8,000+ apps. Trigger automations on publish, signup, or subscription events.</p>
+      </div>
+
+      <div class="border border-wire-700 rounded-xl p-7">
+        <h3 class="font-sans text-[16px] font-semibold text-white mb-3">Open source</h3>
+        <p class="font-sans text-[14px] leading-relaxed" style="color: #a6a6a6;">The code is public. Read it, fork it, audit it. Built on Node.js, maintained since 2013.</p>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <div class="h-8"></div>
+
+
+  <!-- ============================================================
+       BLOCK 5: TESTIMONIAL CAROUSEL
+       Strategy from Flodesk: Full-width card, one quote at a time,
+       high impact. Dot pagination. Personal, not a wall of quotes.
+       Ghost version: Real publishers saying what Ghost means to them.
+       ============================================================ -->
+  <section class="max-w-[1280px] mx-auto bg-white rounded-2xl shadow-sm overflow-hidden">
+
+    <div class="px-16 py-20">
+
+      <!-- Testimonial slides -->
+      <div id="testimonial-container" style="min-height: 200px;">
+
+        <div class="testimonial-slide active" data-slide="0">
+          <div class="max-w-[760px] mx-auto text-center">
+            <p style="font-family: Georgia, 'Times New Roman', serif; font-size: 28px; line-height: 1.4; letter-spacing: -0.015em; color: #262626; font-style: italic; margin-bottom: 32px;">"Moving to Ghost was the smoothest process of them all, with the concierge service taking care of everything."</p>
+            <p class="font-sans text-[14px] font-semibold text-wire-700">Paul Szoldra</p>
+            <p class="font-sans text-[13px] text-wire-400">Duffel Blog</p>
+          </div>
+        </div>
+
+        <div class="testimonial-slide" data-slide="1">
+          <div class="max-w-[760px] mx-auto text-center">
+            <p style="font-family: Georgia, 'Times New Roman', serif; font-size: 28px; line-height: 1.4; letter-spacing: -0.015em; color: #262626; font-style: italic; margin-bottom: 32px;">"Ghost gives us the infrastructure of a major media company without the overhead of one. We run a newsroom of four people on it."</p>
+            <p class="font-sans text-[14px] font-semibold text-wire-700">[Attribution needed]</p>
+            <p class="font-sans text-[13px] text-wire-400">404 Media</p>
+          </div>
+        </div>
+
+        <div class="testimonial-slide" data-slide="2">
+          <div class="max-w-[760px] mx-auto text-center">
+            <p style="font-family: Georgia, 'Times New Roman', serif; font-size: 28px; line-height: 1.4; letter-spacing: -0.015em; color: #262626; font-style: italic; margin-bottom: 32px;">"[Testimonial needed — creator audience. Someone who values the design/independence angle.]"</p>
+            <p class="font-sans text-[14px] font-semibold text-wire-700">[Name needed]</p>
+            <p class="font-sans text-[13px] text-wire-400">[Publication]</p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Dot pagination -->
+      <div class="flex justify-center gap-2 mt-10">
+        <button onclick="goToSlide(0)" class="testimonial-dot w-2.5 h-2.5 rounded-full bg-wire-900" data-dot="0"></button>
+        <button onclick="goToSlide(1)" class="testimonial-dot w-2.5 h-2.5 rounded-full bg-wire-300" data-dot="1"></button>
+        <button onclick="goToSlide(2)" class="testimonial-dot w-2.5 h-2.5 rounded-full bg-wire-300" data-dot="2"></button>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <div class="h-8"></div>
+
+
+  <!-- ============================================================
+       BLOCK 6: STATS BLOCK
+       Strategy from Flodesk: 3 giant numbers, minimal text.
+       2-second scan that lands an argument.
+       Ghost version: The numbers that justify choosing Ghost.
+       ============================================================ -->
+  <section class="py-20">
+
+    <div class="max-w-[1280px] mx-auto px-8">
+
+      <h2 style="font-family: Georgia, 'Times New Roman', serif; font-size: 56px; line-height: 1.08; letter-spacing: -0.025em; color: #121212; text-align: center; margin-bottom: 56px;">Worth choosing</h2>
+
+      <div class="grid grid-cols-3 gap-6">
+
+        <!-- Stat 1 -->
+        <div class="bg-white border border-wire-200 rounded-2xl shadow-sm p-10 text-center">
+          <div style="font-family: Georgia, 'Times New Roman', serif; font-size: 72px; line-height: 1; letter-spacing: -0.03em; color: #121212; margin-bottom: 12px;">
+            <span style="font-size: 36px; vertical-align: top; line-height: 1;">$</span>100M<span style="font-size: 36px;">+</span>
+          </div>
+          <p class="font-sans text-[15px] text-wire-500 leading-snug">Earned by publications on Ghost per year. Ghost takes $0.</p>
+        </div>
+
+        <!-- Stat 2 -->
+        <div class="bg-white border border-wire-200 rounded-2xl shadow-sm p-10 text-center">
+          <div style="font-family: Georgia, 'Times New Roman', serif; font-size: 72px; line-height: 1; letter-spacing: -0.03em; color: #121212; margin-bottom: 12px;">
+            0<span style="font-size: 36px;">%</span>
+          </div>
+          <p class="font-sans text-[15px] text-wire-500 leading-snug">Platform fees. Substack takes 10%. Patreon takes 8–12%. Ghost takes nothing.</p>
+        </div>
+
+        <!-- Stat 3 -->
+        <div class="bg-white border border-wire-200 rounded-2xl shadow-sm p-10 text-center">
+          <div style="font-family: Georgia, 'Times New Roman', serif; font-size: 72px; line-height: 1; letter-spacing: -0.03em; color: #121212; margin-bottom: 12px;">
+            2013
+          </div>
+          <p class="font-sans text-[15px] text-wire-500 leading-snug">Founded. Nonprofit. No investors. Still independent. Still building.</p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- ============================================================
+       BLOCK 7: THE REFRAME + AUDIENCE ROUTING
+       Strategy: Combines Ghost's unique ethics story (Block 8 from
+       original) with audience routing (Block 9). The reframe is Ghost's
+       strongest card — Flodesk has nothing like it. Keep it.
+       ============================================================ -->
+  <section class="max-w-[1280px] mx-auto bg-white rounded-2xl px-16 py-20 shadow-sm">
+
+    <!-- Reframe — centered, lots of breathing room -->
+    <div class="max-w-[680px] mx-auto text-center mb-16">
+
+      <h2 style="font-family: Georgia, 'Times New Roman', serif; font-size: 56px; line-height: 1.15; letter-spacing: -0.025em; color: #121212; margin-bottom: 24px;">No investors.<br>No shareholders.<br>No bullshit.</h2>
+
+      <p style="font-family: Inter, 'Helvetica Neue', Arial, sans-serif; font-size: 18px; line-height: 1.7; color: #595959; margin-bottom: 40px;">Ghost is built by a nonprofit foundation, funded entirely by the people who use it. No growth targets. No exit strategy. Just a product that exists to be good at what it does.</p>
+
+      <!-- Stark fact lines -->
+      <div class="space-y-5 mb-12 text-left" style="max-width: 480px; margin-left: auto; margin-right: auto;">
+        <div class="border-t border-wire-200 pt-5">
+          <p style="font-family: Inter, 'Helvetica Neue', Arial, sans-serif; font-size: 16px; line-height: 1.6; color: #262626; font-weight: 600;">Can't be bought. Can't be sold.</p>
+          <p class="font-sans text-[14px] text-wire-500 leading-snug mt-1">A nonprofit foundation has no owners and no equity. Ghost's structure makes a rug-pull impossible.</p>
+        </div>
+        <div class="border-t border-wire-200 pt-5">
+          <p style="font-family: Inter, 'Helvetica Neue', Arial, sans-serif; font-size: 16px; line-height: 1.6; color: #262626; font-weight: 600;">Open source. All of it.</p>
+          <p class="font-sans text-[14px] text-wire-500 leading-snug mt-1">The code is public. You can read it, run it yourself, or modify it. Download Ghost for free and host it anywhere.</p>
+        </div>
+        <div class="border-t border-wire-200 pt-5">
+          <p style="font-family: Inter, 'Helvetica Neue', Arial, sans-serif; font-size: 16px; line-height: 1.6; color: #262626; font-weight: 600;">Since 2013. Still here.</p>
+          <p class="font-sans text-[14px] text-wire-500 leading-snug mt-1">Twelve years of building, funded by customers. No pivots, no acquisitions, no surprises.</p>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Audience routing — three cards, Flodesk doesn't have this -->
+    <div class="border-t border-wire-200 pt-12">
+      <p class="font-sans text-[12px] font-medium text-wire-400 tracking-wide uppercase text-center mb-8">Ghost is built for</p>
+      <div class="grid grid-cols-3 gap-6">
+
+        <a href="#" class="border border-wire-200 rounded-xl p-8 flex flex-col group hover:border-wire-400 transition-colors">
+          <p class="font-sans text-[12px] font-medium text-wire-400 tracking-wide uppercase mb-3">Creators</p>
+          <h3 style="font-family: Georgia, 'Times New Roman', serif; font-size: 24px; line-height: 1.2; letter-spacing: -0.015em; color: #121212; margin-bottom: 8px;">Own your audience, and your brand.</h3>
+          <p class="font-sans text-[14px] text-wire-500 leading-snug mb-6">Build a site that's unmistakably yours, grow a following, earn a living — without giving up a cut.</p>
+          <span class="mt-auto font-sans text-[14px] font-semibold text-wire-800" style="text-decoration: underline; text-underline-offset: 3px;">Ghost for creators &rarr;</span>
+        </a>
+
+        <a href="#" class="border border-wire-200 rounded-xl p-8 flex flex-col group hover:border-wire-400 transition-colors">
+          <p class="font-sans text-[12px] font-medium text-wire-400 tracking-wide uppercase mb-3">Publishers</p>
+          <h3 style="font-family: Georgia, 'Times New Roman', serif; font-size: 24px; line-height: 1.2; letter-spacing: -0.015em; color: #121212; margin-bottom: 8px;">Create an independent newsroom.</h3>
+          <p class="font-sans text-[14px] text-wire-500 leading-snug mb-6">Professional editorial tools, team workflows, and revenue infrastructure to build a sustainable media business.</p>
+          <span class="mt-auto font-sans text-[14px] font-semibold text-wire-800" style="text-decoration: underline; text-underline-offset: 3px;">Ghost for publishers &rarr;</span>
+        </a>
+
+        <a href="#" class="border border-wire-200 rounded-xl p-8 flex flex-col group hover:border-wire-400 transition-colors">
+          <p class="font-sans text-[12px] font-medium text-wire-400 tracking-wide uppercase mb-3">Businesses</p>
+          <h3 style="font-family: Georgia, 'Times New Roman', serif; font-size: 24px; line-height: 1.2; letter-spacing: -0.015em; color: #121212; margin-bottom: 8px;">One and done blogging and newsletter.</h3>
+          <p class="font-sans text-[14px] text-wire-500 leading-snug mb-6">Power your blog and newsletter on a platform that's reliable, fast, and built for your developers and your writers.</p>
+          <span class="mt-auto font-sans text-[14px] font-semibold text-wire-800" style="text-decoration: underline; text-underline-offset: 3px;">Ghost for businesses &rarr;</span>
+        </a>
+
+      </div>
+    </div>
+
+  </section>
+
+
+  <div class="h-8"></div>
+
+
+  <!-- ============================================================
+       BLOCK 8: FAQ
+       Strategy from Flodesk: Simple accordion near the bottom.
+       Catches the questions no block directly answers.
+       Reduces friction for comparison shoppers.
+       ============================================================ -->
+  <section class="max-w-[1280px] mx-auto bg-white rounded-2xl px-16 py-20 shadow-sm">
+
+    <h2 style="font-family: Georgia, 'Times New Roman', serif; font-size: 56px; line-height: 1; letter-spacing: -0.025em; color: #121212; text-align: center; margin-bottom: 48px;">FAQ</h2>
+
+    <div class="max-w-[720px] mx-auto">
+
+      <div class="faq-item border-t border-wire-200" onclick="toggleFaq(this)">
+        <button class="w-full flex items-center justify-between py-5 cursor-pointer">
+          <span class="font-sans text-[16px] font-medium text-wire-800 text-left">Is there a free trial?</span>
+          <span class="faq-icon font-sans text-[20px] text-wire-400 flex-shrink-0 ml-4">+</span>
+        </button>
+        <div class="faq-answer pb-5">
+          <p class="font-sans text-[14px] text-wire-500 leading-relaxed">Yes. Every Ghost(Pro) account starts with a 14-day free trial. No credit card required to start.</p>
+        </div>
+      </div>
+
+      <div class="faq-item border-t border-wire-200" onclick="toggleFaq(this)">
+        <button class="w-full flex items-center justify-between py-5 cursor-pointer">
+          <span class="font-sans text-[16px] font-medium text-wire-800 text-left">Can I migrate from Substack, WordPress, or Medium?</span>
+          <span class="faq-icon font-sans text-[20px] text-wire-400 flex-shrink-0 ml-4">+</span>
+        </button>
+        <div class="faq-answer pb-5">
+          <p class="font-sans text-[14px] text-wire-500 leading-relaxed">Yes. Ghost has automated imports for Substack, WordPress, Medium, Squarespace, and Mailchimp. For larger or more complex migrations, a dedicated team handles everything for you.</p>
+        </div>
+      </div>
+
+      <div class="faq-item border-t border-wire-200" onclick="toggleFaq(this)">
+        <button class="w-full flex items-center justify-between py-5 cursor-pointer">
+          <span class="font-sans text-[16px] font-medium text-wire-800 text-left">Do I need a developer to use Ghost?</span>
+          <span class="faq-icon font-sans text-[20px] text-wire-400 flex-shrink-0 ml-4">+</span>
+        </button>
+        <div class="faq-answer pb-5">
+          <p class="font-sans text-[14px] text-wire-500 leading-relaxed">No. Ghost(Pro) is fully managed hosting — you sign up, pick a theme, and start publishing. If you want custom theme work or advanced integrations, Ghost also has a directory of experts you can hire.</p>
+        </div>
+      </div>
+
+      <div class="faq-item border-t border-wire-200" onclick="toggleFaq(this)">
+        <button class="w-full flex items-center justify-between py-5 cursor-pointer">
+          <span class="font-sans text-[16px] font-medium text-wire-800 text-left">What happens if Ghost shuts down?</span>
+          <span class="faq-icon font-sans text-[20px] text-wire-400 flex-shrink-0 ml-4">+</span>
+        </button>
+        <div class="faq-answer pb-5">
+          <p class="font-sans text-[14px] text-wire-500 leading-relaxed">Ghost is open source — the code is public and can be run by anyone. Your content can be exported at any time as JSON. And as a nonprofit with no investors to satisfy, Ghost doesn't face the same shutdown pressures as VC-funded platforms.</p>
+        </div>
+      </div>
+
+      <div class="faq-item border-t border-wire-200 border-b" onclick="toggleFaq(this)">
+        <button class="w-full flex items-center justify-between py-5 cursor-pointer">
+          <span class="font-sans text-[16px] font-medium text-wire-800 text-left">How does pricing work?</span>
+          <span class="faq-icon font-sans text-[20px] text-wire-400 flex-shrink-0 ml-4">+</span>
+        </button>
+        <div class="faq-answer pb-5">
+          <p class="font-sans text-[14px] text-wire-500 leading-relaxed">Ghost(Pro) starts at $9/month. You pay a flat monthly fee for managed hosting — Ghost doesn't take a percentage of the money you earn from your audience. Or download Ghost for free and self-host it.</p>
+        </div>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <div class="h-8"></div>
+
+
+  <!-- ============================================================
+       BLOCK 9: FINAL CTA — BOOKEND
+       Strategy from Flodesk: Emotional headline + CTA + the same
+       auto-scrolling marquee from the hero. Creates a visual "frame."
+       Using wire-900 bg to signal the dark section intent.
+       ============================================================ -->
+  <section class="bg-wire-900 rounded-2xl max-w-[1280px] mx-auto shadow-sm overflow-hidden">
+
+    <!-- CTA content -->
+    <div class="px-16 pt-20 pb-16 text-center">
+      <h2 style="font-family: Georgia, 'Times New Roman', serif; font-size: 64px; line-height: 1.08; letter-spacing: -0.025em; color: #f7f7f7; margin-bottom: 24px;">Your audience.<br>Your platform.<br>Your rules.</h2>
+      <a href="#" class="inline-block font-sans text-[15px] font-semibold text-wire-900 bg-white px-8 py-3.5 rounded-lg">Start your free trial</a>
+    </div>
+
+    <!-- Echoed publication ticker — bookend from hero -->
+    <div class="overflow-hidden pb-12 mt-4" style="opacity: 0.4;">
+      <div class="pub-ticker-track">
+
+        <div class="flex-shrink-0" style="width: 180px;">
+          <div class="border border-wire-700 rounded-lg overflow-hidden">
+            <div class="bg-wire-800 w-full" style="aspect-ratio: 4/3;"></div>
+            <div class="p-3">
+              <p class="font-sans text-[13px] font-medium text-wire-400">Tangle</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex-shrink-0" style="width: 180px;">
+          <div class="border border-wire-700 rounded-lg overflow-hidden">
+            <div class="bg-wire-800 w-full" style="aspect-ratio: 4/3;"></div>
+            <div class="p-3">
+              <p class="font-sans text-[13px] font-medium text-wire-400">404 Media</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex-shrink-0" style="width: 180px;">
+          <div class="border border-wire-700 rounded-lg overflow-hidden">
+            <div class="bg-wire-800 w-full" style="aspect-ratio: 4/3;"></div>
+            <div class="p-3">
+              <p class="font-sans text-[13px] font-medium text-wire-400">Platformer</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex-shrink-0" style="width: 180px;">
+          <div class="border border-wire-700 rounded-lg overflow-hidden">
+            <div class="bg-wire-800 w-full" style="aspect-ratio: 4/3;"></div>
+            <div class="p-3">
+              <p class="font-sans text-[13px] font-medium text-wire-400">Creator Science</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex-shrink-0" style="width: 180px;">
+          <div class="border border-wire-700 rounded-lg overflow-hidden">
+            <div class="bg-wire-800 w-full" style="aspect-ratio: 4/3;"></div>
+            <div class="p-3">
+              <p class="font-sans text-[13px] font-medium text-wire-400">The Lever</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex-shrink-0" style="width: 180px;">
+          <div class="border border-wire-700 rounded-lg overflow-hidden">
+            <div class="bg-wire-800 w-full" style="aspect-ratio: 4/3;"></div>
+            <div class="p-3">
+              <p class="font-sans text-[13px] font-medium text-wire-400">Kickstarter</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex-shrink-0" style="width: 180px;">
+          <div class="border border-wire-700 rounded-lg overflow-hidden">
+            <div class="bg-wire-800 w-full" style="aspect-ratio: 4/3;"></div>
+            <div class="p-3">
+              <p class="font-sans text-[13px] font-medium text-wire-400">The Browser</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex-shrink-0" style="width: 180px;">
+          <div class="border border-wire-700 rounded-lg overflow-hidden">
+            <div class="bg-wire-800 w-full" style="aspect-ratio: 4/3;"></div>
+            <div class="p-3">
+              <p class="font-sans text-[13px] font-medium text-wire-400">Buffer</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex-shrink-0" style="width: 180px;">
+          <div class="border border-wire-700 rounded-lg overflow-hidden">
+            <div class="bg-wire-800 w-full" style="aspect-ratio: 4/3;"></div>
+            <div class="p-3">
+              <p class="font-sans text-[13px] font-medium text-wire-400">Alison Roman</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Duplicate for loop -->
+        <div class="flex-shrink-0" style="width: 180px;">
+          <div class="border border-wire-700 rounded-lg overflow-hidden">
+            <div class="bg-wire-800 w-full" style="aspect-ratio: 4/3;"></div>
+            <div class="p-3">
+              <p class="font-sans text-[13px] font-medium text-wire-400">Tangle</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex-shrink-0" style="width: 180px;">
+          <div class="border border-wire-700 rounded-lg overflow-hidden">
+            <div class="bg-wire-800 w-full" style="aspect-ratio: 4/3;"></div>
+            <div class="p-3">
+              <p class="font-sans text-[13px] font-medium text-wire-400">404 Media</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex-shrink-0" style="width: 180px;">
+          <div class="border border-wire-700 rounded-lg overflow-hidden">
+            <div class="bg-wire-800 w-full" style="aspect-ratio: 4/3;"></div>
+            <div class="p-3">
+              <p class="font-sans text-[13px] font-medium text-wire-400">Platformer</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex-shrink-0" style="width: 180px;">
+          <div class="border border-wire-700 rounded-lg overflow-hidden">
+            <div class="bg-wire-800 w-full" style="aspect-ratio: 4/3;"></div>
+            <div class="p-3">
+              <p class="font-sans text-[13px] font-medium text-wire-400">Creator Science</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex-shrink-0" style="width: 180px;">
+          <div class="border border-wire-700 rounded-lg overflow-hidden">
+            <div class="bg-wire-800 w-full" style="aspect-ratio: 4/3;"></div>
+            <div class="p-3">
+              <p class="font-sans text-[13px] font-medium text-wire-400">The Lever</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex-shrink-0" style="width: 180px;">
+          <div class="border border-wire-700 rounded-lg overflow-hidden">
+            <div class="bg-wire-800 w-full" style="aspect-ratio: 4/3;"></div>
+            <div class="p-3">
+              <p class="font-sans text-[13px] font-medium text-wire-400">Kickstarter</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex-shrink-0" style="width: 180px;">
+          <div class="border border-wire-700 rounded-lg overflow-hidden">
+            <div class="bg-wire-800 w-full" style="aspect-ratio: 4/3;"></div>
+            <div class="p-3">
+              <p class="font-sans text-[13px] font-medium text-wire-400">The Browser</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex-shrink-0" style="width: 180px;">
+          <div class="border border-wire-700 rounded-lg overflow-hidden">
+            <div class="bg-wire-800 w-full" style="aspect-ratio: 4/3;"></div>
+            <div class="p-3">
+              <p class="font-sans text-[13px] font-medium text-wire-400">Buffer</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex-shrink-0" style="width: 180px;">
+          <div class="border border-wire-700 rounded-lg overflow-hidden">
+            <div class="bg-wire-800 w-full" style="aspect-ratio: 4/3;"></div>
+            <div class="p-3">
+              <p class="font-sans text-[13px] font-medium text-wire-400">Alison Roman</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </section>
+
+
+  <div class="h-8"></div>
+
+
+  <!-- ============================================================
+       FOOTER
+       ============================================================ -->
+  <footer class="max-w-[1280px] mx-auto px-8 py-12">
+    <div class="flex justify-between items-start">
+      <div>
+        <div class="flex items-center gap-2.5 mb-3">
+          <div class="w-6 h-6 bg-wire-900 rounded-full"></div>
+          <span class="font-sans text-[15px] font-semibold text-wire-900">Ghost</span>
+        </div>
+        <p class="font-sans text-[13px] text-wire-400">The publishing platform for independence.</p>
+      </div>
+      <div class="flex gap-16">
+        <div>
+          <p class="font-sans text-[12px] font-medium text-wire-400 tracking-wide uppercase mb-3">Product</p>
+          <div class="space-y-2">
+            <a href="#" class="block font-sans text-[14px] text-wire-600">Creators</a>
+            <a href="#" class="block font-sans text-[14px] text-wire-600">Publishers</a>
+            <a href="#" class="block font-sans text-[14px] text-wire-600">Businesses</a>
+            <a href="#" class="block font-sans text-[14px] text-wire-600">Pricing</a>
+          </div>
+        </div>
+        <div>
+          <p class="font-sans text-[12px] font-medium text-wire-400 tracking-wide uppercase mb-3">Resources</p>
+          <div class="space-y-2">
+            <a href="#" class="block font-sans text-[14px] text-wire-600">Tutorials</a>
+            <a href="#" class="block font-sans text-[14px] text-wire-600">Themes</a>
+            <a href="#" class="block font-sans text-[14px] text-wire-600">Integrations</a>
+            <a href="#" class="block font-sans text-[14px] text-wire-600">Experts</a>
+          </div>
+        </div>
+        <div>
+          <p class="font-sans text-[12px] font-medium text-wire-400 tracking-wide uppercase mb-3">Company</p>
+          <div class="space-y-2">
+            <a href="#" class="block font-sans text-[14px] text-wire-600">About</a>
+            <a href="#" class="block font-sans text-[14px] text-wire-600">Explore</a>
+            <a href="#" class="block font-sans text-[14px] text-wire-600">Developers</a>
+            <a href="#" class="block font-sans text-[14px] text-wire-600">Open source</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+  <!-- Scripts -->
+  <script>
+    // Testimonial carousel
+    let currentSlide = 0;
+    function goToSlide(n) {
+      document.querySelectorAll('.testimonial-slide').forEach(s => s.classList.remove('active'));
+      document.querySelectorAll('.testimonial-dot').forEach(d => {
+        d.classList.remove('bg-wire-900');
+        d.classList.add('bg-wire-300');
+      });
+      document.querySelector(`[data-slide="${n}"]`).classList.add('active');
+      const dot = document.querySelector(`[data-dot="${n}"]`);
+      dot.classList.remove('bg-wire-300');
+      dot.classList.add('bg-wire-900');
+      currentSlide = n;
+    }
+
+    // FAQ accordion
+    function toggleFaq(el) {
+      el.classList.toggle('open');
+    }
+  </script>
+
+
+</body>
+</html>
