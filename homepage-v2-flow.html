@@ -95,6 +95,23 @@
       right: -10px;
     }
 
+    /* Slide tabs */
+    .slide-tab-wrap { background: none; border: none; cursor: pointer; text-align: center; padding: 0; }
+    .slide-tab-label { color: #bfbfbf; transition: color 0.2s; }
+    .slide-tab-wrap.active .slide-tab-label { color: #121212; font-weight: 600; }
+    .slide-tab-wrap.past .slide-tab-label { color: #bfbfbf; }
+    .slide-tab-track { height: 3px; background: #f0f0f0; border-radius: 2px; overflow: hidden; margin: 0 4px; }
+    .slide-tab-fill { height: 100%; width: 0%; background: #262626; border-radius: 2px; }
+
+    /* Range input styling */
+    input[type="range"] { height: 4px; -webkit-appearance: none; appearance: none; background: #d9d9d9; border-radius: 2px; outline: none; }
+    input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; width: 18px; height: 18px; border-radius: 50%; background: #262626; cursor: pointer; }
+
+    /* Testimonial filters */
+    .test-filter { background: transparent; color: #808080; border: 1px solid transparent; cursor: pointer; }
+    .test-filter.active { background: #262626; color: #fff; }
+    .test-filter:not(.active):hover { border-color: #d9d9d9; }
+
     /* Theme masonry */
     .theme-masonry {
       columns: 3;
@@ -287,7 +304,7 @@
     </div>
 
     <!-- Revenue line -->
-    <p class="text-center font-sans text-[17px] text-wire-500 mb-8">Ghost publishers have earned over <span class="text-wire-900 font-semibold">$100 million</span> from their readers.</p>
+    <p class="text-center font-sans text-[17px] text-wire-500 mb-8">Publishers on Ghost have earned over <span class="text-wire-900 font-semibold">$100M</span> in direct revenue — with 0% platform fees.</p>
 
     <!-- Trust strip -->
     <div class="overflow-hidden">
@@ -332,54 +349,112 @@
   <!-- ============================================================
        BLOCK 2: PRODUCT MOMENT — Your Cockpit
        ============================================================ -->
-  <section class="max-w-[1280px] mx-auto mb-8">
-    <div class="bg-white rounded-2xl shadow-sm px-16 py-20 text-center">
-      <h2 style="font-family: Georgia, 'Times New Roman', serif; font-size: 48px; line-height: 1.1; letter-spacing: -0.02em; color: #121212; margin-bottom: 16px;">Everything you need.<br>Nothing you don't.</h2>
-      <p class="font-sans text-[17px] text-wire-500 mb-12 max-w-[500px] mx-auto">A clean, powerful workspace for publishing, growing, and earning.</p>
-      <div class="bg-wire-50 border border-wire-200 rounded-xl flex items-center justify-center" style="height: 480px;">
-        <span class="font-sans text-[14px] text-wire-400">Ghost editor / dashboard UI — seriousness signal</span>
-      </div>
-    </div>
-  </section>
-
-
-  <!-- ============================================================
-       BLOCK 3: CAPABILITY CARDS — What You Can Build
-       ============================================================ -->
-  <section class="max-w-[1280px] mx-auto mb-8">
+  <section class="max-w-[1280px] mx-auto mb-[120px]">
     <div class="bg-white rounded-2xl shadow-sm px-16 py-20">
-      <h2 style="font-family: Georgia, 'Times New Roman', serif; font-size: 48px; line-height: 1.1; letter-spacing: -0.02em; color: #121212; margin-bottom: 48px; max-width: 500px;">One tool. Everything a publisher needs.</h2>
+      <div class="text-center mb-12">
+        <h2 style="font-family: Georgia, 'Times New Roman', serif; font-size: 48px; line-height: 1.1; letter-spacing: -0.02em; color: #121212; margin-bottom: 16px;">Everything you need.<br>Nothing you don't.</h2>
+        <p class="font-sans text-[17px] text-wire-500 max-w-[500px] mx-auto">A clean, powerful workspace for publishing, growing, and earning.</p>
+      </div>
 
-      <div class="grid grid-cols-3 gap-6">
-        <div class="border border-wire-200 rounded-xl p-8">
-          <h3 class="font-sans text-[15px] font-semibold text-wire-800 mb-2">Publish anything</h3>
-          <p class="font-sans text-[14px] text-wire-500 leading-relaxed mb-4">Posts, pages, newsletters, premium content. A calm editor that gets out of the way.</p>
-          <span class="font-sans text-[13px] font-medium text-wire-800">Publishing features &rarr;</span>
+      <!-- Slideshow nav tabs with individual progress bars -->
+      <div class="flex justify-center gap-1 mb-8" id="slide-tabs">
+        <button onclick="goToSlide(0)" class="slide-tab-wrap" style="min-width: 100px;">
+          <span class="slide-tab-label font-sans text-[13px] font-medium block px-4 py-2">Publish</span>
+          <div class="slide-tab-track"><div class="slide-tab-fill" data-tab-fill="0"></div></div>
+        </button>
+        <button onclick="goToSlide(1)" class="slide-tab-wrap" style="min-width: 100px;">
+          <span class="slide-tab-label font-sans text-[13px] font-medium block px-4 py-2">Distribute</span>
+          <div class="slide-tab-track"><div class="slide-tab-fill" data-tab-fill="1"></div></div>
+        </button>
+        <button onclick="goToSlide(2)" class="slide-tab-wrap" style="min-width: 100px;">
+          <span class="slide-tab-label font-sans text-[13px] font-medium block px-4 py-2">Grow</span>
+          <div class="slide-tab-track"><div class="slide-tab-fill" data-tab-fill="2"></div></div>
+        </button>
+        <button onclick="goToSlide(3)" class="slide-tab-wrap" style="min-width: 100px;">
+          <span class="slide-tab-label font-sans text-[13px] font-medium block px-4 py-2">Earn</span>
+          <div class="slide-tab-track"><div class="slide-tab-fill" data-tab-fill="3"></div></div>
+        </button>
+        <button onclick="goToSlide(4)" class="slide-tab-wrap" style="min-width: 100px;">
+          <span class="slide-tab-label font-sans text-[13px] font-medium block px-4 py-2">Design</span>
+          <div class="slide-tab-track"><div class="slide-tab-fill" data-tab-fill="4"></div></div>
+        </button>
+      </div>
+
+      <!-- Slides container -->
+      <div class="relative overflow-hidden rounded-xl" style="height: 520px;">
+        <!-- Slide 0: Publish -->
+        <div class="slide absolute inset-0 flex transition-opacity duration-500" data-slide="0" style="opacity: 1;">
+          <div class="w-[340px] flex-shrink-0 bg-wire-50 border-r border-wire-200 p-10 flex flex-col justify-center">
+            <h3 class="font-sans text-[15px] font-semibold text-wire-800 mb-2">Publish anything</h3>
+            <p class="font-sans text-[14px] text-wire-500 leading-relaxed mb-4">Posts, pages, newsletters, premium content. A calm editor that gets out of the way.</p>
+            <span class="font-sans text-[13px] font-medium text-wire-800">Publishing features &rarr;</span>
+          </div>
+          <div class="flex-1 bg-wire-50 flex items-center justify-center">
+            <div class="text-center">
+              <div class="w-16 h-16 bg-wire-200 rounded-xl mx-auto mb-4 flex items-center justify-center"><span class="font-serif text-[24px] text-wire-400">T</span></div>
+              <span class="font-sans text-[14px] text-wire-400">Ghost editor UI</span>
+            </div>
+          </div>
         </div>
-        <div class="border border-wire-200 rounded-xl p-8">
-          <h3 class="font-sans text-[15px] font-semibold text-wire-800 mb-2">Send it everywhere</h3>
-          <p class="font-sans text-[14px] text-wire-500 leading-relaxed mb-4">Email newsletters, your website, RSS, and the social web. One click, every channel.</p>
-          <span class="font-sans text-[13px] font-medium text-wire-800">Distribution features &rarr;</span>
+
+        <!-- Slide 1: Distribute -->
+        <div class="slide absolute inset-0 flex transition-opacity duration-500" data-slide="1" style="opacity: 0; pointer-events: none;">
+          <div class="w-[340px] flex-shrink-0 bg-wire-50 border-r border-wire-200 p-10 flex flex-col justify-center">
+            <h3 class="font-sans text-[15px] font-semibold text-wire-800 mb-2">Send it everywhere</h3>
+            <p class="font-sans text-[14px] text-wire-500 leading-relaxed mb-4">Email newsletters, your website, RSS, and the social web. One click, every channel.</p>
+            <span class="font-sans text-[13px] font-medium text-wire-800">Distribution features &rarr;</span>
+          </div>
+          <div class="flex-1 bg-wire-50 flex items-center justify-center">
+            <div class="text-center">
+              <div class="w-16 h-16 bg-wire-200 rounded-xl mx-auto mb-4 flex items-center justify-center"><span class="font-sans text-[20px] text-wire-400">@</span></div>
+              <span class="font-sans text-[14px] text-wire-400">Newsletter send UI</span>
+            </div>
+          </div>
         </div>
-        <div class="border border-wire-200 rounded-xl p-8">
-          <h3 class="font-sans text-[15px] font-semibold text-wire-800 mb-2">Grow a membership</h3>
-          <p class="font-sans text-[14px] text-wire-500 leading-relaxed mb-4">Turn visitors into subscribers with native signup forms, landing pages, and recommendations.</p>
-          <span class="font-sans text-[13px] font-medium text-wire-800">Growth features &rarr;</span>
+
+        <!-- Slide 2: Grow -->
+        <div class="slide absolute inset-0 flex transition-opacity duration-500" data-slide="2" style="opacity: 0; pointer-events: none;">
+          <div class="w-[340px] flex-shrink-0 bg-wire-50 border-r border-wire-200 p-10 flex flex-col justify-center">
+            <h3 class="font-sans text-[15px] font-semibold text-wire-800 mb-2">Grow a membership</h3>
+            <p class="font-sans text-[14px] text-wire-500 leading-relaxed mb-4">Turn visitors into subscribers with native signup forms, landing pages, and recommendations.</p>
+            <span class="font-sans text-[13px] font-medium text-wire-800">Growth features &rarr;</span>
+          </div>
+          <div class="flex-1 bg-wire-50 flex items-center justify-center">
+            <div class="text-center">
+              <div class="w-16 h-16 bg-wire-200 rounded-xl mx-auto mb-4 flex items-center justify-center"><span class="font-sans text-[20px] text-wire-400">&uarr;</span></div>
+              <span class="font-sans text-[14px] text-wire-400">Member growth dashboard</span>
+            </div>
+          </div>
         </div>
-        <div class="border border-wire-200 rounded-xl p-8">
-          <h3 class="font-sans text-[15px] font-semibold text-wire-800 mb-2">Earn on your terms</h3>
-          <p class="font-sans text-[14px] text-wire-500 leading-relaxed mb-4">Paid subscriptions through your own Stripe. Ghost takes 0%. You keep everything.</p>
-          <span class="font-sans text-[13px] font-medium text-wire-800">Revenue features &rarr;</span>
+
+        <!-- Slide 3: Earn -->
+        <div class="slide absolute inset-0 flex transition-opacity duration-500" data-slide="3" style="opacity: 0; pointer-events: none;">
+          <div class="w-[340px] flex-shrink-0 bg-wire-50 border-r border-wire-200 p-10 flex flex-col justify-center">
+            <h3 class="font-sans text-[15px] font-semibold text-wire-800 mb-2">Earn on your terms</h3>
+            <p class="font-sans text-[14px] text-wire-500 leading-relaxed mb-4">Paid subscriptions through your own Stripe. Ghost takes 0%. You keep everything.</p>
+            <span class="font-sans text-[13px] font-medium text-wire-800">Revenue features &rarr;</span>
+          </div>
+          <div class="flex-1 bg-wire-50 flex items-center justify-center">
+            <div class="text-center">
+              <div class="w-16 h-16 bg-wire-200 rounded-xl mx-auto mb-4 flex items-center justify-center"><span class="font-sans text-[20px] text-wire-400">$</span></div>
+              <span class="font-sans text-[14px] text-wire-400">Revenue & subscriptions</span>
+            </div>
+          </div>
         </div>
-        <div class="border border-wire-200 rounded-xl p-8">
-          <h3 class="font-sans text-[15px] font-semibold text-wire-800 mb-2">See what's working</h3>
-          <p class="font-sans text-[14px] text-wire-500 leading-relaxed mb-4">Native analytics connecting web traffic, email engagement, and member activity in one place.</p>
-          <span class="font-sans text-[13px] font-medium text-wire-800">Analytics features &rarr;</span>
-        </div>
-        <div class="border border-wire-200 rounded-xl p-8">
-          <h3 class="font-sans text-[15px] font-semibold text-wire-800 mb-2">Make it yours</h3>
-          <p class="font-sans text-[14px] text-wire-500 leading-relaxed mb-4">Your domain. Your brand. Custom themes or start from a professional template.</p>
-          <span class="font-sans text-[13px] font-medium text-wire-800">Design features &rarr;</span>
+
+        <!-- Slide 4: Design -->
+        <div class="slide absolute inset-0 flex transition-opacity duration-500" data-slide="4" style="opacity: 0; pointer-events: none;">
+          <div class="w-[340px] flex-shrink-0 bg-wire-50 border-r border-wire-200 p-10 flex flex-col justify-center">
+            <h3 class="font-sans text-[15px] font-semibold text-wire-800 mb-2">Make it yours</h3>
+            <p class="font-sans text-[14px] text-wire-500 leading-relaxed mb-4">Your domain. Your brand. Custom themes or start from a professional template.</p>
+            <span class="font-sans text-[13px] font-medium text-wire-800">Design features &rarr;</span>
+          </div>
+          <div class="flex-1 bg-wire-50 flex items-center justify-center">
+            <div class="text-center">
+              <div class="w-16 h-16 bg-wire-200 rounded-xl mx-auto mb-4 flex items-center justify-center"><span class="font-sans text-[20px] text-wire-400">&diams;</span></div>
+              <span class="font-sans text-[14px] text-wire-400">Theme customization</span>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -389,7 +464,7 @@
   <!-- ============================================================
        BLOCK 4: THEMES — It Looks Like Yours
        ============================================================ -->
-  <section class="max-w-[1280px] mx-auto mb-8" style="overflow: visible;">
+  <section class="max-w-[1280px] mx-auto mb-[120px]" style="overflow: visible;">
     <div class="bg-white rounded-2xl shadow-sm px-16 py-20" style="overflow: visible;">
       <div class="flex gap-16 items-start">
         <!-- Left copy -->
@@ -421,7 +496,7 @@
   <!-- ============================================================
        BLOCK 5: BARRIER REMOVAL — You Can Do This
        ============================================================ -->
-  <section class="max-w-[1280px] mx-auto mb-8">
+  <section class="max-w-[1280px] mx-auto mb-6">
     <div class="bg-white rounded-2xl shadow-sm px-16 py-20">
 
       <div class="text-center mb-12">
@@ -446,6 +521,7 @@
       </div>
 
       <!-- Platform pills -->
+      <p class="font-sans text-[13px] font-medium text-wire-400 uppercase tracking-wide text-center mb-4">Switch from</p>
       <div class="flex flex-wrap justify-center gap-3 mb-12">
         <span class="font-sans text-[14px] text-wire-600 bg-wire-50 border border-wire-200 rounded-lg px-5 py-2.5">Substack</span>
         <span class="font-sans text-[14px] text-wire-600 bg-wire-50 border border-wire-200 rounded-lg px-5 py-2.5">WordPress</span>
@@ -459,6 +535,50 @@
         <span class="font-sans text-[14px] text-wire-600 bg-wire-50 border border-wire-200 rounded-lg px-5 py-2.5">Gumroad</span>
       </div>
 
+      <!-- Savings calculator -->
+      <div class="border border-wire-200 rounded-xl p-8 mb-12 max-w-[800px] mx-auto">
+        <h3 style="font-family: Georgia, 'Times New Roman', serif; font-size: 24px; line-height: 1.3; color: #121212; margin-bottom: 4px; text-align: center;">Ghost takes 0%. What is your platform taking from you?</h3>
+        <p class="font-sans text-[14px] text-wire-400 text-center mb-8">Adjust to see what platforms take from your revenue each year.</p>
+
+        <div class="flex gap-8 mb-8">
+          <!-- Subscribers slider -->
+          <div class="flex-1">
+            <div class="flex justify-between mb-2">
+              <span class="font-sans text-[13px] font-medium text-wire-600">Paid subscribers</span>
+              <span id="sub-count" class="font-sans text-[13px] font-semibold text-wire-900">500</span>
+            </div>
+            <input type="range" id="subscribers" min="100" max="10000" value="500" step="100" class="w-full accent-wire-900" oninput="updateCalc()">
+          </div>
+          <!-- Price slider -->
+          <div class="flex-1">
+            <div class="flex justify-between mb-2">
+              <span class="font-sans text-[13px] font-medium text-wire-600">Monthly price</span>
+              <span id="price-display" class="font-sans text-[13px] font-semibold text-wire-900">$7</span>
+            </div>
+            <input type="range" id="price" min="3" max="25" value="7" step="1" class="w-full accent-wire-900" oninput="updateCalc()">
+          </div>
+        </div>
+
+        <!-- Results -->
+        <div class="grid grid-cols-3 gap-4">
+          <div class="bg-wire-50 rounded-lg p-5 text-center">
+            <p class="font-sans text-[12px] text-wire-400 mb-1">Substack takes</p>
+            <p id="calc-substack" class="font-sans text-[28px] font-semibold text-wire-900 leading-none mb-1">$4,200</p>
+            <p class="font-sans text-[12px] text-wire-400">/year (10% fee)</p>
+          </div>
+          <div class="bg-wire-50 rounded-lg p-5 text-center">
+            <p class="font-sans text-[12px] text-wire-400 mb-1">Patreon takes</p>
+            <p id="calc-patreon" class="font-sans text-[28px] font-semibold text-wire-900 leading-none mb-1">$3,360</p>
+            <p class="font-sans text-[12px] text-wire-400">/year (8% fee)</p>
+          </div>
+          <div class="bg-wire-50 rounded-lg p-5 text-center border-2 border-wire-900">
+            <p class="font-sans text-[12px] text-wire-400 mb-1">Ghost takes</p>
+            <p class="font-sans text-[28px] font-semibold text-wire-900 leading-none mb-1">$0</p>
+            <p class="font-sans text-[12px] text-wire-400">/year (0% fee)</p>
+          </div>
+        </div>
+      </div>
+
       <!-- Migration quote -->
       <div class="max-w-[560px] mx-auto text-center">
         <p style="font-family: Georgia, 'Times New Roman', serif; font-size: 20px; line-height: 1.6; color: #404040; font-style: italic;">"Switching from Substack to Ghost was like moving from a cramped rental to actually owning my house."</p>
@@ -469,14 +589,34 @@
   </section>
 
 
+  <!-- Stats strip — tightly coupled to migration section above -->
+  <section class="max-w-[1280px] mx-auto mb-[120px]">
+    <div class="grid grid-cols-3 gap-6">
+      <div class="bg-white rounded-2xl shadow-sm p-10">
+        <p style="font-family: Georgia, 'Times New Roman', serif; font-size: 26px; line-height: 1.35; color: #121212; margin-bottom: 10px;">$110 million has been earned by publishers using Ghost. Every cent went straight to them.</p>
+        <p class="font-sans text-[14px] text-wire-500 leading-relaxed">What content business are you ready to launch? It's easier than you think. Your future self will thank you.</p>
+      </div>
+      <div class="bg-white rounded-2xl shadow-sm p-10">
+        <p style="font-family: Georgia, 'Times New Roman', serif; font-size: 26px; line-height: 1.35; color: #121212; margin-bottom: 10px;">Over 9,000 people launched a publication with Ghost last week. That's not a typo.</p>
+        <p class="font-sans text-[14px] text-wire-500 leading-relaxed">People want to publish on their own space. We work hard every day to make that possible for everyone.</p>
+      </div>
+      <div class="bg-white rounded-2xl shadow-sm p-10">
+        <p style="font-family: Georgia, 'Times New Roman', serif; font-size: 26px; line-height: 1.35; color: #121212; margin-bottom: 10px;">35 people build Ghost. No investors, no board, no plans to become a corporation. Ever.</p>
+        <p class="font-sans text-[14px] text-wire-500 leading-relaxed">A small team that answers to you, not shareholders. That's the kind of company we want to be.</p>
+      </div>
+    </div>
+  </section>
+
+
   <!-- ============================================================
        BLOCK 6: STRUCTURAL TRUST — Built to Last
        ============================================================ -->
-  <section class="max-w-[1280px] mx-auto mb-8">
+  <section class="max-w-[1280px] mx-auto mb-[120px]">
     <div class="bg-white rounded-2xl shadow-sm px-16 py-20 text-center">
 
-      <h2 style="font-family: Georgia, 'Times New Roman', serif; font-size: 48px; line-height: 1.1; letter-spacing: -0.02em; color: #121212; margin-bottom: 16px;">No investors. No shareholders.<br>No surprises.</h2>
-      <p class="font-sans text-[17px] text-wire-500 max-w-[640px] mx-auto mb-12 leading-relaxed">Ghost is built by a nonprofit foundation, funded entirely by the people who use it. The community builds the product. The structure keeps us accountable to you.</p>
+      <p class="font-sans text-[13px] font-medium text-wire-400 uppercase tracking-wide mb-6">Independent software for independent people</p>
+      <h2 style="font-family: Georgia, 'Times New Roman', serif; font-size: 48px; line-height: 1.1; letter-spacing: -0.02em; color: #121212; margin-bottom: 16px;">No investors. No shareholders.<br>No bullshit.</h2>
+      <p class="font-sans text-[17px] text-wire-500 max-w-[640px] mx-auto mb-12 leading-relaxed">Ghost is built by a nonprofit foundation, funded entirely by the people who use it. No growth targets. No exit strategy. Just a product that exists to be good at what it does.</p>
 
       <div class="grid grid-cols-3 gap-8 text-left mb-12">
         <div class="border-t-2 border-wire-900 pt-6">
@@ -493,7 +633,13 @@
         </div>
       </div>
 
-      <span class="font-sans text-[14px] font-medium text-wire-800">Read about why we started Ghost &rarr;</span>
+      <span class="font-sans text-[14px] font-medium text-wire-800 block mb-16">Read about why we started Ghost &rarr;</span>
+
+      <!-- Independence closing statement -->
+      <div class="border-t border-wire-200 pt-10 max-w-[640px] mx-auto">
+        <p style="font-family: Georgia, 'Times New Roman', serif; font-size: 22px; line-height: 1.5; color: #262626; margin-bottom: 16px;">Ghost is open source. The whole thing. If you care about independent publishing, come build with us.</p>
+        <a href="#" class="inline-block font-sans text-[14px] font-semibold text-white px-6 py-3 rounded-lg" style="background-color: #262626;">View on GitHub &rarr;</a>
+      </div>
 
     </div>
   </section>
@@ -502,78 +648,54 @@
   <!-- ============================================================
        BLOCK 7: AUDIENCE ROUTING — Find Your Path
        ============================================================ -->
-  <section class="max-w-[1280px] mx-auto mb-8">
+  <section class="max-w-[1280px] mx-auto mb-[120px]">
     <div class="grid grid-cols-3 gap-6">
       <div class="bg-white rounded-2xl shadow-sm p-10">
         <span class="font-sans text-[12px] font-medium text-wire-400 tracking-wide uppercase block mb-3">Creators &rarr;</span>
-        <h3 style="font-family: Georgia, 'Times New Roman', serif; font-size: 26px; line-height: 1.25; color: #121212; margin-bottom: 12px;">Own your audience, and your brand.</h3>
-        <p class="font-sans text-[14px] text-wire-500 leading-relaxed">Build a site that's unmistakably yours, grow a following, earn a living — without giving up a cut.</p>
+        <h3 style="font-family: Georgia, 'Times New Roman', serif; font-size: 26px; line-height: 1.25; color: #121212; margin-bottom: 12px;">Why rent space on someone else's platform when you could own where you build your brand?</h3>
+        <p class="font-sans text-[14px] text-wire-500 leading-relaxed">Your site, your audience, your revenue. No algorithms deciding who sees your work. No platform taking a cut.</p>
       </div>
       <div class="bg-white rounded-2xl shadow-sm p-10">
         <span class="font-sans text-[12px] font-medium text-wire-400 tracking-wide uppercase block mb-3">Publishers &rarr;</span>
-        <h3 style="font-family: Georgia, 'Times New Roman', serif; font-size: 26px; line-height: 1.25; color: #121212; margin-bottom: 12px;">Run an independent newsroom.</h3>
-        <p class="font-sans text-[14px] text-wire-500 leading-relaxed">Professional editorial tools, team workflows, and revenue infrastructure to build a sustainable media business.</p>
+        <h3 style="font-family: Georgia, 'Times New Roman', serif; font-size: 26px; line-height: 1.25; color: #121212; margin-bottom: 12px;">Ditch the duct tape and the fees. Build your own media home with one simple tool.</h3>
+        <p class="font-sans text-[14px] text-wire-500 leading-relaxed">Publishing, email, memberships, and revenue — all in one place. No plugin stack. No fragile integrations. Just the work.</p>
       </div>
       <div class="bg-white rounded-2xl shadow-sm p-10">
         <span class="font-sans text-[12px] font-medium text-wire-400 tracking-wide uppercase block mb-3">Businesses &rarr;</span>
-        <h3 style="font-family: Georgia, 'Times New Roman', serif; font-size: 26px; line-height: 1.25; color: #121212; margin-bottom: 12px;">One and done blog and newsletter.</h3>
-        <p class="font-sans text-[14px] text-wire-500 leading-relaxed">Power your blog and newsletter on something reliable, fast, and built for your developers and your writers.</p>
+        <h3 style="font-family: Georgia, 'Times New Roman', serif; font-size: 26px; line-height: 1.25; color: #121212; margin-bottom: 12px;">Plug-and-play blog with newsletter. Made simple, made to match your brand.</h3>
+        <p class="font-sans text-[14px] text-wire-500 leading-relaxed">Fast, reliable, developer-friendly. Set it up once, stop thinking about it, get back to the work that matters.</p>
       </div>
     </div>
   </section>
 
 
   <!-- ============================================================
-       BLOCK 8: TESTIMONIALS
+       BLOCK 8: TESTIMONIALS — Filterable, edge-to-edge
        ============================================================ -->
-  <section class="max-w-[1280px] mx-auto mb-8">
-    <div class="bg-white rounded-2xl shadow-sm px-16 py-20">
+  <section class="mb-[120px]">
+    <div class="max-w-[1280px] mx-auto px-8">
+      <h2 style="font-family: Georgia, 'Times New Roman', serif; font-size: 48px; line-height: 1.1; letter-spacing: -0.02em; color: #121212; margin-bottom: 12px; text-align: center;">Love at first post.</h2>
+      <p class="font-sans text-[17px] text-wire-500 text-center mb-8 max-w-[500px] mx-auto">Don't take our word for it. Here's what people say after they switch.</p>
 
-      <h2 style="font-family: Georgia, 'Times New Roman', serif; font-size: 48px; line-height: 1.1; letter-spacing: -0.02em; color: #121212; margin-bottom: 48px; text-align: center;">Love at first post.</h2>
-
-      <div class="grid grid-cols-4 gap-4">
-        <div class="border border-wire-200 rounded-xl p-6">
-          <p class="font-sans text-[14px] text-wire-600 leading-relaxed mb-4" style="font-style: italic;">"Moving my newsletter to Ghost led to an explosion in growth."</p>
-          <p class="font-sans text-[13px] font-semibold text-wire-800">Hiro</p>
-          <p class="font-sans text-[12px] text-wire-400">hiro.report</p>
-        </div>
-        <div class="border border-wire-200 rounded-xl p-6">
-          <p class="font-sans text-[14px] text-wire-600 leading-relaxed mb-4" style="font-style: italic;">"Ghost was a natural choice for us — a high quality platform."</p>
-          <p class="font-sans text-[13px] font-semibold text-wire-800">Johnny Rodgers</p>
-          <p class="font-sans text-[12px] text-wire-400">buildingslack.com</p>
-        </div>
-        <div class="border border-wire-200 rounded-xl p-6">
-          <p class="font-sans text-[14px] text-wire-600 leading-relaxed mb-4" style="font-style: italic;">"We power 15 communities with Ghost, it's proven to scale."</p>
-          <p class="font-sans text-[13px] font-semibold text-wire-800">Richard King</p>
-          <p class="font-sans text-[12px] text-wire-400">productmarketingalliance.com</p>
-        </div>
-        <div class="border border-wire-200 rounded-xl p-6">
-          <p class="font-sans text-[14px] text-wire-600 leading-relaxed mb-4" style="font-style: italic;">"Ghost changed the game for us. Just a month in and we saw results."</p>
-          <p class="font-sans text-[13px] font-semibold text-wire-800">Greg Harman</p>
-          <p class="font-sans text-[12px] text-wire-400">deceleration.news</p>
-        </div>
-        <div class="border border-wire-200 rounded-xl p-6">
-          <p class="font-sans text-[14px] text-wire-600 leading-relaxed mb-4" style="font-style: italic;">"I made the leap from Substack to Ghost and haven't looked back."</p>
-          <p class="font-sans text-[13px] font-semibold text-wire-800">Kristen Lopez</p>
-          <p class="font-sans text-[12px] text-wire-400">thefilmmaven.com</p>
-        </div>
-        <div class="border border-wire-200 rounded-xl p-6">
-          <p class="font-sans text-[14px] text-wire-600 leading-relaxed mb-4" style="font-style: italic;">"Our experience migrating to Ghost was flawless."</p>
-          <p class="font-sans text-[13px] font-semibold text-wire-800">Andrew Womack</p>
-          <p class="font-sans text-[12px] text-wire-400">themorningnews.org</p>
-        </div>
-        <div class="border border-wire-200 rounded-xl p-6">
-          <p class="font-sans text-[14px] text-wire-600 leading-relaxed mb-4" style="font-style: italic;">"Life is so much better on Ghost."</p>
-          <p class="font-sans text-[13px] font-semibold text-wire-800">Paul Szoldra</p>
-          <p class="font-sans text-[12px] text-wire-400">duffelblog.com</p>
-        </div>
-        <div class="border border-wire-200 rounded-xl p-6">
-          <p class="font-sans text-[14px] text-wire-600 leading-relaxed mb-4" style="font-style: italic;">"After trying nearly every CMS out there, Ghost is it."</p>
-          <p class="font-sans text-[13px] font-semibold text-wire-800">Protein</p>
-          <p class="font-sans text-[12px] text-wire-400">protein.xyz</p>
-        </div>
+      <!-- Filter tabs -->
+      <div class="flex justify-center gap-2 mb-10" id="testimonial-filters">
+        <button onclick="filterTestimonials('all')" class="test-filter active font-sans text-[13px] font-medium px-4 py-2 rounded-lg">All</button>
+        <button onclick="filterTestimonials('creator')" class="test-filter font-sans text-[13px] font-medium px-4 py-2 rounded-lg">Creators</button>
+        <button onclick="filterTestimonials('publisher')" class="test-filter font-sans text-[13px] font-medium px-4 py-2 rounded-lg">Publishers</button>
+        <button onclick="filterTestimonials('business')" class="test-filter font-sans text-[13px] font-medium px-4 py-2 rounded-lg">Business</button>
+        <button onclick="filterTestimonials('migration')" class="test-filter font-sans text-[13px] font-medium px-4 py-2 rounded-lg">Migration</button>
+        <button onclick="filterTestimonials('simplicity')" class="test-filter font-sans text-[13px] font-medium px-4 py-2 rounded-lg">Simplicity</button>
+        <button onclick="filterTestimonials('independence')" class="test-filter font-sans text-[13px] font-medium px-4 py-2 rounded-lg">Independence</button>
       </div>
+    </div>
 
+    <!-- Edge-to-edge card grid — overflows viewport -->
+    <div class="overflow-hidden">
+      <div id="testimonial-grid" class="grid gap-4 px-4" style="grid-template-columns: repeat(8, 240px); justify-content: center;">
+
+        <!-- Row will be populated by JS from testimonial data -->
+
+      </div>
     </div>
   </section>
 
@@ -581,7 +703,7 @@
   <!-- ============================================================
        BLOCK 9: FAQ
        ============================================================ -->
-  <section class="max-w-[800px] mx-auto mb-8">
+  <section class="max-w-[800px] mx-auto mb-[120px]">
     <div class="bg-white rounded-2xl shadow-sm px-16 py-20">
 
       <h2 style="font-family: Georgia, 'Times New Roman', serif; font-size: 48px; line-height: 1.1; letter-spacing: -0.02em; color: #121212; margin-bottom: 48px; text-align: center;">Questions answered.</h2>
@@ -614,15 +736,177 @@
   <!-- ============================================================
        BLOCK 10: FINAL CTA
        ============================================================ -->
-  <section class="max-w-[1280px] mx-auto mb-8">
+  <section class="max-w-[1280px] mx-auto mb-[120px]">
     <div class="bg-white rounded-2xl shadow-sm px-16 py-24 text-center">
-      <h2 style="font-family: Georgia, 'Times New Roman', serif; font-size: 56px; line-height: 1.1; letter-spacing: -0.02em; color: #121212; margin-bottom: 32px; max-width: 600px; margin-left: auto; margin-right: auto;">Your audience. Your content. Your&nbsp;rules.</h2>
+      <h2 style="font-family: Georgia, 'Times New Roman', serif; font-size: 56px; line-height: 1.1; letter-spacing: -0.02em; color: #121212; margin-bottom: 16px; max-width: 600px; margin-left: auto; margin-right: auto;">Come for the simplicity.<br>Stay for the mission.</h2>
+      <p class="font-sans text-[17px] text-wire-500 mb-10 max-w-[480px] mx-auto">Ghost is a nonprofit foundation. Revenue from hosting is reinvested into the product. No investors, no board pushing growth. That's the whole business model.</p>
       <a href="#" class="inline-block font-sans text-[15px] font-semibold text-white px-8 py-3.5 rounded-lg" style="background-color: #262626;">Start your free trial</a>
     </div>
   </section>
 
   <!-- Spacer -->
   <div class="h-16"></div>
+
+  <script>
+    // === SLIDESHOW ===
+    const SLIDE_COUNT = 5;
+    const SLIDE_DURATION = 6000;
+    let currentSlide = 0;
+    let slideTimer = null;
+    let progressStart = null;
+    let progressRAF = null;
+
+    function goToSlide(index) {
+      currentSlide = index;
+      // Update slides
+      document.querySelectorAll('.slide').forEach(s => {
+        const i = parseInt(s.dataset.slide);
+        s.style.opacity = i === index ? '1' : '0';
+        s.style.pointerEvents = i === index ? 'auto' : 'none';
+      });
+      // Update tabs — active state + progress fills
+      document.querySelectorAll('.slide-tab-wrap').forEach((tab, i) => {
+        tab.classList.toggle('active', i === index);
+        tab.classList.toggle('past', i < index);
+        const fill = tab.querySelector('.slide-tab-fill');
+        if (i < index) {
+          // Past slides: full bar, greyed out
+          fill.style.transition = 'none';
+          fill.style.width = '100%';
+          fill.style.background = '#d9d9d9';
+        } else if (i > index) {
+          // Future slides: empty bar
+          fill.style.transition = 'none';
+          fill.style.width = '0%';
+          fill.style.background = '#262626';
+        } else {
+          // Current slide: dark bar, animated below
+          fill.style.background = '#262626';
+        }
+      });
+      // Animate current slide's progress bar
+      startProgress();
+      // Auto-advance
+      clearTimeout(slideTimer);
+      slideTimer = setTimeout(() => goToSlide((currentSlide + 1) % SLIDE_COUNT), SLIDE_DURATION);
+    }
+
+    function startProgress() {
+      const fill = document.querySelector(`[data-tab-fill="${currentSlide}"]`);
+      cancelAnimationFrame(progressRAF);
+      fill.style.transition = 'none';
+      fill.style.width = '0%';
+      progressStart = performance.now();
+
+      function tick(now) {
+        const fraction = Math.min((now - progressStart) / SLIDE_DURATION, 1);
+        fill.style.width = (fraction * 100) + '%';
+        if (fraction < 1) progressRAF = requestAnimationFrame(tick);
+      }
+      progressRAF = requestAnimationFrame(tick);
+    }
+
+    // Init slideshow
+    goToSlide(0);
+
+    // === SAVINGS CALCULATOR ===
+    function updateCalc() {
+      const subs = parseInt(document.getElementById('subscribers').value);
+      const price = parseInt(document.getElementById('price').value);
+      const annual = subs * price * 12;
+
+      document.getElementById('sub-count').textContent = subs.toLocaleString();
+      document.getElementById('price-display').textContent = '$' + price;
+
+      const substackFee = Math.round(annual * 0.10);
+      const patreonFee = Math.round(annual * 0.08);
+
+      document.getElementById('calc-substack').textContent = '$' + substackFee.toLocaleString();
+      document.getElementById('calc-patreon').textContent = '$' + patreonFee.toLocaleString();
+    }
+    updateCalc();
+
+    // === TESTIMONIALS ===
+    const testimonials = [
+      { q: "It has now been one year since I quit my full-time job to go all in on Tangle. Today, we have 75,000 paying subscribers. That's roughly $4M in gross yearly revenue.", name: "Isaac Saul", pub: "readtangle.com", tags: ["publisher", "independence"] },
+      { q: "Moving my newsletter to Ghost led to an explosion of growth (10x), and also felt like untying my hands as a publisher.", name: "Hiro", pub: "hiro.report", tags: ["migration", "creator"] },
+      { q: "Ghost was a natural choice for us — a high quality platform with all the right incentives built in for good writing and good community.", name: "Johnny Rodgers", pub: "buildingslack.com", tags: ["business"] },
+      { q: "We power 15 communities with Ghost, it's proven to be the best membership platform on the planet.", name: "Richard King", pub: "productmarketingalliance.com", tags: ["business"] },
+      { q: "I made the leap from Substack to Ghost and haven't looked back. Not only am I keeping FAR more in my monthly income.", name: "Kristen Lopez", pub: "thefilmmaven.com", tags: ["migration", "independence", "creator"] },
+      { q: "Our experience migrating to Ghost was flawless. What the Ghost team did was nothing short of absolute magic.", name: "Andrew Womack", pub: "themorningnews.org", tags: ["migration", "publisher"] },
+      { q: "Life is so much better on Ghost. I can tell you I'm not ever moving again.", name: "Paul Szoldra", pub: "duffelblog.com", tags: ["migration", "simplicity"] },
+      { q: "After trying nearly every CMS out there, Ghost is it.", name: "Protein", pub: "protein.xyz", tags: ["simplicity"] },
+      { q: "Ghost gives us a clean, fast, independent newsroom where our polling and analysis reach readers without noise.", name: "Raghavan Mayur", pub: "tippinsights.com", tags: ["publisher", "independence", "simplicity"] },
+      { q: "Ghost makes independent hyperlocal news publishing feasible. Full stop.", name: "Alex Mullaney", pub: "inglesidelight.com", tags: ["publisher", "independence"] },
+      { q: "Moving to Ghost has proven to be one of the best business decisions we've made as an independent media outlet.", name: "Joel Warner", pub: "levernews.com", tags: ["migration", "publisher"] },
+      { q: "Ghost is just implausibly good. It takes care of everything you need out the box.", name: "Uri Bram", pub: "thebrowser.com", tags: ["publisher", "simplicity"] },
+      { q: "Switching from Substack to Ghost was like moving from a cramped rental to actually owning my house.", name: "Will Adams", pub: "provincialtimes.ca", tags: ["migration", "independence", "publisher"] },
+      { q: "Ghost just does things right. It builds tools and features I need, it's priced fairly and the concierge service is fantastic.", name: "Ben Whitelaw", pub: "everythinginmoderation.co", tags: ["creator", "simplicity"] },
+      { q: "You should be using Ghost because it's absolutely amazing and I love it.", name: "Ali Abdaal", pub: "aliabdaal.com", tags: ["creator"] },
+      { q: "I'm thrilled to be on a platform that lives its values, and that treats me like a person, not a product.", name: "Rabbi Danya Ruttenberg", pub: "lifeisasacredtext.com", tags: ["independence", "creator"] },
+      { q: "Ghost gave me a discount because their wonderful folks felt my work supports public interest. Which other business will do that?", name: "Tanmoy Goswami", pub: "sanitybytanmoy.com", tags: ["independence", "creator"] },
+      { q: "I'm always blown away by how Ghost manages to be both so simple and so powerful at the same time.", name: "Hailley Griffis", pub: "buffer.com", tags: ["business", "simplicity"] },
+      { q: "We've been using Ghost for years and I can't imagine using a different publishing platform. It's effortless.", name: "River Sloane", pub: "blog.helpdocs.io", tags: ["business", "simplicity"] },
+      { q: "The transition to Ghost has been amazing. It's given me complete creative control and a seamless way to connect stories, podcasts, and newsletters.", name: "Grant Trahant", pub: "causeartist.com", tags: ["migration", "creator"] },
+      { q: "Switching to Ghost transformed our business. Complete control of our customer database, 100pc uptime, and ultra-responsive support.", name: "Alex King", pub: "cestriancapitalresearch.com", tags: ["business", "simplicity"] },
+      { q: "Building with Ghost means having a partner with the same goals and incentives. If you're serious about independent publishing, there's no better choice.", name: "David Bauer", pub: "weeklyfilet.com", tags: ["independence", "publisher"] },
+      { q: "The smoother and simpler the writing experience is, the more motivated I feel to write. Ghost makes me want to draft my articles straight inside their app.", name: "Tobias Van Schneider", pub: "vanschneider.com", tags: ["creator", "simplicity"] },
+      { q: "Ghost is the perfect environment for writers to create the kind of work that they can feel proud of.", name: "Jon Cherry", pub: "cherryflava.com", tags: ["creator", "simplicity"] },
+      { q: "Independent media is the future, and the only place media can be truly independent is Ghost.", name: "Huma Razvi", pub: "fromthefifth.com", tags: ["independence", "publisher"] },
+      { q: "Switching to Ghost made publishing feel effortless. No plugins, no maintenance, no distractions.", name: "Finge Holden", pub: "blog.conversionlab.no", tags: ["migration", "simplicity"] },
+      { q: "I've tried most platforms. Ghost is a mile ahead of everyone else. The interface is unmatched.", name: "Patrick Tanguay", pub: "sentiers.media", tags: ["simplicity"] },
+      { q: "Ghost cut our publishing time in half and made our content actually readable. Our email subscribers doubled in six months.", name: "Marcus Schuler", pub: "implicator.ai", tags: ["migration", "business", "simplicity"] },
+      { q: "Switching from WordPress to Ghost has been such a calming experience. Everything just works and works well.", name: "Abbas Jaffar Ali", pub: "tbreak.com", tags: ["migration", "simplicity"] },
+      { q: "Within 24 hours of moving to Ghost, I was inundated with messages from my community complimenting me on the new look.", name: "Lucy Werner", pub: "hypeyourself.com", tags: ["migration", "creator"] },
+      { q: "For those of you on Substack: why not use Ghost instead? Is the payment you get from Substack greater than the freedom Ghost would provide?", name: "Jack Dorsey", pub: "", tags: ["independence"] },
+      { q: "It has been one year since we moved from Substack to Ghost and I wish I had done it sooner.", name: "Drew Epperley", pub: "bigdsoccer.com", tags: ["migration", "publisher"] },
+      { q: "Ghost has been essential in turning my basketball hobby into a profitable side-hustle that grows every year.", name: "Lucas Mcnelly", pub: "mainebasketballrankings.com", tags: ["creator", "independence"] },
+      { q: "After 12 years of creating content, our WordPress site had become a bloated, glitchy mess. We migrated to Ghost and all those headaches disappeared.", name: "Nikki Wynn", pub: "gonewiththewynns.com", tags: ["migration", "creator", "independence"] },
+      { q: "Moving Webworm to Ghost has been the best decision I made all year. Not only for me, but for my readers.", name: "David A Farrier", pub: "webworm.co", tags: ["migration", "creator"] },
+      { q: "I switched to Ghost a year ago, and it's just... such a joy to use. Website, member platform, and email tool all in one place.", name: "Caro Griffin", pub: "opsy.work", tags: ["creator", "simplicity"] },
+      { q: "My initial take on Ghost was that it would make publishing fun instead of a chore. Over two years, it has exceeded those expectations.", name: "Carson Walker", pub: "sdnewswatch.org", tags: ["publisher", "simplicity"] },
+      { q: "I was very nervous to transition from Substack but the concierge team made it all very easy.", name: "Rachel Donald", pub: "planetcritical.com", tags: ["migration", "simplicity"] },
+      { q: "The biggest upgrade switching from WordPress was the editing experience. I've written 10,000+ word posts without a hiccup.", name: "Rahul Chowdhury", pub: "hulry.com", tags: ["migration", "simplicity"] },
+      { q: "Ghost gives our analyst team exactly what we need: a modern, intuitive platform without technical friction.", name: "Nathan Ackerman", pub: "rileysentinel.com", tags: ["publisher", "simplicity"] },
+    ];
+
+    function renderTestimonials(filtered) {
+      const grid = document.getElementById('testimonial-grid');
+      // Always show at least 16 — fill with extras from the full set if filter is small
+      let cards = filtered;
+      if (cards.length < 16) {
+        const extras = testimonials.filter(t => !cards.includes(t));
+        // Shuffle extras
+        for (let i = extras.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [extras[i], extras[j]] = [extras[j], extras[i]]; }
+        cards = [...cards, ...extras.slice(0, 16 - cards.length)];
+      }
+      // Set columns: enough to overflow edges, minimum 8
+      const cols = Math.max(8, Math.ceil(cards.length / 2));
+      grid.style.gridTemplateColumns = `repeat(${cols}, 240px)`;
+
+      grid.innerHTML = cards.map(t => `
+        <div class="bg-white border border-wire-200 rounded-xl p-5 flex flex-col" style="min-height: 160px;">
+          <p class="font-sans text-[13px] text-wire-600 leading-relaxed mb-auto" style="font-style: italic;">"${t.q}"</p>
+          <div class="mt-3">
+            <p class="font-sans text-[12px] font-semibold text-wire-800">${t.name}</p>
+            ${t.pub ? `<p class="font-sans text-[11px] text-wire-400">${t.pub}</p>` : ''}
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function filterTestimonials(tag) {
+      // Update active filter
+      document.querySelectorAll('.test-filter').forEach(btn => {
+        btn.classList.toggle('active', btn.textContent.toLowerCase().includes(tag === 'all' ? 'all' : tag));
+      });
+      const filtered = tag === 'all' ? testimonials : testimonials.filter(t => t.tags.includes(tag));
+      renderTestimonials(filtered);
+    }
+
+    // Init testimonials
+    renderTestimonials(testimonials);
+  </script>
 
 </body>
 </html>
