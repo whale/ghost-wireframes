@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=1440">
+  <title>About — Wireframe</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            wire: {
+              50: '#f7f7f7',
+              100: '#f0f0f0',
+              200: '#d9d9d9',
+              300: '#bfbfbf',
+              400: '#a6a6a6',
+              500: '#808080',
+              600: '#595959',
+              700: '#404040',
+              800: '#262626',
+              900: '#121212',
+            }
+          },
+          fontFamily: {
+            serif: ['Georgia', 'Times New Roman', 'serif'],
+            sans: ['Inter', 'Helvetica Neue', 'Arial', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    h1, h2, h3, p { margin: 0; padding: 0; }
+  </style>
+</head>
+<body class="bg-wire-100 min-h-screen">
+
+  <div id="wireframe-nav"></div>
+  <script src="components/wireframe-nav.js"></script>
+
+  <!-- Navigation -->
+  <div id="site-nav"></div>
+  <script src="components/nav.js"></script>
+
+
+  <!-- ============================================================
+       BLOCK 1: THE QUESTION — Hero
+       "What if a company had a mission and actually stuck to it?"
+       ============================================================ -->
+  <section class="max-w-[1280px] mx-auto bg-white rounded-2xl px-16 py-20 shadow-sm" style="margin-top: 32px;">
+    <div style="max-width: 900px; margin: 0 auto; text-align: center; padding: 60px 0 40px;">
+
+      <!-- Small label -->
+      <p class="font-sans text-[12px] font-medium text-wire-400 tracking-wide uppercase" style="margin-bottom: 32px;">About Ghost</p>
+
+      <!-- The question -->
+      <h1 style="font-family: Georgia, 'Times New Roman', serif; font-size: 56px; line-height: 1.12; letter-spacing: -0.025em; color: #121212; margin-bottom: 32px;">
+        What if a company had a mission<br>and actually stuck to it?
+      </h1>
+
+      <!-- Brief grounding -->
+      <p style="font-family: Inter, 'Helvetica Neue', Arial, sans-serif; font-size: 19px; line-height: 1.6; color: #808080; max-width: 640px; margin: 0 auto;">
+        Ghost is a non-profit foundation building open source publishing tools. We've been at it since 2013. No investors, no shareholders, no exit strategy. Just a small team that thinks independent publishing matters.
+      </p>
+
+    </div>
+  </section>
+
+
+  <div class="h-8"></div>
+
+
+  <!-- ============================================================
+       BLOCK 2: ORIGIN — The founding story
+       Personal, compressed. Two people who thought this stuff mattered.
+       ============================================================ -->
+  <section class="max-w-[1280px] mx-auto bg-white rounded-2xl px-16 py-20 shadow-sm">
+
+    <!-- Centered prose — comfortable reading width -->
+    <div style="max-width: 680px; margin: 0 auto;">
+
+      <h2 style="font-family: Georgia, 'Times New Roman', serif; font-size: 44px; line-height: 1.2; letter-spacing: -0.02em; color: #121212; margin-bottom: 40px;">
+        How it started
+      </h2>
+
+      <div style="font-family: Inter, 'Helvetica Neue', Arial, sans-serif; font-size: 17px; line-height: 1.7; color: #595959;" class="space-y-6">
+
+        <p>
+          In 2012, John was a WordPress core contributor — deputy head of design — who'd grown frustrated watching a publishing platform try to become everything at once. He wrote a blog post about what a focused publishing tool could look like if it was built without compromise. He called it Ghost.
+        </p>
+
+        <p>
+          The post went viral. It turned out a lot of people felt the same way.
+        </p>
+
+        <p>
+          He roped in Hannah Wolfe — his best friend and one of the most talented engineers he'd ever met — as co-founder and CTO. In April 2013, they launched a Kickstarter that raised $350,000 in 29 days. Ten times the goal.
+        </p>
+
+        <p>
+          By the end of that year, the first version of both the software and the managed hosting platform were live. Eleven months later, they were profitable.
+        </p>
+
+        <p>
+          The idea was simple: make a great open source product. Sell hosting for people who want the easiest experience. Use the revenue to keep making the product better. Repeat.
+        </p>
+
+        <p>
+          That's still the whole business model.
+        </p>
+
+      </div>
+    </div>
+  </section>
+
+
+  <div class="h-8"></div>
+
+
+  <!-- ============================================================
+       BLOCK 3: THE STRUCTURE — Non-profit as argument
+       What it means. What it prevents. Why it matters to you.
+       ============================================================ -->
+  <section class="max-w-[1280px] mx-auto bg-white rounded-2xl px-16 py-20 shadow-sm">
+
+    <div style="max-width: 680px; margin: 0 auto;">
+
+      <h2 style="font-family: Georgia, 'Times New Roman', serif; font-size: 44px; line-height: 1.2; letter-spacing: -0.02em; color: #121212; margin-bottom: 40px;">
+        For-purpose, not for-profit
+      </h2>
+
+      <div style="font-family: Inter, 'Helvetica Neue', Arial, sans-serif; font-size: 17px; line-height: 1.7; color: #595959;" class="space-y-6">
+
+        <p>
+          People hear "non-profit" and think we can't make money. That's not what it means. It means nobody <em>owns</em> the company. There are no shareholders. No equity. No one who can sell Ghost to the highest bidder.
+        </p>
+
+        <p>
+          Neither John nor Hannah own any shares, assets, domains, or trademarks related to Ghost. Everything belongs to the Foundation.
+        </p>
+
+        <p>
+          The practical effect: every dollar Ghost earns gets reinvested into Ghost. There's no one at the top siphoning profits or pushing for growth to justify a valuation. The company exists to serve the people who use it.
+        </p>
+
+        <p style="color: #404040; font-weight: 500;">
+          Every publishing platform eventually faces a moment where investors' returns and users' interests point in different directions. Ghost's structure means that moment never comes.
+        </p>
+
+        <p>
+          It's not a promise. It's a legal structure.
+        </p>
+
+      </div>
+    </div>
+  </section>
+
+
+  <div class="h-8"></div>
+
+
+  <!-- ============================================================
+       BLOCK 4: THE PROOF — Numbers
+       Let the stats speak. Redesigned live dashboard.
+       ============================================================ -->
+  <section class="max-w-[1280px] mx-auto bg-white rounded-2xl px-16 py-20 shadow-sm">
+
+    <!-- Section header -->
+    <div style="max-width: 680px; margin: 0 auto 56px;">
+      <h2 style="font-family: Georgia, 'Times New Roman', serif; font-size: 44px; line-height: 1.2; letter-spacing: -0.02em; color: #121212; margin-bottom: 16px;">
+        Transparent by default
+      </h2>
+      <p style="font-family: Inter, 'Helvetica Neue', Arial, sans-serif; font-size: 17px; line-height: 1.7; color: #808080;">
+        All of our company metrics are public. Always have been.
+      </p>
+    </div>
+
+    <!-- Stat grid -->
+    <div style="max-width: 960px; margin: 0 auto;">
+      <div class="grid grid-cols-3 gap-5">
+
+        <!-- Big stats -->
+        <div class="bg-wire-50 rounded-xl p-8">
+          <p class="font-sans text-[12px] font-medium text-wire-400 tracking-wide uppercase mb-3">Annual revenue</p>
+          <p style="font-family: Georgia, 'Times New Roman', serif; font-size: 36px; line-height: 1; letter-spacing: -0.02em; color: #121212; margin-bottom: 6px;">$9.9M</p>
+          <p class="font-sans text-[13px] text-wire-500 leading-snug">100% self-generated. $0 from investors.</p>
+        </div>
+
+        <div class="bg-wire-50 rounded-xl p-8">
+          <p class="font-sans text-[12px] font-medium text-wire-400 tracking-wide uppercase mb-3">Lifetime revenue</p>
+          <p style="font-family: Georgia, 'Times New Roman', serif; font-size: 36px; line-height: 1; letter-spacing: -0.02em; color: #121212; margin-bottom: 6px;">$37M+</p>
+          <p class="font-sans text-[13px] text-wire-500 leading-snug">All reinvested into the Foundation.</p>
+        </div>
+
+        <div class="bg-wire-50 rounded-xl p-8">
+          <p class="font-sans text-[12px] font-medium text-wire-400 tracking-wide uppercase mb-3">Publisher revenue</p>
+          <p style="font-family: Georgia, 'Times New Roman', serif; font-size: 36px; line-height: 1; letter-spacing: -0.02em; color: #121212; margin-bottom: 6px;">$110M+</p>
+          <p class="font-sans text-[13px] text-wire-500 leading-snug">Earned by Ghost publishers. We take 0%.</p>
+        </div>
+
+        <!-- Smaller stats row -->
+        <div class="bg-wire-50 rounded-xl p-8">
+          <p class="font-sans text-[12px] font-medium text-wire-400 tracking-wide uppercase mb-3">Active customers</p>
+          <p style="font-family: Georgia, 'Times New Roman', serif; font-size: 32px; line-height: 1; letter-spacing: -0.02em; color: #121212; margin-bottom: 6px;">28,731</p>
+        </div>
+
+        <div class="bg-wire-50 rounded-xl p-8">
+          <p class="font-sans text-[12px] font-medium text-wire-400 tracking-wide uppercase mb-3">Profitable since</p>
+          <p style="font-family: Georgia, 'Times New Roman', serif; font-size: 32px; line-height: 1; letter-spacing: -0.02em; color: #121212; margin-bottom: 6px;">Month 11</p>
+          <p class="font-sans text-[13px] text-wire-500 leading-snug">Every year since 2013.</p>
+        </div>
+
+        <div class="bg-wire-50 rounded-xl p-8">
+          <p class="font-sans text-[12px] font-medium text-wire-400 tracking-wide uppercase mb-3">GitHub stars</p>
+          <p style="font-family: Georgia, 'Times New Roman', serif; font-size: 32px; line-height: 1; letter-spacing: -0.02em; color: #121212; margin-bottom: 6px;">51,854</p>
+        </div>
+
+      </div>
+
+      <!-- Live data note -->
+      <p class="font-sans text-[13px] text-wire-400 mt-6" style="text-align: center;">
+        These numbers are live. Not a snapshot — updated in real time.
+      </p>
+    </div>
+  </section>
+
+
+  <div class="h-8"></div>
+
+
+  <!-- ============================================================
+       BLOCK 5: PRINCIPLES — How we work
+       Declarative assertions. Short. True. Specific.
+       Borrowed from mymind "Our Promise" + Basecamp communication guide.
+       ============================================================ -->
+  <section class="max-w-[1280px] mx-auto bg-white rounded-2xl px-16 py-20 shadow-sm">
+
+    <div style="max-width: 680px; margin: 0 auto;">
+
+      <h2 style="font-family: Georgia, 'Times New Roman', serif; font-size: 44px; line-height: 1.2; letter-spacing: -0.02em; color: #121212; margin-bottom: 56px;">
+        How we think about this
+      </h2>
+
+      <!-- Principle 1 -->
+      <div style="border-top: 1px solid #d9d9d9; padding: 32px 0;">
+        <h3 class="font-sans text-[17px] font-semibold text-wire-900" style="margin-bottom: 12px;">
+          Small team, big ecosystem.
+        </h3>
+        <p style="font-family: Inter, 'Helvetica Neue', Arial, sans-serif; font-size: 15px; line-height: 1.65; color: #808080;">
+          We don't want to be a giant company. We want to be a small team that supports a giant ecosystem of hosts, developers, agencies, and publishers. Running a big company doesn't seem very fun, tbh.
+        </p>
+      </div>
+
+      <!-- Principle 2 -->
+      <div style="border-top: 1px solid #d9d9d9; padding: 32px 0;">
+        <h3 class="font-sans text-[17px] font-semibold text-wire-900" style="margin-bottom: 12px;">
+          The software can't be sold. Neither can your trust.
+        </h3>
+        <p style="font-family: Inter, 'Helvetica Neue', Arial, sans-serif; font-size: 15px; line-height: 1.65; color: #808080;">
+          Our non-profit constitution makes it legally impossible to sell Ghost. Not a handshake — a structure. Your publication will never wake up under new ownership with different priorities.
+        </p>
+      </div>
+
+      <!-- Principle 3 -->
+      <div style="border-top: 1px solid #d9d9d9; padding: 32px 0;">
+        <h3 class="font-sans text-[17px] font-semibold text-wire-900" style="margin-bottom: 12px;">
+          Open source means open.
+        </h3>
+        <p style="font-family: Inter, 'Helvetica Neue', Arial, sans-serif; font-size: 15px; line-height: 1.65; color: #808080;">
+          MIT licensed. You can read every line of code, fork it, self-host it, or just know it's there. Nobody is required to use our hosting — the majority of Ghost websites in the world don't. The ones that do fund the project for everyone.
+        </p>
+      </div>
+
+      <!-- Principle 4 -->
+      <div style="border-top: 1px solid #d9d9d9; padding: 32px 0;">
+        <h3 class="font-sans text-[17px] font-semibold text-wire-900" style="margin-bottom: 12px;">
+          We don't tax your growth.
+        </h3>
+        <p style="font-family: Inter, 'Helvetica Neue', Arial, sans-serif; font-size: 15px; line-height: 1.65; color: #808080;">
+          Ghost takes 0% of your subscription revenue. No percentage fees, no per-subscriber charges. Your audience gets bigger, your price stays the same. We make money from hosting, not from taxing your success.
+        </p>
+      </div>
+
+      <!-- Principle 5 -->
+      <div style="border-top: 1px solid #d9d9d9; border-bottom: 1px solid #d9d9d9; padding: 32px 0;">
+        <h3 class="font-sans text-[17px] font-semibold text-wire-900" style="margin-bottom: 12px;">
+          Serious work, lightly held.
+        </h3>
+        <p style="font-family: Inter, 'Helvetica Neue', Arial, sans-serif; font-size: 15px; line-height: 1.65; color: #808080;">
+          We care deeply about independent publishing. We don't take ourselves too seriously while doing it. Behind the scenes, we're a group of weird, fun-loving humans who enjoy building things and think this particular thing is worth building well.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+
+  <div class="h-8"></div>
+
+
+  <!-- ============================================================
+       BLOCK 6: THE PEOPLE — Team
+       Photo grid + world map placeholders. Warm, human, not corporate.
+       ============================================================ -->
+  <section class="max-w-[1280px] mx-auto bg-white rounded-2xl px-16 py-20 shadow-sm">
+
+    <div style="max-width: 680px; margin: 0 auto; margin-bottom: 48px;">
+      <h2 style="font-family: Georgia, 'Times New Roman', serif; font-size: 44px; line-height: 1.2; letter-spacing: -0.02em; color: #121212; margin-bottom: 16px;">
+        35 people. That's the whole company.
+      </h2>
+      <p style="font-family: Inter, 'Helvetica Neue', Arial, sans-serif; font-size: 17px; line-height: 1.7; color: #808080;">
+        Fully remote since day one. 5 continents, 16 nationalities, 15 languages. We've never had an office. We have a deliberate cap at about 50 people — because we'd rather know everyone's name than manage eight layers of hierarchy.
+      </p>
+    </div>
+
+    <!-- World map placeholder -->
+    <div style="max-width: 960px; margin: 0 auto 48px;">
+      <div class="bg-wire-50 border border-wire-200 rounded-xl flex items-center justify-center" style="aspect-ratio: 2.4/1;">
+        <span class="font-sans text-[13px] text-wire-400">World map — team locations</span>
+      </div>
+    </div>
+
+    <!-- Photo grid placeholder -->
+    <div style="max-width: 960px; margin: 0 auto;">
+      <div class="grid grid-cols-6 gap-3">
+        <!-- Row 1: 6 team member photos -->
+        <div class="bg-wire-200 rounded-lg flex items-center justify-center" style="aspect-ratio: 1/1;">
+          <span class="font-sans text-[11px] text-wire-400">John</span>
+        </div>
+        <div class="bg-wire-200 rounded-lg flex items-center justify-center" style="aspect-ratio: 1/1;">
+          <span class="font-sans text-[11px] text-wire-400">Hannah</span>
+        </div>
+        <div class="bg-wire-200 rounded-lg flex items-center justify-center" style="aspect-ratio: 1/1;">
+          <span class="font-sans text-[11px] text-wire-400">Sarah</span>
+        </div>
+        <div class="bg-wire-200 rounded-lg flex items-center justify-center" style="aspect-ratio: 1/1;">
+          <span class="font-sans text-[11px] text-wire-400">David</span>
+        </div>
+        <div class="bg-wire-200 rounded-lg flex items-center justify-center" style="aspect-ratio: 1/1;">
+          <span class="font-sans text-[11px] text-wire-400">Kevin</span>
+        </div>
+        <div class="bg-wire-200 rounded-lg flex items-center justify-center" style="aspect-ratio: 1/1;">
+          <span class="font-sans text-[11px] text-wire-400">Aileen</span>
+        </div>
+        <!-- Row 2 -->
+        <div class="bg-wire-200 rounded-lg flex items-center justify-center" style="aspect-ratio: 1/1;">
+          <span class="font-sans text-[11px] text-wire-400">Zimo</span>
+        </div>
+        <div class="bg-wire-200 rounded-lg flex items-center justify-center" style="aspect-ratio: 1/1;">
+          <span class="font-sans text-[11px] text-wire-400">Fabien</span>
+        </div>
+        <div class="bg-wire-200 rounded-lg flex items-center justify-center" style="aspect-ratio: 1/1;">
+          <span class="font-sans text-[11px] text-wire-400">Beccy</span>
+        </div>
+        <div class="bg-wire-200 rounded-lg flex items-center justify-center" style="aspect-ratio: 1/1;">
+          <span class="font-sans text-[11px] text-wire-400">James</span>
+        </div>
+        <div class="bg-wire-200 rounded-lg flex items-center justify-center" style="aspect-ratio: 1/1;">
+          <span class="font-sans text-[11px] text-wire-400">Sam</span>
+        </div>
+        <div class="bg-wire-200 rounded-lg flex items-center justify-center" style="aspect-ratio: 1/1;">
+          <span class="font-sans text-[11px] text-wire-400">Sodbileg</span>
+        </div>
+        <!-- Row 3 -->
+        <div class="bg-wire-200 rounded-lg flex items-center justify-center" style="aspect-ratio: 1/1;">
+          <span class="font-sans text-[11px] text-wire-400">Paul</span>
+        </div>
+        <div class="bg-wire-200 rounded-lg flex items-center justify-center" style="aspect-ratio: 1/1;">
+          <span class="font-sans text-[11px] text-wire-400">Peter</span>
+        </div>
+        <div class="bg-wire-200 rounded-lg flex items-center justify-center" style="aspect-ratio: 1/1;">
+          <span class="font-sans text-[11px] text-wire-400">Jon</span>
+        </div>
+        <div class="bg-wire-200 rounded-lg flex items-center justify-center" style="aspect-ratio: 1/1;">
+          <span class="font-sans text-[11px] text-wire-400">Bob</span>
+        </div>
+        <div class="bg-wire-200 rounded-lg flex items-center justify-center" style="aspect-ratio: 1/1;">
+          <span class="font-sans text-[11px] text-wire-400">Matthew</span>
+        </div>
+        <div class="bg-wire-200 rounded-lg flex items-center justify-center" style="aspect-ratio: 1/1;">
+          <span class="font-sans text-[11px] text-wire-400">Joe</span>
+        </div>
+        <!-- Row 4 -->
+        <div class="bg-wire-200 rounded-lg flex items-center justify-center" style="aspect-ratio: 1/1;">
+          <span class="font-sans text-[11px] text-wire-400">Filip</span>
+        </div>
+        <div class="bg-wire-200 rounded-lg flex items-center justify-center" style="aspect-ratio: 1/1;">
+          <span class="font-sans text-[11px] text-wire-400">Chris</span>
+        </div>
+        <div class="bg-wire-200 rounded-lg flex items-center justify-center" style="aspect-ratio: 1/1;">
+          <span class="font-sans text-[11px] text-wire-400">Nick</span>
+        </div>
+        <div class="bg-wire-200 rounded-lg flex items-center justify-center" style="aspect-ratio: 1/1;">
+          <span class="font-sans text-[11px] text-wire-400">Steve</span>
+        </div>
+        <div class="bg-wire-200 rounded-lg flex items-center justify-center" style="aspect-ratio: 1/1;">
+          <span class="font-sans text-[11px] text-wire-400">Alex</span>
+        </div>
+        <div class="bg-wire-200 rounded-lg flex items-center justify-center" style="aspect-ratio: 1/1;">
+          <span class="font-sans text-[11px] text-wire-400">Sag</span>
+        </div>
+        <!-- Row 5 -->
+        <div class="bg-wire-200 rounded-lg flex items-center justify-center" style="aspect-ratio: 1/1;">
+          <span class="font-sans text-[11px] text-wire-400">Mike</span>
+        </div>
+        <div class="bg-wire-200 rounded-lg flex items-center justify-center" style="aspect-ratio: 1/1;">
+          <span class="font-sans text-[11px] text-wire-400">Princi</span>
+        </div>
+        <div class="bg-wire-200 rounded-lg flex items-center justify-center" style="aspect-ratio: 1/1;">
+          <span class="font-sans text-[11px] text-wire-400">Erik</span>
+        </div>
+        <div class="bg-wire-200 rounded-lg flex items-center justify-center" style="aspect-ratio: 1/1;">
+          <span class="font-sans text-[11px] text-wire-400">Ricardo</span>
+        </div>
+        <div class="bg-wire-200 rounded-lg flex items-center justify-center" style="aspect-ratio: 1/1;">
+          <span class="font-sans text-[11px] text-wire-400">Leif</span>
+        </div>
+        <div class="bg-wire-200 rounded-lg flex items-center justify-center" style="aspect-ratio: 1/1;">
+          <span class="font-sans text-[11px] text-wire-400">Troy</span>
+        </div>
+        <!-- Row 6: partial -->
+        <div class="bg-wire-200 rounded-lg flex items-center justify-center" style="aspect-ratio: 1/1;">
+          <span class="font-sans text-[11px] text-wire-400">Jonatan</span>
+        </div>
+        <div class="bg-wire-200 rounded-lg flex items-center justify-center" style="aspect-ratio: 1/1;">
+          <span class="font-sans text-[11px] text-wire-400">Rob</span>
+        </div>
+        <div class="bg-wire-200 rounded-lg flex items-center justify-center" style="aspect-ratio: 1/1;">
+          <span class="font-sans text-[11px] text-wire-400">Weyland</span>
+        </div>
+        <div class="bg-wire-200 rounded-lg flex items-center justify-center" style="aspect-ratio: 1/1;">
+          <span class="font-sans text-[11px] text-wire-400">Matthew</span>
+        </div>
+        <div class="bg-wire-200 rounded-lg flex items-center justify-center" style="aspect-ratio: 1/1;">
+          <span class="font-sans text-[11px] text-wire-400">Evan</span>
+        </div>
+      </div>
+
+      <!-- Video placeholder -->
+      <div class="mt-6">
+        <div class="bg-wire-50 border border-wire-200 rounded-xl flex items-center justify-center" style="aspect-ratio: 16/7;">
+          <span class="font-sans text-[13px] text-wire-400">Team video — people in their locations, working, being human</span>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+
+  <div class="h-8"></div>
+
+
+  <!-- ============================================================
+       BLOCK 6.5: WHERE WE GO FROM HERE
+       Quiet ambition. Revenue flow illustration. Future direction.
+       ============================================================ -->
+  <section class="max-w-[1280px] mx-auto bg-white rounded-2xl px-16 py-20 shadow-sm">
+
+    <div style="max-width: 680px; margin: 0 auto;">
+
+      <h2 style="font-family: Georgia, 'Times New Roman', serif; font-size: 44px; line-height: 1.2; letter-spacing: -0.02em; color: #121212; margin-bottom: 40px;">
+        Where it all goes
+      </h2>
+
+      <div style="font-family: Inter, 'Helvetica Neue', Arial, sans-serif; font-size: 17px; line-height: 1.7; color: #595959;" class="space-y-6">
+
+        <p>
+          Ghost(Pro) customers pay for hosting. That revenue goes to the Ghost Foundation. The Foundation pays the team, funds open source development, and invests in the ecosystem. That's the whole loop.
+        </p>
+
+      </div>
+    </div>
+
+    <!-- Revenue flow illustration placeholder -->
+    <div style="max-width: 960px; margin: 48px auto;">
+      <div class="bg-wire-50 border border-wire-200 rounded-xl flex items-center justify-center" style="aspect-ratio: 3/1;">
+        <div class="text-center">
+          <span class="font-sans text-[13px] text-wire-400">Illustration: revenue flow diagram</span>
+          <br>
+          <span class="font-sans text-[11px] text-wire-300 mt-1 inline-block">Ghost(Pro) customers → Foundation revenue → Team + open source + ecosystem → better product → more customers</span>
+        </div>
+      </div>
+    </div>
+
+    <div style="max-width: 680px; margin: 0 auto;">
+      <div style="font-family: Inter, 'Helvetica Neue', Arial, sans-serif; font-size: 17px; line-height: 1.7; color: #595959;" class="space-y-6">
+
+        <p>
+          We don't want to grow a giant company that we control. We want to grow a giant ecosystem that we support — hosts, developers, agencies, partners, and publishers building on top of shared infrastructure.
+        </p>
+
+        <p>
+          As Ghost grows, we intend to expand our board of trustees beyond the two founders. We want a governance structure that includes people who deeply understand open source, publishing, and journalism — with some seats elected by the Ghost community itself.
+        </p>
+
+        <p>
+          The goal is for Ghost to outlast its founders. That means building structures that don't depend on any one person — including us.
+        </p>
+
+      </div>
+    </div>
+  </section>
+
+
+  <div class="h-8"></div>
+
+
+  <!-- ============================================================
+       BLOCK 7: THE INVITATION — Join the project
+       For publishers, developers, ecosystem builders.
+       ============================================================ -->
+  <section class="max-w-[1280px] mx-auto bg-white rounded-2xl px-16 py-20 shadow-sm">
+    <div style="max-width: 680px; margin: 0 auto; text-align: center; padding: 40px 0;">
+
+      <h2 style="font-family: Georgia, 'Times New Roman', serif; font-size: 48px; line-height: 1.12; letter-spacing: -0.025em; color: #121212; margin-bottom: 24px;">
+        Come build with us
+      </h2>
+
+      <p style="font-family: Inter, 'Helvetica Neue', Arial, sans-serif; font-size: 17px; line-height: 1.7; color: #808080; margin-bottom: 40px;">
+        Whether you're starting a publication, contributing code, or building a business in the Ghost ecosystem — there's a place for you here.
+      </p>
+
+      <div class="flex items-center justify-center gap-4">
+        <a href="#" class="inline-block font-sans text-[15px] font-semibold text-white px-8 py-3.5 rounded-lg" style="background-color: #262626;">
+          Start publishing
+        </a>
+        <a href="#" class="inline-block font-sans text-[15px] font-semibold px-8 py-3.5 rounded-lg" style="color: #404040; border: 1px solid #d9d9d9;">
+          Explore the code
+        </a>
+      </div>
+
+      <!-- Three paths -->
+      <div class="grid grid-cols-3 gap-8 mt-16 text-left">
+        <div>
+          <h3 class="font-sans text-[15px] font-semibold text-wire-800 mb-2">Publish</h3>
+          <p class="font-sans text-[14px] text-wire-500 leading-snug">
+            Start your publication with a free trial. No credit card required.
+          </p>
+        </div>
+        <div>
+          <h3 class="font-sans text-[15px] font-semibold text-wire-800 mb-2">Contribute</h3>
+          <p class="font-sans text-[14px] text-wire-500 leading-snug">
+            Ghost is open source. Browse the code, open a PR, or join the community forum.
+          </p>
+        </div>
+        <div>
+          <h3 class="font-sans text-[15px] font-semibold text-wire-800 mb-2">Build on Ghost</h3>
+          <p class="font-sans text-[14px] text-wire-500 leading-snug">
+            Create themes, integrations, or hosting services. The ecosystem is growing and there's room for you.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- Footer -->
+  <div id="site-footer"></div>
+  <script src="components/footer.js"></script>
+
+</body>
+</html>
